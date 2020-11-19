@@ -323,7 +323,7 @@
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "FrmCliente";
-            this.Text = "Form1";
+            this.Text = "Cliente";
             this.Load += new System.EventHandler(this.btnCerrar_Click);
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsuarios)).EndInit();
             this.ResumeLayout(false);

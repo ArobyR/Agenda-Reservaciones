@@ -21,5 +21,10 @@ namespace AgendaCita
         {
             this.Close();
         }
+
+        private void FrmProfesional_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

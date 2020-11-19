@@ -75,7 +75,7 @@ namespace AgendaCita.DAO
 
         public bool InsercionUsuario (ClienteModel model)
         {
-            //Guid IdUsuarioGuid = new Guid();
+            //Guid IdUsuarioGuid = new Guid(); guid = Guid.NewGuid("N").Substring(0, 15);
             string IdUsuarioGuid = Guid.NewGuid().ToString();
             model.IdUsuario = IdUsuarioGuid.ToString();
             string query = $@"INSERT INTO usuario (id_usuario, nombre_usuario, apellido_usuario, tipo_doc, documento)

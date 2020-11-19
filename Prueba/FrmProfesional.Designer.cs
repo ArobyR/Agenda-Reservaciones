@@ -29,11 +29,9 @@
         private void InitializeComponent()
         {
             this.btnExitMenuProfesional = new System.Windows.Forms.Button();
-            this.lbl_IdentificadorProf = new System.Windows.Forms.Label();
             this.lblNombreProf = new System.Windows.Forms.Label();
             this.lblApellidoProf = new System.Windows.Forms.Label();
             this.lblProfesion = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.lblTelefonoProf = new System.Windows.Forms.Label();
@@ -69,21 +67,11 @@
             this.btnExitMenuProfesional.UseVisualStyleBackColor = false;
             this.btnExitMenuProfesional.Click += new System.EventHandler(this.btnExitMenuProfesional_Click);
             // 
-            // lbl_IdentificadorProf
-            // 
-            this.lbl_IdentificadorProf.AutoSize = true;
-            this.lbl_IdentificadorProf.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
-            this.lbl_IdentificadorProf.Location = new System.Drawing.Point(30, 83);
-            this.lbl_IdentificadorProf.Name = "lbl_IdentificadorProf";
-            this.lbl_IdentificadorProf.Size = new System.Drawing.Size(116, 17);
-            this.lbl_IdentificadorProf.TabIndex = 1;
-            this.lbl_IdentificadorProf.Text = "Identificador (ID):";
-            // 
             // lblNombreProf
             // 
             this.lblNombreProf.AutoSize = true;
             this.lblNombreProf.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
-            this.lblNombreProf.Location = new System.Drawing.Point(30, 122);
+            this.lblNombreProf.Location = new System.Drawing.Point(30, 83);
             this.lblNombreProf.Name = "lblNombreProf";
             this.lblNombreProf.Size = new System.Drawing.Size(62, 17);
             this.lblNombreProf.TabIndex = 2;
@@ -92,7 +80,7 @@
             // lblApellidoProf
             // 
             this.lblApellidoProf.AutoSize = true;
-            this.lblApellidoProf.Location = new System.Drawing.Point(30, 164);
+            this.lblApellidoProf.Location = new System.Drawing.Point(30, 125);
             this.lblApellidoProf.Name = "lblApellidoProf";
             this.lblApellidoProf.Size = new System.Drawing.Size(62, 17);
             this.lblApellidoProf.TabIndex = 3;
@@ -101,29 +89,22 @@
             // lblProfesion
             // 
             this.lblProfesion.AutoSize = true;
-            this.lblProfesion.Location = new System.Drawing.Point(397, 89);
+            this.lblProfesion.Location = new System.Drawing.Point(371, 83);
             this.lblProfesion.Name = "lblProfesion";
             this.lblProfesion.Size = new System.Drawing.Size(72, 17);
             this.lblProfesion.TabIndex = 4;
             this.lblProfesion.Text = "Profesion:";
             // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(153, 83);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(201, 23);
-            this.textBox1.TabIndex = 5;
-            // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(153, 122);
+            this.textBox2.Location = new System.Drawing.Point(104, 83);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(201, 23);
             this.textBox2.TabIndex = 6;
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(153, 164);
+            this.textBox3.Location = new System.Drawing.Point(104, 125);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(201, 23);
             this.textBox3.TabIndex = 7;
@@ -131,7 +112,7 @@
             // lblTelefonoProf
             // 
             this.lblTelefonoProf.AutoSize = true;
-            this.lblTelefonoProf.Location = new System.Drawing.Point(30, 207);
+            this.lblTelefonoProf.Location = new System.Drawing.Point(30, 168);
             this.lblTelefonoProf.Name = "lblTelefonoProf";
             this.lblTelefonoProf.Size = new System.Drawing.Size(68, 17);
             this.lblTelefonoProf.TabIndex = 9;
@@ -140,14 +121,14 @@
             // comboBox2
             // 
             this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(503, 83);
+            this.comboBox2.Location = new System.Drawing.Point(474, 83);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(201, 25);
             this.comboBox2.TabIndex = 10;
             // 
             // textBox4
             // 
-            this.textBox4.Location = new System.Drawing.Point(153, 207);
+            this.textBox4.Location = new System.Drawing.Point(104, 168);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(201, 23);
             this.textBox4.TabIndex = 11;
@@ -155,7 +136,7 @@
             // lblHoraDeInicio
             // 
             this.lblHoraDeInicio.AutoSize = true;
-            this.lblHoraDeInicio.Location = new System.Drawing.Point(397, 128);
+            this.lblHoraDeInicio.Location = new System.Drawing.Point(371, 125);
             this.lblHoraDeInicio.Name = "lblHoraDeInicio";
             this.lblHoraDeInicio.Size = new System.Drawing.Size(99, 17);
             this.lblHoraDeInicio.TabIndex = 12;
@@ -164,7 +145,7 @@
             // lblHoraDelFinal
             // 
             this.lblHoraDelFinal.AutoSize = true;
-            this.lblHoraDelFinal.Location = new System.Drawing.Point(397, 164);
+            this.lblHoraDelFinal.Location = new System.Drawing.Point(371, 168);
             this.lblHoraDelFinal.Name = "lblHoraDelFinal";
             this.lblHoraDelFinal.Size = new System.Drawing.Size(97, 17);
             this.lblHoraDelFinal.TabIndex = 13;
@@ -173,7 +154,7 @@
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(503, 125);
+            this.comboBox1.Location = new System.Drawing.Point(474, 125);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(201, 25);
             this.comboBox1.TabIndex = 14;
@@ -181,7 +162,7 @@
             // comboBox3
             // 
             this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(503, 164);
+            this.comboBox3.Location = new System.Drawing.Point(474, 164);
             this.comboBox3.Name = "comboBox3";
             this.comboBox3.Size = new System.Drawing.Size(201, 25);
             this.comboBox3.TabIndex = 15;
@@ -189,7 +170,7 @@
             // lblDiaDisponible
             // 
             this.lblDiaDisponible.AutoSize = true;
-            this.lblDiaDisponible.Location = new System.Drawing.Point(400, 206);
+            this.lblDiaDisponible.Location = new System.Drawing.Point(371, 206);
             this.lblDiaDisponible.Name = "lblDiaDisponible";
             this.lblDiaDisponible.Size = new System.Drawing.Size(29, 17);
             this.lblDiaDisponible.TabIndex = 16;
@@ -198,7 +179,7 @@
             // comboBox4
             // 
             this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Location = new System.Drawing.Point(503, 206);
+            this.comboBox4.Location = new System.Drawing.Point(474, 206);
             this.comboBox4.Name = "comboBox4";
             this.comboBox4.Size = new System.Drawing.Size(201, 25);
             this.comboBox4.TabIndex = 17;
@@ -257,7 +238,7 @@
             this.btnLimpiarSubMProf.Text = "Limpiar";
             this.btnLimpiarSubMProf.UseVisualStyleBackColor = true;
             // 
-            // Profesional
+            // FrmProfesional
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -279,16 +260,15 @@
             this.Controls.Add(this.lblTelefonoProf);
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.lblProfesion);
             this.Controls.Add(this.lblApellidoProf);
             this.Controls.Add(this.lblNombreProf);
-            this.Controls.Add(this.lbl_IdentificadorProf);
             this.Controls.Add(this.btnExitMenuProfesional);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
             this.Margin = new System.Windows.Forms.Padding(5);
-            this.Name = "Profesional";
+            this.Name = "FrmProfesional";
             this.Text = "Profesional";
+            this.Load += new System.EventHandler(this.FrmProfesional_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -298,11 +278,9 @@
         #endregion
 
         private System.Windows.Forms.Button btnExitMenuProfesional;
-        private System.Windows.Forms.Label lbl_IdentificadorProf;
         private System.Windows.Forms.Label lblNombreProf;
         private System.Windows.Forms.Label lblApellidoProf;
         private System.Windows.Forms.Label lblProfesion;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Label lblTelefonoProf;
