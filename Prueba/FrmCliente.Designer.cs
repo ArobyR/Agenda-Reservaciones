@@ -221,7 +221,7 @@
             this.btnCerrar.TabIndex = 0;
             this.btnCerrar.Text = "X";
             this.btnCerrar.UseVisualStyleBackColor = false;
-            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
+            this.btnCerrar.Click += new System.EventHandler(this.btnCerrarMenuUsuario_Click);
             // 
             // cmbDisponibilidadProf
             // 
@@ -324,7 +324,6 @@
             this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "FrmCliente";
             this.Text = "Cliente";
-            this.Load += new System.EventHandler(this.btnCerrar_Click);
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsuarios)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

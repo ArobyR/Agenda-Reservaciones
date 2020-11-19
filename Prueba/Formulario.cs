@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using AgendaCita.Models;
 
 namespace AgendaCita
 {
@@ -55,6 +56,7 @@ namespace AgendaCita
             if (activateForm != null)
             {
                 activateForm.Close();
+                //activateForm.Dispose();
             }
             activateForm = childForm;
             childForm.TopLevel = false;
@@ -66,6 +68,8 @@ namespace AgendaCita
             panelChildForm.Tag = childForm;
             childForm.BringToFront();
             childForm.Show();
+
+
         }
 
         private void btnSubUsuarios_Click(object sender, EventArgs e)

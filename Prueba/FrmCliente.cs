@@ -17,7 +17,8 @@ namespace AgendaCita
             InitializeComponent();
         }
 
-        private void btnCerrar_Click(object sender, EventArgs e)
+
+        private void btnCerrarMenuUsuario_Click(object sender, EventArgs e)
         {
             this.Close();
         }
