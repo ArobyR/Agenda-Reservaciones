@@ -93,7 +93,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ConexionDB.cs" />
+    <Compile Include="DAO\CitaDAO.cs" />
     <Compile Include="DAO\ClienteDAO.cs" />
+    <Compile Include="DAO\ProfesionalDAO.cs" />
     <Compile Include="FrmCita.cs">
       <SubType>Form</SubType>
     </Compile>

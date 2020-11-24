@@ -30,12 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dgvUsuarios = new System.Windows.Forms.DataGridView();
-            this.idUsuarioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nombreUsuarioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.apellidoUsuarioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tipoDocDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.documentoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clienteModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.lblNombre = new System.Windows.Forms.Label();
             this.txtNombreUsuario = new System.Windows.Forms.TextBox();
             this.txtApellidoUsuario = new System.Windows.Forms.TextBox();
@@ -44,21 +38,23 @@
             this.txtDocumentoUsuario = new System.Windows.Forms.TextBox();
             this.cmbTipoDocumento = new System.Windows.Forms.ComboBox();
             this.lblDocumento = new System.Windows.Forms.Label();
-            this.lblTelefono = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.btnActualizar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnLimpiar = new System.Windows.Forms.Button();
             this.btnCerrar = new System.Windows.Forms.Button();
-            this.cmbDisponibilidadProf = new System.Windows.Forms.ComboBox();
-            this.lblProfesional = new System.Windows.Forms.Label();
-            this.lblHorario = new System.Windows.Forms.Label();
-            this.lblDias = new System.Windows.Forms.Label();
-            this.cmbDiaDisponibilidadProf = new System.Windows.Forms.ComboBox();
-            this.cmbHoraDisponibilidadProf = new System.Windows.Forms.ComboBox();
             this.btnCrearCita = new System.Windows.Forms.Button();
+            this.dgvTelefono = new System.Windows.Forms.DataGridView();
+            this.Tipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Numero = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idUsuarioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombreUsuarioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.apellidoUsuarioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tipoDocDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.documentoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clienteModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsuarios)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTelefono)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clienteModelBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -83,51 +79,11 @@
             this.dgvUsuarios.Size = new System.Drawing.Size(725, 224);
             this.dgvUsuarios.TabIndex = 1;
             // 
-            // idUsuarioDataGridViewTextBoxColumn
-            // 
-            this.idUsuarioDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.idUsuarioDataGridViewTextBoxColumn.DataPropertyName = "IdUsuario";
-            this.idUsuarioDataGridViewTextBoxColumn.HeaderText = "IdUsuario";
-            this.idUsuarioDataGridViewTextBoxColumn.Name = "idUsuarioDataGridViewTextBoxColumn";
-            this.idUsuarioDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // nombreUsuarioDataGridViewTextBoxColumn
-            // 
-            this.nombreUsuarioDataGridViewTextBoxColumn.DataPropertyName = "NombreUsuario";
-            this.nombreUsuarioDataGridViewTextBoxColumn.HeaderText = "Nombre";
-            this.nombreUsuarioDataGridViewTextBoxColumn.Name = "nombreUsuarioDataGridViewTextBoxColumn";
-            this.nombreUsuarioDataGridViewTextBoxColumn.Width = 170;
-            // 
-            // apellidoUsuarioDataGridViewTextBoxColumn
-            // 
-            this.apellidoUsuarioDataGridViewTextBoxColumn.DataPropertyName = "ApellidoUsuario";
-            this.apellidoUsuarioDataGridViewTextBoxColumn.HeaderText = "Apellido";
-            this.apellidoUsuarioDataGridViewTextBoxColumn.Name = "apellidoUsuarioDataGridViewTextBoxColumn";
-            this.apellidoUsuarioDataGridViewTextBoxColumn.Width = 167;
-            // 
-            // tipoDocDataGridViewTextBoxColumn
-            // 
-            this.tipoDocDataGridViewTextBoxColumn.DataPropertyName = "TipoDoc";
-            this.tipoDocDataGridViewTextBoxColumn.HeaderText = "Tipo de Documento";
-            this.tipoDocDataGridViewTextBoxColumn.Name = "tipoDocDataGridViewTextBoxColumn";
-            this.tipoDocDataGridViewTextBoxColumn.Width = 160;
-            // 
-            // documentoDataGridViewTextBoxColumn
-            // 
-            this.documentoDataGridViewTextBoxColumn.DataPropertyName = "Documento";
-            this.documentoDataGridViewTextBoxColumn.HeaderText = "Documento";
-            this.documentoDataGridViewTextBoxColumn.Name = "documentoDataGridViewTextBoxColumn";
-            this.documentoDataGridViewTextBoxColumn.Width = 185;
-            // 
-            // clienteModelBindingSource
-            // 
-            this.clienteModelBindingSource.DataSource = typeof(AgendaCita.Models.ClienteModel);
-            // 
             // lblNombre
             // 
             this.lblNombre.AutoSize = true;
             this.lblNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.lblNombre.Location = new System.Drawing.Point(28, 68);
+            this.lblNombre.Location = new System.Drawing.Point(28, 74);
             this.lblNombre.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.lblNombre.Name = "lblNombre";
             this.lblNombre.Size = new System.Drawing.Size(62, 17);
@@ -137,7 +93,7 @@
             // txtNombreUsuario
             // 
             this.txtNombreUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
-            this.txtNombreUsuario.Location = new System.Drawing.Point(124, 68);
+            this.txtNombreUsuario.Location = new System.Drawing.Point(166, 72);
             this.txtNombreUsuario.Margin = new System.Windows.Forms.Padding(5);
             this.txtNombreUsuario.Name = "txtNombreUsuario";
             this.txtNombreUsuario.Size = new System.Drawing.Size(201, 23);
@@ -146,7 +102,7 @@
             // txtApellidoUsuario
             // 
             this.txtApellidoUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
-            this.txtApellidoUsuario.Location = new System.Drawing.Point(124, 104);
+            this.txtApellidoUsuario.Location = new System.Drawing.Point(166, 107);
             this.txtApellidoUsuario.Margin = new System.Windows.Forms.Padding(5);
             this.txtApellidoUsuario.Name = "txtApellidoUsuario";
             this.txtApellidoUsuario.Size = new System.Drawing.Size(201, 23);
@@ -167,17 +123,17 @@
             // 
             this.lblTipoDocumento.AutoSize = true;
             this.lblTipoDocumento.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.lblTipoDocumento.Location = new System.Drawing.Point(28, 153);
+            this.lblTipoDocumento.Location = new System.Drawing.Point(28, 146);
             this.lblTipoDocumento.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.lblTipoDocumento.Name = "lblTipoDocumento";
-            this.lblTipoDocumento.Size = new System.Drawing.Size(73, 17);
+            this.lblTipoDocumento.Size = new System.Drawing.Size(136, 17);
             this.lblTipoDocumento.TabIndex = 8;
-            this.lblTipoDocumento.Text = "Tipo Doc.:";
+            this.lblTipoDocumento.Text = "Tipo de Documento:";
             // 
             // txtDocumentoUsuario
             // 
             this.txtDocumentoUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
-            this.txtDocumentoUsuario.Location = new System.Drawing.Point(124, 183);
+            this.txtDocumentoUsuario.Location = new System.Drawing.Point(166, 180);
             this.txtDocumentoUsuario.Margin = new System.Windows.Forms.Padding(5);
             this.txtDocumentoUsuario.Name = "txtDocumentoUsuario";
             this.txtDocumentoUsuario.Size = new System.Drawing.Size(201, 23);
@@ -190,7 +146,7 @@
             this.cmbTipoDocumento.Items.AddRange(new object[] {
             "Cedula",
             "Pasaporte"});
-            this.cmbTipoDocumento.Location = new System.Drawing.Point(124, 145);
+            this.cmbTipoDocumento.Location = new System.Drawing.Point(166, 142);
             this.cmbTipoDocumento.Margin = new System.Windows.Forms.Padding(5);
             this.cmbTipoDocumento.Name = "cmbTipoDocumento";
             this.cmbTipoDocumento.Size = new System.Drawing.Size(201, 25);
@@ -200,32 +156,12 @@
             // lblDocumento
             // 
             this.lblDocumento.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.lblDocumento.Location = new System.Drawing.Point(28, 187);
+            this.lblDocumento.Location = new System.Drawing.Point(28, 184);
             this.lblDocumento.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.lblDocumento.Name = "lblDocumento";
             this.lblDocumento.Size = new System.Drawing.Size(84, 16);
             this.lblDocumento.TabIndex = 11;
             this.lblDocumento.Text = "Documento:";
-            // 
-            // lblTelefono
-            // 
-            this.lblTelefono.AutoSize = true;
-            this.lblTelefono.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.lblTelefono.Location = new System.Drawing.Point(401, 72);
-            this.lblTelefono.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.lblTelefono.Name = "lblTelefono";
-            this.lblTelefono.Size = new System.Drawing.Size(68, 17);
-            this.lblTelefono.TabIndex = 12;
-            this.lblTelefono.Text = "Telefono:";
-            // 
-            // textBox5
-            // 
-            this.textBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
-            this.textBox5.Location = new System.Drawing.Point(494, 68);
-            this.textBox5.Margin = new System.Windows.Forms.Padding(5);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(201, 23);
-            this.textBox5.TabIndex = 13;
             // 
             // btnBuscar
             // 
@@ -290,66 +226,6 @@
             this.btnCerrar.UseVisualStyleBackColor = false;
             this.btnCerrar.Click += new System.EventHandler(this.btnCerrarMenuUsuario_Click);
             // 
-            // cmbDisponibilidadProf
-            // 
-            this.cmbDisponibilidadProf.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
-            this.cmbDisponibilidadProf.FormattingEnabled = true;
-            this.cmbDisponibilidadProf.Location = new System.Drawing.Point(494, 108);
-            this.cmbDisponibilidadProf.Margin = new System.Windows.Forms.Padding(5);
-            this.cmbDisponibilidadProf.Name = "cmbDisponibilidadProf";
-            this.cmbDisponibilidadProf.Size = new System.Drawing.Size(201, 25);
-            this.cmbDisponibilidadProf.TabIndex = 19;
-            // 
-            // lblProfesional
-            // 
-            this.lblProfesional.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.lblProfesional.Location = new System.Drawing.Point(401, 112);
-            this.lblProfesional.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.lblProfesional.Name = "lblProfesional";
-            this.lblProfesional.Size = new System.Drawing.Size(83, 16);
-            this.lblProfesional.TabIndex = 20;
-            this.lblProfesional.Text = "Profesional:";
-            // 
-            // lblHorario
-            // 
-            this.lblHorario.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.lblHorario.Location = new System.Drawing.Point(401, 187);
-            this.lblHorario.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.lblHorario.Name = "lblHorario";
-            this.lblHorario.Size = new System.Drawing.Size(66, 16);
-            this.lblHorario.TabIndex = 21;
-            this.lblHorario.Text = "Horarios:";
-            // 
-            // lblDias
-            // 
-            this.lblDias.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.lblDias.Location = new System.Drawing.Point(401, 148);
-            this.lblDias.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.lblDias.Name = "lblDias";
-            this.lblDias.Size = new System.Drawing.Size(33, 16);
-            this.lblDias.TabIndex = 22;
-            this.lblDias.Text = "Dia:";
-            // 
-            // cmbDiaDisponibilidadProf
-            // 
-            this.cmbDiaDisponibilidadProf.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
-            this.cmbDiaDisponibilidadProf.FormattingEnabled = true;
-            this.cmbDiaDisponibilidadProf.Location = new System.Drawing.Point(494, 148);
-            this.cmbDiaDisponibilidadProf.Margin = new System.Windows.Forms.Padding(5);
-            this.cmbDiaDisponibilidadProf.Name = "cmbDiaDisponibilidadProf";
-            this.cmbDiaDisponibilidadProf.Size = new System.Drawing.Size(201, 25);
-            this.cmbDiaDisponibilidadProf.TabIndex = 23;
-            // 
-            // cmbHoraDisponibilidadProf
-            // 
-            this.cmbHoraDisponibilidadProf.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
-            this.cmbHoraDisponibilidadProf.FormattingEnabled = true;
-            this.cmbHoraDisponibilidadProf.Location = new System.Drawing.Point(494, 187);
-            this.cmbHoraDisponibilidadProf.Margin = new System.Windows.Forms.Padding(5);
-            this.cmbHoraDisponibilidadProf.Name = "cmbHoraDisponibilidadProf";
-            this.cmbHoraDisponibilidadProf.Size = new System.Drawing.Size(201, 25);
-            this.cmbHoraDisponibilidadProf.TabIndex = 24;
-            // 
             // btnCrearCita
             // 
             this.btnCrearCita.Location = new System.Drawing.Point(31, 300);
@@ -360,25 +236,82 @@
             this.btnCrearCita.UseVisualStyleBackColor = true;
             this.btnCrearCita.Click += new System.EventHandler(this.btnCrearCita_Click);
             // 
+            // dgvTelefono
+            // 
+            this.dgvTelefono.AllowUserToDeleteRows = false;
+            this.dgvTelefono.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvTelefono.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Tipo,
+            this.Numero});
+            this.dgvTelefono.Location = new System.Drawing.Point(419, 74);
+            this.dgvTelefono.Name = "dgvTelefono";
+            this.dgvTelefono.Size = new System.Drawing.Size(276, 69);
+            this.dgvTelefono.TabIndex = 27;
+            // 
+            // Tipo
+            // 
+            this.Tipo.HeaderText = "Tipo";
+            this.Tipo.Name = "Tipo";
+            this.Tipo.Width = 90;
+            // 
+            // Numero
+            // 
+            this.Numero.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Numero.HeaderText = "Numero";
+            this.Numero.Name = "Numero";
+            // 
+            // idUsuarioDataGridViewTextBoxColumn
+            // 
+            this.idUsuarioDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.idUsuarioDataGridViewTextBoxColumn.DataPropertyName = "IdUsuario";
+            this.idUsuarioDataGridViewTextBoxColumn.HeaderText = "IdUsuario";
+            this.idUsuarioDataGridViewTextBoxColumn.Name = "idUsuarioDataGridViewTextBoxColumn";
+            this.idUsuarioDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // nombreUsuarioDataGridViewTextBoxColumn
+            // 
+            this.nombreUsuarioDataGridViewTextBoxColumn.DataPropertyName = "NombreUsuario";
+            this.nombreUsuarioDataGridViewTextBoxColumn.HeaderText = "Nombre";
+            this.nombreUsuarioDataGridViewTextBoxColumn.Name = "nombreUsuarioDataGridViewTextBoxColumn";
+            this.nombreUsuarioDataGridViewTextBoxColumn.Width = 170;
+            // 
+            // apellidoUsuarioDataGridViewTextBoxColumn
+            // 
+            this.apellidoUsuarioDataGridViewTextBoxColumn.DataPropertyName = "ApellidoUsuario";
+            this.apellidoUsuarioDataGridViewTextBoxColumn.HeaderText = "Apellido";
+            this.apellidoUsuarioDataGridViewTextBoxColumn.Name = "apellidoUsuarioDataGridViewTextBoxColumn";
+            this.apellidoUsuarioDataGridViewTextBoxColumn.Width = 167;
+            // 
+            // tipoDocDataGridViewTextBoxColumn
+            // 
+            this.tipoDocDataGridViewTextBoxColumn.DataPropertyName = "TipoDoc";
+            this.tipoDocDataGridViewTextBoxColumn.HeaderText = "Tipo de Documento";
+            this.tipoDocDataGridViewTextBoxColumn.Name = "tipoDocDataGridViewTextBoxColumn";
+            this.tipoDocDataGridViewTextBoxColumn.Width = 160;
+            // 
+            // documentoDataGridViewTextBoxColumn
+            // 
+            this.documentoDataGridViewTextBoxColumn.DataPropertyName = "Documento";
+            this.documentoDataGridViewTextBoxColumn.HeaderText = "Documento";
+            this.documentoDataGridViewTextBoxColumn.Name = "documentoDataGridViewTextBoxColumn";
+            this.documentoDataGridViewTextBoxColumn.Width = 185;
+            // 
+            // clienteModelBindingSource
+            // 
+            this.clienteModelBindingSource.DataSource = typeof(AgendaCita.Models.ClienteModel);
+            // 
             // FrmCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(725, 575);
+            this.Controls.Add(this.dgvTelefono);
             this.Controls.Add(this.btnCrearCita);
-            this.Controls.Add(this.cmbHoraDisponibilidadProf);
-            this.Controls.Add(this.cmbDiaDisponibilidadProf);
-            this.Controls.Add(this.lblDias);
-            this.Controls.Add(this.lblHorario);
-            this.Controls.Add(this.lblProfesional);
-            this.Controls.Add(this.cmbDisponibilidadProf);
             this.Controls.Add(this.btnCerrar);
             this.Controls.Add(this.btnLimpiar);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnActualizar);
             this.Controls.Add(this.btnBuscar);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.lblTelefono);
             this.Controls.Add(this.lblDocumento);
             this.Controls.Add(this.cmbTipoDocumento);
             this.Controls.Add(this.txtDocumentoUsuario);
@@ -393,6 +326,7 @@
             this.Name = "FrmCliente";
             this.Text = "Cliente";
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsuarios)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTelefono)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.clienteModelBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -409,19 +343,11 @@
         private System.Windows.Forms.TextBox txtDocumentoUsuario;
         private System.Windows.Forms.ComboBox cmbTipoDocumento;
         private System.Windows.Forms.Label lblDocumento;
-        private System.Windows.Forms.Label lblTelefono;
-        private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.Button btnActualizar;
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Button btnLimpiar;
         private System.Windows.Forms.Button btnCerrar;
-        private System.Windows.Forms.ComboBox cmbDisponibilidadProf;
-        private System.Windows.Forms.Label lblProfesional;
-        private System.Windows.Forms.Label lblHorario;
-        private System.Windows.Forms.Label lblDias;
-        private System.Windows.Forms.ComboBox cmbDiaDisponibilidadProf;
-        private System.Windows.Forms.ComboBox cmbHoraDisponibilidadProf;
         private System.Windows.Forms.Button btnCrearCita;
         private System.Windows.Forms.BindingSource clienteModelBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn idUsuarioDataGridViewTextBoxColumn;
@@ -429,5 +355,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn apellidoUsuarioDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn tipoDocDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn documentoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridView dgvTelefono;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Tipo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Numero;
     }
 }

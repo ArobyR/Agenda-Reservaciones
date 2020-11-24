@@ -61,10 +61,12 @@ namespace AgendaCita
 
         private void LimpiarCampos()
         {
+            txtNombreUsuario.Text = "";
             txtApellidoUsuario.Text = "";
             txtDocumentoUsuario.Text = "";
-            txtApellidoUsuario.Text = "";
-
+            txtTelefono.Text = "";
+            cmbTipoTelefono.Text = "";
+            cmbTipoDocumento.Text = "";
         }
     }
 }

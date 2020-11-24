@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
 using AgendaCita.Models;
+using AgendaCita; // to create the validation in the future?
 
 namespace AgendaCita.DAO
 {
