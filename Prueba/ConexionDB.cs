@@ -12,6 +12,7 @@ namespace AgendaCita
 {
     class ConexionDB
     {
+        // sql server?
         public static SqlConnection GetConnection()
         {
             string server = "localhost";

@@ -69,7 +69,6 @@ namespace AgendaCita
             childForm.BringToFront();
             childForm.Show();
 
-
         }
 
         private void btnSubUsuarios_Click(object sender, EventArgs e)
@@ -88,6 +87,12 @@ namespace AgendaCita
         private void btnExitAplication_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void BtnSubMenuCitas_Click(object sender, EventArgs e)
+        {
+            openChilForm(new FrmCita());
+            hideSubMenu();
         }
     }
 }

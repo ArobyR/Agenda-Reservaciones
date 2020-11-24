@@ -28,7 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.dgvUsuarios = new System.Windows.Forms.DataGridView();
+            this.idUsuarioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombreUsuarioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.apellidoUsuarioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tipoDocDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.documentoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clienteModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.lblNombre = new System.Windows.Forms.Label();
             this.txtNombreUsuario = new System.Windows.Forms.TextBox();
             this.txtApellidoUsuario = new System.Windows.Forms.TextBox();
@@ -39,7 +46,7 @@
             this.lblDocumento = new System.Windows.Forms.Label();
             this.lblTelefono = new System.Windows.Forms.Label();
             this.textBox5 = new System.Windows.Forms.TextBox();
-            this.btnIngresar = new System.Windows.Forms.Button();
+            this.btnBuscar = new System.Windows.Forms.Button();
             this.btnActualizar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnLimpiar = new System.Windows.Forms.Button();
@@ -52,17 +59,69 @@
             this.cmbHoraDisponibilidadProf = new System.Windows.Forms.ComboBox();
             this.btnCrearCita = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsuarios)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clienteModelBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvUsuarios
             // 
+            this.dgvUsuarios.AllowUserToAddRows = false;
+            this.dgvUsuarios.AllowUserToDeleteRows = false;
+            this.dgvUsuarios.AutoGenerateColumns = false;
             this.dgvUsuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvUsuarios.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idUsuarioDataGridViewTextBoxColumn,
+            this.nombreUsuarioDataGridViewTextBoxColumn,
+            this.apellidoUsuarioDataGridViewTextBoxColumn,
+            this.tipoDocDataGridViewTextBoxColumn,
+            this.documentoDataGridViewTextBoxColumn});
+            this.dgvUsuarios.DataSource = this.clienteModelBindingSource;
             this.dgvUsuarios.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dgvUsuarios.Location = new System.Drawing.Point(0, 351);
             this.dgvUsuarios.Margin = new System.Windows.Forms.Padding(5);
             this.dgvUsuarios.Name = "dgvUsuarios";
+            this.dgvUsuarios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvUsuarios.Size = new System.Drawing.Size(725, 224);
             this.dgvUsuarios.TabIndex = 1;
+            // 
+            // idUsuarioDataGridViewTextBoxColumn
+            // 
+            this.idUsuarioDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.idUsuarioDataGridViewTextBoxColumn.DataPropertyName = "IdUsuario";
+            this.idUsuarioDataGridViewTextBoxColumn.HeaderText = "IdUsuario";
+            this.idUsuarioDataGridViewTextBoxColumn.Name = "idUsuarioDataGridViewTextBoxColumn";
+            this.idUsuarioDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // nombreUsuarioDataGridViewTextBoxColumn
+            // 
+            this.nombreUsuarioDataGridViewTextBoxColumn.DataPropertyName = "NombreUsuario";
+            this.nombreUsuarioDataGridViewTextBoxColumn.HeaderText = "Nombre";
+            this.nombreUsuarioDataGridViewTextBoxColumn.Name = "nombreUsuarioDataGridViewTextBoxColumn";
+            this.nombreUsuarioDataGridViewTextBoxColumn.Width = 170;
+            // 
+            // apellidoUsuarioDataGridViewTextBoxColumn
+            // 
+            this.apellidoUsuarioDataGridViewTextBoxColumn.DataPropertyName = "ApellidoUsuario";
+            this.apellidoUsuarioDataGridViewTextBoxColumn.HeaderText = "Apellido";
+            this.apellidoUsuarioDataGridViewTextBoxColumn.Name = "apellidoUsuarioDataGridViewTextBoxColumn";
+            this.apellidoUsuarioDataGridViewTextBoxColumn.Width = 167;
+            // 
+            // tipoDocDataGridViewTextBoxColumn
+            // 
+            this.tipoDocDataGridViewTextBoxColumn.DataPropertyName = "TipoDoc";
+            this.tipoDocDataGridViewTextBoxColumn.HeaderText = "Tipo de Documento";
+            this.tipoDocDataGridViewTextBoxColumn.Name = "tipoDocDataGridViewTextBoxColumn";
+            this.tipoDocDataGridViewTextBoxColumn.Width = 160;
+            // 
+            // documentoDataGridViewTextBoxColumn
+            // 
+            this.documentoDataGridViewTextBoxColumn.DataPropertyName = "Documento";
+            this.documentoDataGridViewTextBoxColumn.HeaderText = "Documento";
+            this.documentoDataGridViewTextBoxColumn.Name = "documentoDataGridViewTextBoxColumn";
+            this.documentoDataGridViewTextBoxColumn.Width = 185;
+            // 
+            // clienteModelBindingSource
+            // 
+            this.clienteModelBindingSource.DataSource = typeof(AgendaCita.Models.ClienteModel);
             // 
             // lblNombre
             // 
@@ -128,11 +187,15 @@
             // 
             this.cmbTipoDocumento.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
             this.cmbTipoDocumento.FormattingEnabled = true;
+            this.cmbTipoDocumento.Items.AddRange(new object[] {
+            "Cedula",
+            "Pasaporte"});
             this.cmbTipoDocumento.Location = new System.Drawing.Point(124, 145);
             this.cmbTipoDocumento.Margin = new System.Windows.Forms.Padding(5);
             this.cmbTipoDocumento.Name = "cmbTipoDocumento";
             this.cmbTipoDocumento.Size = new System.Drawing.Size(201, 25);
             this.cmbTipoDocumento.TabIndex = 10;
+            this.cmbTipoDocumento.Text = "Cedula";
             // 
             // lblDocumento
             // 
@@ -164,16 +227,17 @@
             this.textBox5.Size = new System.Drawing.Size(201, 23);
             this.textBox5.TabIndex = 13;
             // 
-            // btnIngresar
+            // btnBuscar
             // 
-            this.btnIngresar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
-            this.btnIngresar.Location = new System.Drawing.Point(166, 300);
-            this.btnIngresar.Margin = new System.Windows.Forms.Padding(5);
-            this.btnIngresar.Name = "btnIngresar";
-            this.btnIngresar.Size = new System.Drawing.Size(101, 41);
-            this.btnIngresar.TabIndex = 14;
-            this.btnIngresar.Text = "Ingresar";
-            this.btnIngresar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
+            this.btnBuscar.Location = new System.Drawing.Point(166, 300);
+            this.btnBuscar.Margin = new System.Windows.Forms.Padding(5);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(101, 41);
+            this.btnBuscar.TabIndex = 14;
+            this.btnBuscar.Text = "Buscar";
+            this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // btnActualizar
             // 
@@ -185,6 +249,7 @@
             this.btnActualizar.TabIndex = 15;
             this.btnActualizar.Text = "Actualizar";
             this.btnActualizar.UseVisualStyleBackColor = true;
+            this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
             // 
             // btnEliminar
             // 
@@ -196,6 +261,7 @@
             this.btnEliminar.TabIndex = 16;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // btnLimpiar
             // 
@@ -207,6 +273,7 @@
             this.btnLimpiar.TabIndex = 17;
             this.btnLimpiar.Text = "Limpiar";
             this.btnLimpiar.UseVisualStyleBackColor = true;
+            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
             // 
             // btnCerrar
             // 
@@ -291,6 +358,7 @@
             this.btnCrearCita.TabIndex = 25;
             this.btnCrearCita.Text = "Crear";
             this.btnCrearCita.UseVisualStyleBackColor = true;
+            this.btnCrearCita.Click += new System.EventHandler(this.btnCrearCita_Click);
             // 
             // FrmCliente
             // 
@@ -308,7 +376,7 @@
             this.Controls.Add(this.btnLimpiar);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnActualizar);
-            this.Controls.Add(this.btnIngresar);
+            this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.textBox5);
             this.Controls.Add(this.lblTelefono);
             this.Controls.Add(this.lblDocumento);
@@ -325,6 +393,7 @@
             this.Name = "FrmCliente";
             this.Text = "Cliente";
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsuarios)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clienteModelBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -342,7 +411,7 @@
         private System.Windows.Forms.Label lblDocumento;
         private System.Windows.Forms.Label lblTelefono;
         private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.Button btnIngresar;
+        private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.Button btnActualizar;
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Button btnLimpiar;
@@ -354,5 +423,11 @@
         private System.Windows.Forms.ComboBox cmbDiaDisponibilidadProf;
         private System.Windows.Forms.ComboBox cmbHoraDisponibilidadProf;
         private System.Windows.Forms.Button btnCrearCita;
+        private System.Windows.Forms.BindingSource clienteModelBindingSource;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idUsuarioDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nombreUsuarioDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn apellidoUsuarioDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tipoDocDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn documentoDataGridViewTextBoxColumn;
     }
 }

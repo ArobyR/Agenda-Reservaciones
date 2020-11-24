@@ -11,9 +11,10 @@ namespace AgendaCita.DAO
     class ClienteDAO
     {
         // the querys
-        MySqlConnection cn = null;
-        MySqlCommand cmd = null;
-        MySqlDataReader reader = null;
+
+        MySqlConnection cn = null; // para la conexion con la base de datos
+        MySqlCommand cmd = null; // para ejecutar la consulta
+        MySqlDataReader reader = null; // para leer los datos de retorno de las consultas
 
         // es cualquier SQL que no devuelve valores, pero en realidad 
         // esta realizando alguna forma de trabajo como insertar, eleminar y etc..
@@ -102,6 +103,7 @@ namespace AgendaCita.DAO
 
         public bool DeleteUser (int id)
         {
+            // good think
             string query = $"DELETE FROM usuario WHERE id_usuario = {id}";
             return ExecuteNonQuery(query);
         }

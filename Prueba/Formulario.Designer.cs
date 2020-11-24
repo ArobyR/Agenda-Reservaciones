@@ -130,6 +130,7 @@
             this.BtnOther.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BtnOther.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.BtnOther.UseVisualStyleBackColor = true;
+            this.BtnOther.Click += new System.EventHandler(this.BtnSubMenuCitas_Click);
             // 
             // btnSubProfesionales
             // 
