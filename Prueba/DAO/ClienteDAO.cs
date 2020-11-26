@@ -16,7 +16,7 @@ namespace AgendaCita.DAO
         MySqlDataReader reader = null; // para leer los datos de retorno de las consultas
 
         // es cualquier SQL que no devuelve valores, pero en realidad 
-        // esta realizando alguna forma de trabajo como insertar, eleminar y etc..
+        // esta realizando alguna forma de trabajo como insertar, eliminar y etc..
         private bool ExecuteNonQuery(string query)
         {
             try
@@ -84,7 +84,7 @@ namespace AgendaCita.DAO
         public bool DeleteUser (string id)
         {
             // good think
-            string query = $"DELETE FROM usuario WHERE documento = {id}";
+            string query = $"DELETE FROM usuario WHERE documento = '{id}'";
             return Commands.ExecuteNonQuery(query);
         }
 

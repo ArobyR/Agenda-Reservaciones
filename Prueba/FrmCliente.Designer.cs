@@ -30,12 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             this.DgvUsuario = new System.Windows.Forms.DataGridView();
-            this.idUsuarioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nombreUsuarioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.apellidoUsuarioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tipoDocDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.documentoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clienteModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.lblNombre = new System.Windows.Forms.Label();
             this.txtNombreUsuario = new System.Windows.Forms.TextBox();
             this.txtApellidoUsuario = new System.Windows.Forms.TextBox();
@@ -53,9 +47,16 @@
             this.dgvTelefono = new System.Windows.Forms.DataGridView();
             this.Tipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Numero = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lblMensaje = new System.Windows.Forms.Label();
+            this.idUsuarioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombreUsuarioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.apellidoUsuarioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tipoDocDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.documentoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clienteModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.DgvUsuario)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.clienteModelBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTelefono)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clienteModelBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // DgvUsuario
@@ -78,46 +79,6 @@
             this.DgvUsuario.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DgvUsuario.Size = new System.Drawing.Size(725, 224);
             this.DgvUsuario.TabIndex = 1;
-            // 
-            // idUsuarioDataGridViewTextBoxColumn
-            // 
-            this.idUsuarioDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.idUsuarioDataGridViewTextBoxColumn.DataPropertyName = "IdUsuario";
-            this.idUsuarioDataGridViewTextBoxColumn.HeaderText = "IdUsuario";
-            this.idUsuarioDataGridViewTextBoxColumn.Name = "idUsuarioDataGridViewTextBoxColumn";
-            this.idUsuarioDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // nombreUsuarioDataGridViewTextBoxColumn
-            // 
-            this.nombreUsuarioDataGridViewTextBoxColumn.DataPropertyName = "NombreUsuario";
-            this.nombreUsuarioDataGridViewTextBoxColumn.HeaderText = "Nombre";
-            this.nombreUsuarioDataGridViewTextBoxColumn.Name = "nombreUsuarioDataGridViewTextBoxColumn";
-            this.nombreUsuarioDataGridViewTextBoxColumn.Width = 170;
-            // 
-            // apellidoUsuarioDataGridViewTextBoxColumn
-            // 
-            this.apellidoUsuarioDataGridViewTextBoxColumn.DataPropertyName = "ApellidoUsuario";
-            this.apellidoUsuarioDataGridViewTextBoxColumn.HeaderText = "Apellido";
-            this.apellidoUsuarioDataGridViewTextBoxColumn.Name = "apellidoUsuarioDataGridViewTextBoxColumn";
-            this.apellidoUsuarioDataGridViewTextBoxColumn.Width = 167;
-            // 
-            // tipoDocDataGridViewTextBoxColumn
-            // 
-            this.tipoDocDataGridViewTextBoxColumn.DataPropertyName = "TipoDoc";
-            this.tipoDocDataGridViewTextBoxColumn.HeaderText = "Tipo de Documento";
-            this.tipoDocDataGridViewTextBoxColumn.Name = "tipoDocDataGridViewTextBoxColumn";
-            this.tipoDocDataGridViewTextBoxColumn.Width = 160;
-            // 
-            // documentoDataGridViewTextBoxColumn
-            // 
-            this.documentoDataGridViewTextBoxColumn.DataPropertyName = "Documento";
-            this.documentoDataGridViewTextBoxColumn.HeaderText = "Documento";
-            this.documentoDataGridViewTextBoxColumn.Name = "documentoDataGridViewTextBoxColumn";
-            this.documentoDataGridViewTextBoxColumn.Width = 185;
-            // 
-            // clienteModelBindingSource
-            // 
-            this.clienteModelBindingSource.DataSource = typeof(AgendaCita.Models.ClienteModel);
             // 
             // lblNombre
             // 
@@ -300,11 +261,61 @@
             this.Numero.HeaderText = "Numero";
             this.Numero.Name = "Numero";
             // 
+            // lblMensaje
+            // 
+            this.lblMensaje.AutoSize = true;
+            this.lblMensaje.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Bold);
+            this.lblMensaje.Location = new System.Drawing.Point(267, 232);
+            this.lblMensaje.Name = "lblMensaje";
+            this.lblMensaje.Size = new System.Drawing.Size(0, 20);
+            this.lblMensaje.TabIndex = 28;
+            // 
+            // idUsuarioDataGridViewTextBoxColumn
+            // 
+            this.idUsuarioDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.idUsuarioDataGridViewTextBoxColumn.DataPropertyName = "IdUsuario";
+            this.idUsuarioDataGridViewTextBoxColumn.HeaderText = "IdUsuario";
+            this.idUsuarioDataGridViewTextBoxColumn.Name = "idUsuarioDataGridViewTextBoxColumn";
+            this.idUsuarioDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // nombreUsuarioDataGridViewTextBoxColumn
+            // 
+            this.nombreUsuarioDataGridViewTextBoxColumn.DataPropertyName = "NombreUsuario";
+            this.nombreUsuarioDataGridViewTextBoxColumn.HeaderText = "Nombre";
+            this.nombreUsuarioDataGridViewTextBoxColumn.Name = "nombreUsuarioDataGridViewTextBoxColumn";
+            this.nombreUsuarioDataGridViewTextBoxColumn.Width = 170;
+            // 
+            // apellidoUsuarioDataGridViewTextBoxColumn
+            // 
+            this.apellidoUsuarioDataGridViewTextBoxColumn.DataPropertyName = "ApellidoUsuario";
+            this.apellidoUsuarioDataGridViewTextBoxColumn.HeaderText = "Apellido";
+            this.apellidoUsuarioDataGridViewTextBoxColumn.Name = "apellidoUsuarioDataGridViewTextBoxColumn";
+            this.apellidoUsuarioDataGridViewTextBoxColumn.Width = 167;
+            // 
+            // tipoDocDataGridViewTextBoxColumn
+            // 
+            this.tipoDocDataGridViewTextBoxColumn.DataPropertyName = "TipoDoc";
+            this.tipoDocDataGridViewTextBoxColumn.HeaderText = "Tipo de Documento";
+            this.tipoDocDataGridViewTextBoxColumn.Name = "tipoDocDataGridViewTextBoxColumn";
+            this.tipoDocDataGridViewTextBoxColumn.Width = 160;
+            // 
+            // documentoDataGridViewTextBoxColumn
+            // 
+            this.documentoDataGridViewTextBoxColumn.DataPropertyName = "Documento";
+            this.documentoDataGridViewTextBoxColumn.HeaderText = "Documento";
+            this.documentoDataGridViewTextBoxColumn.Name = "documentoDataGridViewTextBoxColumn";
+            this.documentoDataGridViewTextBoxColumn.Width = 185;
+            // 
+            // clienteModelBindingSource
+            // 
+            this.clienteModelBindingSource.DataSource = typeof(AgendaCita.Models.ClienteModel);
+            // 
             // FrmCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(725, 575);
+            this.Controls.Add(this.lblMensaje);
             this.Controls.Add(this.dgvTelefono);
             this.Controls.Add(this.btnCrearCita);
             this.Controls.Add(this.btnCerrar);
@@ -326,8 +337,8 @@
             this.Name = "FrmCliente";
             this.Text = "Cliente";
             ((System.ComponentModel.ISupportInitialize)(this.DgvUsuario)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.clienteModelBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTelefono)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clienteModelBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -358,5 +369,6 @@
         private System.Windows.Forms.DataGridView dgvTelefono;
         private System.Windows.Forms.DataGridViewTextBoxColumn Tipo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Numero;
+        private System.Windows.Forms.Label lblMensaje;
     }
 }

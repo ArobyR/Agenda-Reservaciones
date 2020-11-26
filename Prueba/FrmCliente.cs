@@ -52,10 +52,9 @@ namespace AgendaCita
                 model.Telefonos.Add(telefono);  // agregando propiedades 
             }
             // tienes que modificar algunas cosas, validacion de que se ha insertado correctamente
+            // validacion de campos
             if (ClienteDao.InsertUsuario(model)) 
             {
-                ClienteDao.InsertUsuario(model);
-                // modificar mensaje para la versoin final
                 MessageBox.Show("Registro realizado correctamente.");
                 LimpiarCampos();
             }
@@ -97,6 +96,7 @@ namespace AgendaCita
         {
             if (txtDocumentoUsuario.Text == "")
             {
+                MensajesInfaz("Relleno todos los campos", "Red");
                 MessageBox.Show("Rellene todos los campos... Joder!");
                 return;
             }
@@ -109,6 +109,7 @@ namespace AgendaCita
             }
             else if (!ClienteDao.DeleteUser(DocumentoUsuario))
             {
+                MensajesInfaz("Dato no encontrado!", "Red");
                 MessageBox.Show("Dato no encontrado.");
 
             }
@@ -126,5 +127,25 @@ namespace AgendaCita
             txtDocumentoUsuario.Text = "";
             cmbTipoDocumento.Text = "";
         }
+
+        private void ValidacionDeCampos ()
+        {
+
+        }
+
+        private void MensajesInfaz(string Mensaje, string color)
+        {
+
+            lblMensaje.Text = Mensaje; 
+            if(color == "Red")
+            {
+                lblMensaje.ForeColor = Color.Red;
+            }
+            else
+            {
+                lblMensaje.ForeColor = Color.Green;
+            }
+            
+        } 
     }
 }
