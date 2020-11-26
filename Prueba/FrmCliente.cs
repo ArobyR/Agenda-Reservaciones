@@ -56,12 +56,12 @@ namespace AgendaCita
             {
                 ClienteDao.InsertUsuario(model);
                 // modificar mensaje para la versoin final
-                MessageBox.Show("Todo salio \"bien\", te salvaste...");
+                MessageBox.Show("Registro realizado correctamente.");
                 LimpiarCampos();
             }
             else
             {
-                MessageBox.Show("Algo salio mal");
+                MessageBox.Show("Su consulta ha fallado.");
             }
         }
 
@@ -95,7 +95,23 @@ namespace AgendaCita
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
+            if (txtDocumentoUsuario.Text == "")
+            {
+                MessageBox.Show("Rellene todos los campos... Joder!");
+                return;
+            }
+     
+            string DocumentoUsuario = txtDocumentoUsuario.Text;
+            if(ClienteDao.DeleteUser(DocumentoUsuario))
+            {
+                MessageBox.Show("Eliminado correctamente.");
+                LimpiarCampos();
+            }
+            else if (!ClienteDao.DeleteUser(DocumentoUsuario))
+            {
+                MessageBox.Show("Dato no encontrado.");
 
+            }
         }
 
         private void btnLimpiar_Click(object sender, EventArgs e)

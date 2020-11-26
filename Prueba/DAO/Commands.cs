@@ -25,7 +25,7 @@ namespace AgendaCita.DAO
                         if (cmd.ExecuteNonQuery() > 0)
                         {
                             cn.Close();
-                            return false;
+                            return true;
                         }
                     }
                 }

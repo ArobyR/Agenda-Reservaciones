@@ -84,7 +84,7 @@ namespace AgendaCita.DAO
         public bool DeleteUser (string id)
         {
             // good think
-            string query = $"DELETE FROM usuario WHERE tipo_doc = {id}";
+            string query = $"DELETE FROM usuario WHERE documento = {id}";
             return Commands.ExecuteNonQuery(query);
         }
 
