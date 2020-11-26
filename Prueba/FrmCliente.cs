@@ -57,7 +57,7 @@ namespace AgendaCita
                 ClienteDao.InsertUsuario(model);
                 // modificar mensaje para la versoin final
                 MessageBox.Show("Todo salio \"bien\", te salvaste...");
-
+                LimpiarCampos();
             }
             else
             {
@@ -70,8 +70,9 @@ namespace AgendaCita
         {
             ClienteModel model = new ClienteModel();
             model.Documento = txtDocumentoUsuario.Text;
-            //ClienteModel model2 = new ClienteModel();
+            
             var Lista = new List<ClienteModel>();
+
             //var ClienteList = new List<ClienteModel>();
 
             Lista = ClienteDao.ReadUsuario(model);
@@ -80,6 +81,10 @@ namespace AgendaCita
                 txtNombreUsuario.Text = Lista[2].ToString();
                 txtApellidoUsuario.Text = Lista[3].ToString();
 
+            }
+            else
+            {
+                MessageBox.Show("Algo salio mal");
             }
         }
 

@@ -54,7 +54,7 @@ namespace AgendaCita.DAO
             string query = $@"INSERT INTO usuario (id_usuario, nombre_usuario, apellido_usuario, tipo_doc, documento)
                              VALUES ('{model.IdUsuario}', '{model.NombreUsuario}', '{model.ApellidoUsuario}', '{model.TipoDoc}', '{model.Documento}')";
             
-            //ExecuteNonQuery(query);
+            Commands.ExecuteNonQuery(query);
 
             foreach (TelefonoClienteModel item in model.Telefonos) 
             {
@@ -84,7 +84,7 @@ namespace AgendaCita.DAO
         public bool DeleteUser (string id)
         {
             // good think
-            string query = $"DELETE FROM usuario WHERE id_usuario = {id}";
+            string query = $"DELETE FROM usuario WHERE tipo_doc = {id}";
             return Commands.ExecuteNonQuery(query);
         }
 
