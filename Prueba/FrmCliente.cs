@@ -14,12 +14,15 @@ namespace AgendaCita
 {
     public partial class FrmCliente : Form
     {
-        ClienteDAO cliente = new ClienteDAO();
+        ClienteDAO ClienteDao = new ClienteDAO();
+        //DataTable ClienteDatos;
 
 
         public FrmCliente()
         {
             InitializeComponent();
+           
+            //DgvUsuario.DataSource = ClienteDatos; // lo prodria hacer con el modelo?
         }
         
         private void btnCerrarMenuUsuario_Click(object sender, EventArgs e)
@@ -32,16 +35,52 @@ namespace AgendaCita
             ClienteModel model = new ClienteModel();
             model.NombreUsuario = txtNombreUsuario.Text;
             model.ApellidoUsuario = txtApellidoUsuario.Text;
-            model.TipoDoc = txtDocumentoUsuario.Text;
+            model.TipoDoc = cmbTipoDocumento.SelectedItem.ToString();
+            model.Documento = txtDocumentoUsuario.Text;
 
-            model.Telefonos = new List<TelefonoClienteModel>();
+            model.Telefonos = new List<TelefonoClienteModel>(); //Lista de objectos
 
+            foreach (DataGridViewRow item in dgvTelefono.Rows)
+            {
+                if (item.Cells[0].Value == null)
+                {
+                    continue;
+                }
+                var telefono = new TelefonoClienteModel(); // propiedades del modelo
+                telefono.Tipo = item.Cells[0].Value.ToString();
+                telefono.Telefono = item.Cells[1].Value.ToString(); // numero de telefono
+                model.Telefonos.Add(telefono);  // agregando propiedades 
+            }
+            // tienes que modificar algunas cosas, validacion de que se ha insertado correctamente
+            if (ClienteDao.InsertUsuario(model)) 
+            {
+                ClienteDao.InsertUsuario(model);
+                // modificar mensaje para la versoin final
+                MessageBox.Show("Todo salio \"bien\", te salvaste...");
 
+            }
+            else
+            {
+                MessageBox.Show("Algo salio mal");
+            }
         }
+
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
+            ClienteModel model = new ClienteModel();
+            model.Documento = txtDocumentoUsuario.Text;
+            //ClienteModel model2 = new ClienteModel();
+            var Lista = new List<ClienteModel>();
+            //var ClienteList = new List<ClienteModel>();
 
+            Lista = ClienteDao.ReadUsuario(model);
+            if (Lista != null)
+            {   // estoy leyendo objectos y no propriedades?
+                txtNombreUsuario.Text = Lista[2].ToString();
+                txtApellidoUsuario.Text = Lista[3].ToString();
+
+            }
         }
 
         private void btnActualizar_Click(object sender, EventArgs e)
@@ -64,8 +103,6 @@ namespace AgendaCita
             txtNombreUsuario.Text = "";
             txtApellidoUsuario.Text = "";
             txtDocumentoUsuario.Text = "";
-            txtTelefono.Text = "";
-            cmbTipoTelefono.Text = "";
             cmbTipoDocumento.Text = "";
         }
     }
