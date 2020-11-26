@@ -70,7 +70,8 @@ namespace AgendaCita.DAO
         {
             string query = $@"SELECT id_usuario, nombre_usuario, apellido_usuario, tipo_doc, documento WHERE documento = '{model.Documento}' LIMIT 1";
 
-            return ExecuteQuery(query);
+            //return ExecuteQuery(query);
+            return Commands.Query<ClienteModel>(query);
         }
 
         public bool Update(ClienteModel model)
@@ -84,7 +85,7 @@ namespace AgendaCita.DAO
         {
             // good think
             string query = $"DELETE FROM usuario WHERE id_usuario = {id}";
-            return ExecuteNonQuery(query);
+            return Commands.ExecuteNonQuery(query);
         }
 
         public List<ClienteModel> GetClientes()
