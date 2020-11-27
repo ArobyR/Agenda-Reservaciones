@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Prueba
+namespace AgendaCita.Mensajes
 {
-    static class Mensajes //: IAllInterface
+    static class Mensajes
     {
     }
 }

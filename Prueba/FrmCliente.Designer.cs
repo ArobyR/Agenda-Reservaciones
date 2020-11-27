@@ -49,8 +49,9 @@
             this.Apellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TipoDoc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Documento = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Tipo = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.TipoTelefono = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.Numero = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lblTitulo = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.DgvUsuario)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTelefono)).BeginInit();
             this.SuspendLayout();
@@ -236,7 +237,7 @@
             this.dgvTelefono.AllowUserToDeleteRows = false;
             this.dgvTelefono.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvTelefono.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Tipo,
+            this.TipoTelefono,
             this.Numero});
             this.dgvTelefono.Location = new System.Drawing.Point(409, 72);
             this.dgvTelefono.Name = "dgvTelefono";
@@ -280,13 +281,16 @@
             this.Documento.Name = "Documento";
             this.Documento.ReadOnly = true;
             // 
-            // Tipo
+            // TipoTelefono
             // 
-            this.Tipo.HeaderText = "Tipo";
-            this.Tipo.Name = "Tipo";
-            this.Tipo.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Tipo.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.Tipo.Width = 90;
+            this.TipoTelefono.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.TipoTelefono.HeaderText = "Tipo";
+            this.TipoTelefono.Items.AddRange(new object[] {
+            "Residencial",
+            "Celular"});
+            this.TipoTelefono.Name = "TipoTelefono";
+            this.TipoTelefono.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.TipoTelefono.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
             // Numero
             // 
@@ -294,11 +298,22 @@
             this.Numero.HeaderText = "Numero";
             this.Numero.Name = "Numero";
             // 
+            // lblTitulo
+            // 
+            this.lblTitulo.AutoSize = true;
+            this.lblTitulo.Font = new System.Drawing.Font("Yu Gothic", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitulo.Location = new System.Drawing.Point(313, 19);
+            this.lblTitulo.Name = "lblTitulo";
+            this.lblTitulo.Size = new System.Drawing.Size(101, 27);
+            this.lblTitulo.TabIndex = 29;
+            this.lblTitulo.Text = "Usuarios";
+            // 
             // FrmCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(725, 575);
+            this.Controls.Add(this.lblTitulo);
             this.Controls.Add(this.lblMensaje);
             this.Controls.Add(this.dgvTelefono);
             this.Controls.Add(this.btnCrearCita);
@@ -349,7 +364,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Apellido;
         private System.Windows.Forms.DataGridViewTextBoxColumn TipoDoc;
         private System.Windows.Forms.DataGridViewTextBoxColumn Documento;
-        private System.Windows.Forms.DataGridViewComboBoxColumn Tipo;
+        private System.Windows.Forms.DataGridViewComboBoxColumn TipoTelefono;
         private System.Windows.Forms.DataGridViewTextBoxColumn Numero;
+        private System.Windows.Forms.Label lblTitulo;
     }
 }

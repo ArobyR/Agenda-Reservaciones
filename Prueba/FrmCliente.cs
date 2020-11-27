@@ -16,7 +16,7 @@ namespace AgendaCita
     {
         ClienteDAO ClienteDao = new ClienteDAO();
        // DataTable ClienteDatos;
-
+       
 
         public FrmCliente()
         {
@@ -39,7 +39,7 @@ namespace AgendaCita
             model.TipoDoc = cmbTipoDocumento.SelectedItem.ToString();
             model.Documento = txtDocumentoUsuario.Text;
 
-            model.Telefonos = new List<TelefonoClienteModel>(); //Lista de objectos
+            model.Telefonos = new List<TelefonoClienteModel>(); 
 
             foreach (DataGridViewRow item in dgvTelefono.Rows)
             {
@@ -110,6 +110,7 @@ namespace AgendaCita
             txtApellidoUsuario.Text = "";
             txtDocumentoUsuario.Text = "";
             cmbTipoDocumento.Text = "";
+            dgvTelefono.Rows.Clear();
         }
 
         private void ValidacionDeCampos ()

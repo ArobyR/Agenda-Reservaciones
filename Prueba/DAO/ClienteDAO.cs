@@ -25,13 +25,12 @@ namespace AgendaCita.DAO
             model.IdUsuario = IdUsuarioGuid.ToString();
             string query = $@"INSERT INTO usuario (id_usuario, nombre_usuario, apellido_usuario, tipo_doc, documento)
                              VALUES ('{model.IdUsuario}', '{model.NombreUsuario}', '{model.ApellidoUsuario}', '{model.TipoDoc}', '{model.Documento}')";
-            
-            Commands.ExecuteNonQuery(query);
 
+            Commands.ExecuteNonQuery(query);
             foreach (TelefonoClienteModel item in model.Telefonos) 
             {
-                query = $"INSERT telefono_usuario(id_usuario, telefono, tipo)" +
-                    $"VALUES('{model.IdUsuario}', '{item.Telefono}', '{item.Tipo}')";
+                query = $"INSERT INTO telefono_usuario (id_usuario, telefono, tipo)" +
+                    $"VALUES ('{model.IdUsuario}', '{item.Telefono}', '{item.Tipo}')";
                 Commands.ExecuteNonQuery(query);
             }
             return true;
