@@ -15,16 +15,17 @@ namespace AgendaCita
     public partial class FrmCliente : Form
     {
         ClienteDAO ClienteDao = new ClienteDAO();
-        //DataTable ClienteDatos;
+       // DataTable ClienteDatos;
 
 
         public FrmCliente()
         {
             InitializeComponent();
-           
-            //DgvUsuario.DataSource = ClienteDatos; // lo prodria hacer con el modelo?
+            //ClienteDatos = ClienteDao.GetClientes()
+            //DgvUsuario.DataSource = ClienteDao.GetClientes();
+            //DataGridView.Datasource = consulta()
         }
-        
+
         private void btnCerrarMenuUsuario_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -67,24 +68,7 @@ namespace AgendaCita
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            ClienteModel model = new ClienteModel();
-            model.Documento = txtDocumentoUsuario.Text;
-            
-            var Lista = new List<ClienteModel>();
-
-            //var ClienteList = new List<ClienteModel>();
-
-            Lista = ClienteDao.ReadUsuario(model);
-            if (Lista != null)
-            {   // estoy leyendo objectos y no propriedades?
-                txtNombreUsuario.Text = Lista[2].ToString();
-                txtApellidoUsuario.Text = Lista[3].ToString();
-
-            }
-            else
-            {
-                MessageBox.Show("Algo salio mal");
-            }
+           
         }
 
         private void btnActualizar_Click(object sender, EventArgs e)
@@ -135,7 +119,6 @@ namespace AgendaCita
 
         private void MensajesInfaz(string Mensaje, string color)
         {
-
             lblMensaje.Text = Mensaje; 
             if(color == "Red")
             {

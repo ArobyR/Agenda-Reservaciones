@@ -17,34 +17,6 @@ namespace AgendaCita.DAO
 
         // es cualquier SQL que no devuelve valores, pero en realidad 
         // esta realizando alguna forma de trabajo como insertar, eliminar y etc..
-        private bool ExecuteNonQuery(string query)
-        {
-            try
-            {
-                var cn = ConexionDB.GetMySqlConnection();
-                var cmd = new MySqlCommand();
-                cmd.CommandText = query;
-
-                if (cmd.ExecuteNonQuery() > 0)
-                {
-                    cn.Close();
-                    return true;
-                }
-            }
-            catch (Exception)
-            {
-                return false;
-            }
-            finally
-            {
-                if (cn != null && cn.State == System.Data.ConnectionState.Open)
-                {
-                    cn.Close();
-                    cn.Dispose();
-                }
-            }
-            return false;
-        }
 
         public bool InsertUsuario (ClienteModel model)
         {
@@ -62,15 +34,13 @@ namespace AgendaCita.DAO
                     $"VALUES('{model.IdUsuario}', '{item.Telefono}', '{item.Tipo}')";
                 Commands.ExecuteNonQuery(query);
             }
-            
             return true;
         }
 
         public List<ClienteModel> ReadUsuario(ClienteModel model)
         {
-            string query = $@"SELECT id_usuario, nombre_usuario, apellido_usuario, tipo_doc, documento WHERE documento = '{model.Documento}' LIMIT 1";
+            string query = $@"SELECT id_usuario, nombre_usuario, apellido_usuario, tipo_doc, documento FROM usuario WHERE documento = '{model.Documento}' LIMIT 1";
 
-            //return ExecuteQuery(query);
             return Commands.Query<ClienteModel>(query);
         }
 
@@ -78,7 +48,7 @@ namespace AgendaCita.DAO
         {
             string query = "";
 
-            return ExecuteNonQuery(query);
+            return Commands.ExecuteNonQuery(query);
         }
 
         public bool DeleteUser (string id)
@@ -90,7 +60,7 @@ namespace AgendaCita.DAO
 
         public List<ClienteModel> GetClientes()
         {
-            string  query = $"SELECT * FROM usuario";
+            string  query = $"SELECT * FROM usuario;";
             var ClienteList = Commands.Query<ClienteModel>(query);
 
             foreach(var item in ClienteList)
@@ -139,9 +109,7 @@ namespace AgendaCita.DAO
                 {
                     System.Windows.Forms.MessageBox.Show("No se encontraron registros.");
                 }
-
             }
-
             catch (Exception e)
             {
                 System.Windows.Forms.MessageBox.Show(e.Message);

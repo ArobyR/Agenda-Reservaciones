@@ -38,7 +38,6 @@ namespace AgendaCita.DAO
             return false;
         }
 
-
         public static List<T> Query<T>(string query) where T : new()
         {
             List<T> Lista = new List<T>();

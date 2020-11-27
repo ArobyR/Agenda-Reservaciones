@@ -47,9 +47,9 @@
             this.btnActualizarProf = new System.Windows.Forms.Button();
             this.btnEliminarProf = new System.Windows.Forms.Button();
             this.btnLimpiarSubMProf = new System.Windows.Forms.Button();
-            this.Numero = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Tipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvTelefonoProfesional = new System.Windows.Forms.DataGridView();
+            this.Tipo = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.Numero = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTelefonoProfesional)).BeginInit();
             this.SuspendLayout();
@@ -224,18 +224,6 @@
             this.btnLimpiarSubMProf.Text = "Limpiar";
             this.btnLimpiarSubMProf.UseVisualStyleBackColor = true;
             // 
-            // Numero
-            // 
-            this.Numero.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Numero.HeaderText = "Numero";
-            this.Numero.Name = "Numero";
-            // 
-            // Tipo
-            // 
-            this.Tipo.HeaderText = "Tipo";
-            this.Tipo.Name = "Tipo";
-            this.Tipo.Width = 90;
-            // 
             // dgvTelefonoProfesional
             // 
             this.dgvTelefonoProfesional.AllowUserToDeleteRows = false;
@@ -245,8 +233,22 @@
             this.Numero});
             this.dgvTelefonoProfesional.Location = new System.Drawing.Point(33, 164);
             this.dgvTelefonoProfesional.Name = "dgvTelefonoProfesional";
-            this.dgvTelefonoProfesional.Size = new System.Drawing.Size(272, 62);
+            this.dgvTelefonoProfesional.Size = new System.Drawing.Size(266, 67);
             this.dgvTelefonoProfesional.TabIndex = 28;
+            // 
+            // Tipo
+            // 
+            this.Tipo.HeaderText = "Tipo";
+            this.Tipo.Name = "Tipo";
+            this.Tipo.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Tipo.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.Tipo.Width = 90;
+            // 
+            // Numero
+            // 
+            this.Numero.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Numero.HeaderText = "Numero";
+            this.Numero.Name = "Numero";
             // 
             // FrmProfesional
             // 
@@ -305,8 +307,8 @@
         private System.Windows.Forms.Button btnActualizarProf;
         private System.Windows.Forms.Button btnEliminarProf;
         private System.Windows.Forms.Button btnLimpiarSubMProf;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Numero;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Tipo;
         private System.Windows.Forms.DataGridView dgvTelefonoProfesional;
+        private System.Windows.Forms.DataGridViewComboBoxColumn Tipo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Numero;
     }
 }
