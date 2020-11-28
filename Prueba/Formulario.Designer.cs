@@ -28,18 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Formulario));
             this.panelSideMenu = new System.Windows.Forms.FlowLayoutPanel();
             this.PanelLogo1 = new System.Windows.Forms.Panel();
             this.btnMenu1 = new System.Windows.Forms.Button();
             this.panelSubMenu = new System.Windows.Forms.Panel();
-            this.BtnOther = new System.Windows.Forms.Button();
+            this.BtnSubMenuCitas = new System.Windows.Forms.Button();
             this.btnSubProfesionales = new System.Windows.Forms.Button();
             this.btnSubUsuarios = new System.Windows.Forms.Button();
             this.btnAyuda = new System.Windows.Forms.Button();
             this.btnExitAplication = new System.Windows.Forms.Button();
             this.panelChildForm = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.panelSideMenu.SuspendLayout();
             this.panelSubMenu.SuspendLayout();
             this.panelChildForm.SuspendLayout();
@@ -99,7 +101,7 @@
             // panelSubMenu
             // 
             this.panelSubMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(32)))), ((int)(((byte)(39)))));
-            this.panelSubMenu.Controls.Add(this.BtnOther);
+            this.panelSubMenu.Controls.Add(this.BtnSubMenuCitas);
             this.panelSubMenu.Controls.Add(this.btnSubProfesionales);
             this.panelSubMenu.Controls.Add(this.btnSubUsuarios);
             this.panelSubMenu.Dock = System.Windows.Forms.DockStyle.Top;
@@ -108,29 +110,29 @@
             this.panelSubMenu.Size = new System.Drawing.Size(250, 142);
             this.panelSubMenu.TabIndex = 3;
             // 
-            // BtnOther
+            // BtnSubMenuCitas
             // 
-            this.BtnOther.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnOther.Dock = System.Windows.Forms.DockStyle.Top;
-            this.BtnOther.FlatAppearance.BorderSize = 0;
-            this.BtnOther.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(147)))), ((int)(((byte)(186)))));
-            this.BtnOther.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(81)))), ((int)(((byte)(163)))), ((int)(((byte)(219)))));
-            this.BtnOther.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnOther.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnOther.ForeColor = System.Drawing.Color.White;
-            this.BtnOther.Image = ((System.Drawing.Image)(resources.GetObject("BtnOther.Image")));
-            this.BtnOther.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnOther.Location = new System.Drawing.Point(0, 90);
-            this.BtnOther.Margin = new System.Windows.Forms.Padding(1);
-            this.BtnOther.Name = "BtnOther";
-            this.BtnOther.Padding = new System.Windows.Forms.Padding(40, 0, 0, 0);
-            this.BtnOther.Size = new System.Drawing.Size(250, 51);
-            this.BtnOther.TabIndex = 2;
-            this.BtnOther.Text = "Citas";
-            this.BtnOther.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnOther.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.BtnOther.UseVisualStyleBackColor = true;
-            this.BtnOther.Click += new System.EventHandler(this.BtnSubMenuCitas_Click);
+            this.BtnSubMenuCitas.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnSubMenuCitas.Dock = System.Windows.Forms.DockStyle.Top;
+            this.BtnSubMenuCitas.FlatAppearance.BorderSize = 0;
+            this.BtnSubMenuCitas.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(147)))), ((int)(((byte)(186)))));
+            this.BtnSubMenuCitas.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(81)))), ((int)(((byte)(163)))), ((int)(((byte)(219)))));
+            this.BtnSubMenuCitas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnSubMenuCitas.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnSubMenuCitas.ForeColor = System.Drawing.Color.White;
+            this.BtnSubMenuCitas.Image = ((System.Drawing.Image)(resources.GetObject("BtnSubMenuCitas.Image")));
+            this.BtnSubMenuCitas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnSubMenuCitas.Location = new System.Drawing.Point(0, 90);
+            this.BtnSubMenuCitas.Margin = new System.Windows.Forms.Padding(1);
+            this.BtnSubMenuCitas.Name = "BtnSubMenuCitas";
+            this.BtnSubMenuCitas.Padding = new System.Windows.Forms.Padding(40, 0, 0, 0);
+            this.BtnSubMenuCitas.Size = new System.Drawing.Size(250, 51);
+            this.BtnSubMenuCitas.TabIndex = 2;
+            this.BtnSubMenuCitas.Text = "Citas";
+            this.BtnSubMenuCitas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnSubMenuCitas.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BtnSubMenuCitas.UseVisualStyleBackColor = true;
+            this.BtnSubMenuCitas.Click += new System.EventHandler(this.BtnSubMenuCitas_Click);
             // 
             // btnSubProfesionales
             // 
@@ -243,6 +245,11 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
+            // notifyIcon1
+            // 
+            this.notifyIcon1.Text = "notifyIcon1";
+            this.notifyIcon1.Visible = true;
+            // 
             // Formulario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
@@ -271,13 +278,14 @@
         private System.Windows.Forms.Panel PanelLogo1;
         private System.Windows.Forms.Button btnMenu1;
         private System.Windows.Forms.Panel panelSubMenu;
-        private System.Windows.Forms.Button BtnOther;
+        private System.Windows.Forms.Button BtnSubMenuCitas;
         private System.Windows.Forms.Button btnSubProfesionales;
         private System.Windows.Forms.Button btnSubUsuarios;
         private System.Windows.Forms.Panel panelChildForm;
         private System.Windows.Forms.Button btnExitAplication;
         private System.Windows.Forms.Button btnAyuda;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.NotifyIcon notifyIcon1;
     }
 }
 

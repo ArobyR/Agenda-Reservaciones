@@ -16,6 +16,11 @@ namespace AgendaCita
         {
             InitializeComponent();
         }
+
+        private void btnCerrarVentana_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 
 }

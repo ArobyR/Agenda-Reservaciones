@@ -21,9 +21,8 @@ namespace AgendaCita
         public FrmCliente()
         {
             InitializeComponent();
-            //ClienteDatos = ClienteDao.GetClientes()
-            //DgvUsuario.DataSource = ClienteDao.GetClientes();
-            //DataGridView.Datasource = consulta()
+
+            //List<ClienteModel> lists = ClienteDao.GetClientes();
         }
 
         private void btnCerrarMenuUsuario_Click(object sender, EventArgs e)
@@ -64,7 +63,6 @@ namespace AgendaCita
                 MessageBox.Show("Su consulta ha fallado.");
             }
         }
-
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
@@ -130,6 +128,34 @@ namespace AgendaCita
                 lblMensaje.ForeColor = Color.Green;
             }
             
-        } 
+        }
+
+        private void btnCargarInformacion_Click(object sender, EventArgs e)
+        {
+            CargarDatos();
+        }
+
+        private void CargarDatos()
+        {
+            DgvUsuario.DataSource = ClienteDao.GetClientes();
+            DgvUsuario.Columns[0].Visible = false;
+            DgvUsuario.Columns[1].HeaderText = "Nombre";
+            DgvUsuario.Columns[2].HeaderText = "Apellido";
+            DgvUsuario.Columns[3].HeaderText = "Tipo de Documento";
+            DgvUsuario.Columns[4].HeaderText = "Documento";
+        }
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            txtNombreUsuario.Text = DgvUsuario.CurrentRow.Cells[1].Value.ToString();
+            txtApellidoUsuario.Text = DgvUsuario.CurrentRow.Cells[2].Value.ToString();
+            cmbTipoDocumento.Text = DgvUsuario.CurrentRow.Cells[3].Value.ToString();
+            txtDocumentoUsuario.Text = DgvUsuario.CurrentRow.Cells[4].Value.ToString();
+
+            string value = DgvUsuario.CurrentRow.Cells[0].Value.ToString();
+            dgvTelefono.DataSource = ClienteDao.GetTelefonoClientesDataSource(value);
+            dgvTelefono.Columns[0].Visible = false;
+
+        }
     }
 }

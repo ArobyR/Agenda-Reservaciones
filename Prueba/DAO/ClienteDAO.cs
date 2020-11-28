@@ -21,7 +21,7 @@ namespace AgendaCita.DAO
         public bool InsertUsuario (ClienteModel model)
         {
             //Guid IdUsuarioGuid = new Guid(); guid = Guid.NewGuid("N").Substring(0, 15);
-            string IdUsuarioGuid = Guid.NewGuid().ToString();
+            string IdUsuarioGuid = Guid.NewGuid().ToString("N");
             model.IdUsuario = IdUsuarioGuid.ToString();
             string query = $@"INSERT INTO usuario (id_usuario, nombre_usuario, apellido_usuario, tipo_doc, documento)
                              VALUES ('{model.IdUsuario}', '{model.NombreUsuario}', '{model.ApellidoUsuario}', '{model.TipoDoc}', '{model.Documento}')";
@@ -72,7 +72,13 @@ namespace AgendaCita.DAO
 
         public List<TelefonoClienteModel> GetTelefonoClientes(string id)
         {
-            string query = $"SELECT id_usuario, telefono, tipo FROM telefono_usuario WHERE id_usuario = {id};";
+            string query = $"SELECT id_usuario, telefono, tipo FROM telefono_usuario WHERE id_usuario = '{id}';";
+            return Commands.Query<TelefonoClienteModel>(query);
+        }
+
+        public List<TelefonoClienteModel> GetTelefonoClientesDataSource(string id)
+        {
+            string query = $"SELECT telefono, tipo FROM telefono_usuario WHERE id_usuario = '{id}';";
             return Commands.Query<TelefonoClienteModel>(query);
         }
 

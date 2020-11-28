@@ -44,14 +44,12 @@
             this.btnCerrar = new System.Windows.Forms.Button();
             this.btnCrearCita = new System.Windows.Forms.Button();
             this.dgvTelefono = new System.Windows.Forms.DataGridView();
-            this.lblMensaje = new System.Windows.Forms.Label();
-            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Apellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TipoDoc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Documento = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TipoTelefono = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.Numero = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lblMensaje = new System.Windows.Forms.Label();
             this.lblTitulo = new System.Windows.Forms.Label();
+            this.btnModificar = new System.Windows.Forms.Button();
+            this.btnCargarInformacion = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.DgvUsuario)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTelefono)).BeginInit();
             this.SuspendLayout();
@@ -60,12 +58,8 @@
             // 
             this.DgvUsuario.AllowUserToAddRows = false;
             this.DgvUsuario.AllowUserToDeleteRows = false;
+            this.DgvUsuario.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.DgvUsuario.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DgvUsuario.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Nombre,
-            this.Apellido,
-            this.TipoDoc,
-            this.Documento});
             this.DgvUsuario.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.DgvUsuario.Location = new System.Drawing.Point(0, 351);
             this.DgvUsuario.Margin = new System.Windows.Forms.Padding(5);
@@ -241,45 +235,8 @@
             this.Numero});
             this.dgvTelefono.Location = new System.Drawing.Point(409, 72);
             this.dgvTelefono.Name = "dgvTelefono";
-            this.dgvTelefono.Size = new System.Drawing.Size(276, 69);
+            this.dgvTelefono.Size = new System.Drawing.Size(276, 76);
             this.dgvTelefono.TabIndex = 27;
-            // 
-            // lblMensaje
-            // 
-            this.lblMensaje.AutoSize = true;
-            this.lblMensaje.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Bold);
-            this.lblMensaje.Location = new System.Drawing.Point(267, 232);
-            this.lblMensaje.Name = "lblMensaje";
-            this.lblMensaje.Size = new System.Drawing.Size(0, 20);
-            this.lblMensaje.TabIndex = 28;
-            // 
-            // Nombre
-            // 
-            this.Nombre.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Nombre.HeaderText = "Nombre";
-            this.Nombre.Name = "Nombre";
-            this.Nombre.ReadOnly = true;
-            // 
-            // Apellido
-            // 
-            this.Apellido.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Apellido.HeaderText = "Apellido";
-            this.Apellido.Name = "Apellido";
-            this.Apellido.ReadOnly = true;
-            // 
-            // TipoDoc
-            // 
-            this.TipoDoc.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.TipoDoc.HeaderText = "Tipo de Documento";
-            this.TipoDoc.Name = "TipoDoc";
-            this.TipoDoc.ReadOnly = true;
-            // 
-            // Documento
-            // 
-            this.Documento.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Documento.HeaderText = "Documento";
-            this.Documento.Name = "Documento";
-            this.Documento.ReadOnly = true;
             // 
             // TipoTelefono
             // 
@@ -298,6 +255,15 @@
             this.Numero.HeaderText = "Numero";
             this.Numero.Name = "Numero";
             // 
+            // lblMensaje
+            // 
+            this.lblMensaje.AutoSize = true;
+            this.lblMensaje.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Bold);
+            this.lblMensaje.Location = new System.Drawing.Point(267, 232);
+            this.lblMensaje.Name = "lblMensaje";
+            this.lblMensaje.Size = new System.Drawing.Size(0, 20);
+            this.lblMensaje.TabIndex = 28;
+            // 
             // lblTitulo
             // 
             this.lblTitulo.AutoSize = true;
@@ -308,11 +274,33 @@
             this.lblTitulo.TabIndex = 29;
             this.lblTitulo.Text = "Usuarios";
             // 
+            // btnModificar
+            // 
+            this.btnModificar.Location = new System.Drawing.Point(217, 223);
+            this.btnModificar.Name = "btnModificar";
+            this.btnModificar.Size = new System.Drawing.Size(75, 41);
+            this.btnModificar.TabIndex = 30;
+            this.btnModificar.Text = "Modificar";
+            this.btnModificar.UseVisualStyleBackColor = true;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
+            // 
+            // btnCargarInformacion
+            // 
+            this.btnCargarInformacion.Location = new System.Drawing.Point(31, 223);
+            this.btnCargarInformacion.Name = "btnCargarInformacion";
+            this.btnCargarInformacion.Size = new System.Drawing.Size(151, 41);
+            this.btnCargarInformacion.TabIndex = 31;
+            this.btnCargarInformacion.Text = "Cargar Informacion";
+            this.btnCargarInformacion.UseVisualStyleBackColor = true;
+            this.btnCargarInformacion.Click += new System.EventHandler(this.btnCargarInformacion_Click);
+            // 
             // FrmCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(725, 575);
+            this.Controls.Add(this.btnCargarInformacion);
+            this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.lblTitulo);
             this.Controls.Add(this.lblMensaje);
             this.Controls.Add(this.dgvTelefono);
@@ -360,12 +348,10 @@
         private System.Windows.Forms.Button btnCrearCita;
         private System.Windows.Forms.DataGridView dgvTelefono;
         private System.Windows.Forms.Label lblMensaje;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Apellido;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TipoDoc;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Documento;
         private System.Windows.Forms.DataGridViewComboBoxColumn TipoTelefono;
         private System.Windows.Forms.DataGridViewTextBoxColumn Numero;
         private System.Windows.Forms.Label lblTitulo;
+        private System.Windows.Forms.Button btnModificar;
+        private System.Windows.Forms.Button btnCargarInformacion;
     }
 }
