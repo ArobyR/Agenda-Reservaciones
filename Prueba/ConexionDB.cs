@@ -38,7 +38,7 @@ namespace AgendaCita
         public static MySqlConnection GetMySqlConnection ()
         {
             string server = "127.0.0.1";
-            string database = "agenda0";
+            string database = "agenda1";
             string uid = "root";
             string pwd = "";
 

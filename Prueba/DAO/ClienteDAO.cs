@@ -36,23 +36,28 @@ namespace AgendaCita.DAO
             return true;
         }
 
-        public List<ClienteModel> ReadUsuario(ClienteModel model)
+        public List<ClienteModel> ReadUsuario(string document)
         {
-            string query = $@"SELECT id_usuario, nombre_usuario, apellido_usuario, tipo_doc, documento FROM usuario WHERE documento = '{model.Documento}' LIMIT 1";
+            string query = $"SELECT id_usuario, nombre_usuario, apellido_usuario, tipo_doc, documento FROM usuario WHERE documento = '{document}' LIMIT 1";
 
             return Commands.Query<ClienteModel>(query);
         }
 
-        public bool Update(ClienteModel model)
+        public bool UpdateUsuario(ClienteModel model)
         {
-            string query = "";
+            string query = $"UPDATE usuario SET nombre_usuario='{model.NombreUsuario}', apellido_usuario='{model.ApellidoUsuario}', tipo_doc='{model.TipoDoc}', documento='{model.Documento}' WHERE documento='{model.Documento}'";
+            Commands.ExecuteNonQuery(query);
 
-            return Commands.ExecuteNonQuery(query);
+            foreach (TelefonoClienteModel item in model.Telefonos)
+            {
+                query = $"UPDATE telefono_usuario SET telefono='{item.Telefono}', tipo='{item.Tipo}' WHERE id_usuario='{item.IdUsuario}'";
+                Commands.ExecuteNonQuery(query);
+            }
+            return true;
         }
 
         public bool DeleteUser (string id)
         {
-            // good think
             string query = $"DELETE FROM usuario WHERE documento = '{id}'";
             return Commands.ExecuteNonQuery(query);
         }
@@ -119,7 +124,6 @@ namespace AgendaCita.DAO
             {
                 System.Windows.Forms.MessageBox.Show(e.Message);
                 System.Windows.Forms.MessageBox.Show(e.StackTrace);
-
             }
 
             finally
@@ -130,7 +134,6 @@ namespace AgendaCita.DAO
                     cn.Dispose();
                 }
             }
-
             return null;
         } 
     }

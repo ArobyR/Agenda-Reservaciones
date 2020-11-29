@@ -66,12 +66,48 @@ namespace AgendaCita
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-           
+            string value = txtDocumentoUsuario.Text;
+            List<ClienteModel> Lista = ClienteDao.ReadUsuario(value);
+
+            if (Lista != null)
+            {
+
+                txtNombreUsuario.Text = Lista.ToArray().ToString(); ;
+                //txtApellidoUsuario.Text = Lista[2].ToString();
+                //cmbTipoDocumento.Text = Lista[3].ToString();
+            }
         }
 
         private void btnActualizar_Click(object sender, EventArgs e)
         {
+            ClienteModel model = new ClienteModel();
+            model.NombreUsuario = txtNombreUsuario.Text;
+            model.ApellidoUsuario = txtApellidoUsuario.Text;
+            model.TipoDoc = cmbTipoDocumento.SelectedItem.ToString();
+            model.Documento = txtDocumentoUsuario.Text;
 
+            model.Telefonos = new List<TelefonoClienteModel>();
+
+            foreach (DataGridViewRow item in dgvTelefono.Rows)
+            {
+                if (item.Cells[0].Value == null)
+                {
+                    continue;
+                }
+                var telefono = new TelefonoClienteModel(); 
+                telefono.Tipo = item.Cells[0].Value.ToString();
+                telefono.Telefono = item.Cells[1].Value.ToString(); 
+                model.Telefonos.Add(telefono);  
+            }
+            if (ClienteDao.UpdateUsuario(model))
+            {
+                MessageBox.Show("Registro actualizado con exito.");
+                LimpiarCampos();
+            }
+            else
+            {
+                MessageBox.Show("Su consulta ha fallado.");
+            }
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
@@ -153,6 +189,9 @@ namespace AgendaCita
             txtDocumentoUsuario.Text = DgvUsuario.CurrentRow.Cells[4].Value.ToString();
 
             string value = DgvUsuario.CurrentRow.Cells[0].Value.ToString();
+
+            List<TelefonoClienteModel> Lista = ClienteDao.GetTelefonoClientesDataSource(value);
+            
             dgvTelefono.DataSource = ClienteDao.GetTelefonoClientesDataSource(value);
             dgvTelefono.Columns[0].Visible = false;
 

@@ -126,8 +126,13 @@
     </Compile>
     <Compile Include="Mensajes\IMensajeInfarces.cs" />
     <Compile Include="Mensajes\Mensajes.cs" />
+    <Compile Include="Models\CitaModel.cs" />
     <Compile Include="Models\ClienteModel.cs" />
+    <Compile Include="Models\DisponibilidadProfesionalModel.cs" />
+    <Compile Include="Models\ProfesionalModel.cs" />
+    <Compile Include="Models\ProfesionProfesionalModel.cs" />
     <Compile Include="Models\TelefonoClienteModel.cs" />
+    <Compile Include="Models\TelefonoProfesionalModel.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FrmCita.resx">

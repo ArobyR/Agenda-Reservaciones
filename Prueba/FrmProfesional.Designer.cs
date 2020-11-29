@@ -47,10 +47,10 @@
             this.btnActualizarProf = new System.Windows.Forms.Button();
             this.btnEliminarProf = new System.Windows.Forms.Button();
             this.btnLimpiarSubMProf = new System.Windows.Forms.Button();
-            this.dgvTelefonoProfesional = new System.Windows.Forms.DataGridView();
-            this.Tipo = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.Numero = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lblTitulo = new System.Windows.Forms.Label();
+            this.Numero = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Tipo = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.dgvTelefonoProfesional = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTelefonoProfesional)).BeginInit();
             this.SuspendLayout();
@@ -188,6 +188,7 @@
             this.btnCrearProfesional.TabIndex = 19;
             this.btnCrearProfesional.Text = "Crear";
             this.btnCrearProfesional.UseVisualStyleBackColor = true;
+            this.btnCrearProfesional.Click += new System.EventHandler(this.btnCrearProfesional_Click);
             // 
             // btnIngresarProf
             // 
@@ -225,6 +226,30 @@
             this.btnLimpiarSubMProf.Text = "Limpiar";
             this.btnLimpiarSubMProf.UseVisualStyleBackColor = true;
             // 
+            // lblTitulo
+            // 
+            this.lblTitulo.AutoSize = true;
+            this.lblTitulo.Font = new System.Drawing.Font("Yu Gothic", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitulo.Location = new System.Drawing.Point(293, 18);
+            this.lblTitulo.Name = "lblTitulo";
+            this.lblTitulo.Size = new System.Drawing.Size(150, 27);
+            this.lblTitulo.TabIndex = 30;
+            this.lblTitulo.Text = "Profesionales";
+            // 
+            // Numero
+            // 
+            this.Numero.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Numero.HeaderText = "Numero";
+            this.Numero.Name = "Numero";
+            // 
+            // Tipo
+            // 
+            this.Tipo.HeaderText = "Tipo";
+            this.Tipo.Name = "Tipo";
+            this.Tipo.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Tipo.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.Tipo.Width = 90;
+            // 
             // dgvTelefonoProfesional
             // 
             this.dgvTelefonoProfesional.AllowUserToDeleteRows = false;
@@ -236,30 +261,6 @@
             this.dgvTelefonoProfesional.Name = "dgvTelefonoProfesional";
             this.dgvTelefonoProfesional.Size = new System.Drawing.Size(266, 67);
             this.dgvTelefonoProfesional.TabIndex = 28;
-            // 
-            // Tipo
-            // 
-            this.Tipo.HeaderText = "Tipo";
-            this.Tipo.Name = "Tipo";
-            this.Tipo.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Tipo.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.Tipo.Width = 90;
-            // 
-            // Numero
-            // 
-            this.Numero.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Numero.HeaderText = "Numero";
-            this.Numero.Name = "Numero";
-            // 
-            // lblTitulo
-            // 
-            this.lblTitulo.AutoSize = true;
-            this.lblTitulo.Font = new System.Drawing.Font("Yu Gothic", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitulo.Location = new System.Drawing.Point(293, 18);
-            this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(150, 27);
-            this.lblTitulo.TabIndex = 30;
-            this.lblTitulo.Text = "Profesionales";
             // 
             // FrmProfesional
             // 
@@ -319,9 +320,9 @@
         private System.Windows.Forms.Button btnActualizarProf;
         private System.Windows.Forms.Button btnEliminarProf;
         private System.Windows.Forms.Button btnLimpiarSubMProf;
-        private System.Windows.Forms.DataGridView dgvTelefonoProfesional;
-        private System.Windows.Forms.DataGridViewComboBoxColumn Tipo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Numero;
         private System.Windows.Forms.Label lblTitulo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Numero;
+        private System.Windows.Forms.DataGridViewComboBoxColumn Tipo;
+        private System.Windows.Forms.DataGridView dgvTelefonoProfesional;
     }
 }

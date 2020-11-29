@@ -1,4 +1,6 @@
 ﻿using System;
+using AgendaCita.DAO;
+using AgendaCita.Models;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -20,6 +22,11 @@ namespace AgendaCita
         private void btnExitMenuProfesional_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btnCrearProfesional_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }
