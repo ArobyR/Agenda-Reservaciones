@@ -34,14 +34,14 @@
             this.lblProfesion = new System.Windows.Forms.Label();
             this.txtNombreProfesional = new System.Windows.Forms.TextBox();
             this.txtApellidoProfesional = new System.Windows.Forms.TextBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.cmbProfesion = new System.Windows.Forms.ComboBox();
             this.lblHoraDeInicio = new System.Windows.Forms.Label();
             this.lblHoraDelFinal = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.lblDiaDisponible = new System.Windows.Forms.Label();
             this.comboBox4 = new System.Windows.Forms.ComboBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvProfesional = new System.Windows.Forms.DataGridView();
             this.btnCrearProfesional = new System.Windows.Forms.Button();
             this.btnBuscarProfesional = new System.Windows.Forms.Button();
             this.btnActualizarProf = new System.Windows.Forms.Button();
@@ -54,11 +54,11 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtDocumentoProfesional = new System.Windows.Forms.TextBox();
             this.cmbTipoDocumentoProfesional = new System.Windows.Forms.ComboBox();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.dgvTelefono = new System.Windows.Forms.DataGridView();
             this.Tipo = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.Telefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProfesional)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTelefono)).BeginInit();
             this.SuspendLayout();
             // 
             // btnExitMenuProfesional
@@ -118,13 +118,13 @@
             this.txtApellidoProfesional.Size = new System.Drawing.Size(221, 23);
             this.txtApellidoProfesional.TabIndex = 7;
             // 
-            // comboBox2
+            // cmbProfesion
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(497, 52);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(201, 25);
-            this.comboBox2.TabIndex = 10;
+            this.cmbProfesion.FormattingEnabled = true;
+            this.cmbProfesion.Location = new System.Drawing.Point(497, 52);
+            this.cmbProfesion.Name = "cmbProfesion";
+            this.cmbProfesion.Size = new System.Drawing.Size(201, 25);
+            this.cmbProfesion.TabIndex = 10;
             // 
             // lblHoraDeInicio
             // 
@@ -177,14 +177,14 @@
             this.comboBox4.Size = new System.Drawing.Size(201, 25);
             this.comboBox4.TabIndex = 17;
             // 
-            // dataGridView1
+            // dgvProfesional
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 329);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(741, 285);
-            this.dataGridView1.TabIndex = 18;
+            this.dgvProfesional.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvProfesional.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.dgvProfesional.Location = new System.Drawing.Point(0, 329);
+            this.dgvProfesional.Name = "dgvProfesional";
+            this.dgvProfesional.Size = new System.Drawing.Size(741, 285);
+            this.dgvProfesional.TabIndex = 18;
             // 
             // btnCrearProfesional
             // 
@@ -297,17 +297,17 @@
             this.cmbTipoDocumentoProfesional.TabIndex = 36;
             this.cmbTipoDocumentoProfesional.Text = "Cedula";
             // 
-            // dataGridView2
+            // dgvTelefono
             // 
-            this.dataGridView2.AllowUserToDeleteRows = false;
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvTelefono.AllowUserToDeleteRows = false;
+            this.dgvTelefono.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvTelefono.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Tipo,
             this.Telefono});
-            this.dataGridView2.Location = new System.Drawing.Point(36, 199);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(283, 67);
-            this.dataGridView2.TabIndex = 37;
+            this.dgvTelefono.Location = new System.Drawing.Point(36, 199);
+            this.dgvTelefono.Name = "dgvTelefono";
+            this.dgvTelefono.Size = new System.Drawing.Size(283, 67);
+            this.dgvTelefono.TabIndex = 37;
             // 
             // Tipo
             // 
@@ -326,12 +326,12 @@
             this.Telefono.HeaderText = "Telefono";
             this.Telefono.Name = "Telefono";
             // 
-            // dgvTelefonoProf
+            // FrmProfesional
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(741, 614);
-            this.Controls.Add(this.dataGridView2);
+            this.Controls.Add(this.dgvTelefono);
             this.Controls.Add(this.cmbTipoDocumentoProfesional);
             this.Controls.Add(this.txtDocumentoProfesional);
             this.Controls.Add(this.label2);
@@ -344,14 +344,14 @@
             this.Controls.Add(this.btnActualizarProf);
             this.Controls.Add(this.btnBuscarProfesional);
             this.Controls.Add(this.btnCrearProfesional);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgvProfesional);
             this.Controls.Add(this.comboBox4);
             this.Controls.Add(this.lblDiaDisponible);
             this.Controls.Add(this.comboBox3);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.lblHoraDelFinal);
             this.Controls.Add(this.lblHoraDeInicio);
-            this.Controls.Add(this.comboBox2);
+            this.Controls.Add(this.cmbProfesion);
             this.Controls.Add(this.txtApellidoProfesional);
             this.Controls.Add(this.txtNombreProfesional);
             this.Controls.Add(this.lblProfesion);
@@ -360,10 +360,10 @@
             this.Controls.Add(this.btnExitMenuProfesional);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
             this.Margin = new System.Windows.Forms.Padding(5);
-            this.Name = "dgvTelefonoProf";
+            this.Name = "FrmProfesional";
             this.Text = "Profesional";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProfesional)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTelefono)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -377,14 +377,14 @@
         private System.Windows.Forms.Label lblProfesion;
         private System.Windows.Forms.TextBox txtNombreProfesional;
         private System.Windows.Forms.TextBox txtApellidoProfesional;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox cmbProfesion;
         private System.Windows.Forms.Label lblHoraDeInicio;
         private System.Windows.Forms.Label lblHoraDelFinal;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.ComboBox comboBox3;
         private System.Windows.Forms.Label lblDiaDisponible;
         private System.Windows.Forms.ComboBox comboBox4;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvProfesional;
         private System.Windows.Forms.Button btnCrearProfesional;
         private System.Windows.Forms.Button btnBuscarProfesional;
         private System.Windows.Forms.Button btnActualizarProf;
@@ -397,7 +397,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtDocumentoProfesional;
         private System.Windows.Forms.ComboBox cmbTipoDocumentoProfesional;
-        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.DataGridView dgvTelefono;
         private System.Windows.Forms.DataGridViewComboBoxColumn Tipo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Telefono;
     }

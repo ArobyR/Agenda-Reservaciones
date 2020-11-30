@@ -21,8 +21,6 @@ namespace AgendaCita
         public FrmCliente()
         {
             InitializeComponent();
-
-            //List<ClienteModel> lists = ClienteDao.GetClientes();
         }
 
         private void btnCerrarMenuUsuario_Click(object sender, EventArgs e)

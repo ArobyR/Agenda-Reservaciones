@@ -10,9 +10,6 @@ namespace AgendaCita.DAO
 {
     class ProfesionalDAO
     {
-        MySqlConnection cn = null;
-        MySqlCommand cmd = null;
-        MySqlDataReader reader = null;
 
         public bool InsertProfesional(ProfesionalModel model)
         {
@@ -41,7 +38,7 @@ namespace AgendaCita.DAO
 
         public bool Delete(string id)
         {
-            string query = $"DELETE FROM profesional WHERE id={id}";
+            string query = $"DELETE FROM profesional WHERE documento={id}";
             return Commands.ExecuteNonQuery(query);
         }
 
@@ -56,7 +53,35 @@ namespace AgendaCita.DAO
             return Commands.Query<ProfesionalModel>(query);
         }
 
-        public List<TelefonoProfesionalModel> GetTelefonoProfesional(int id)
+        public List<ProfesionalModel> GetProfesional()
+        {
+            string query = $"SELECT * FROM profesional;";
+            var ProfesionalList = Commands.Query<ProfesionalModel>(query);
+
+            foreach (var item in ProfesionalList)
+            {
+                item.Telefonos = GetTelefonoProfesional(item.IdProfesional);
+            }
+
+            return ProfesionalList;
+        }
+
+
+        public List<ProfesionalModel> GetProfesionalProfesion()
+        {
+            string query = $""; // inner join query
+            var ProfesionalList = Commands.Query<ProfesionalModel>(query);
+
+            foreach (var item in ProfesionalList)
+            {
+                item.Telefonos = GetTelefonoProfesional(item.IdProfesional);
+            }
+
+            return ProfesionalList;
+        }
+
+
+        public List<TelefonoProfesionalModel> GetTelefonoProfesional(string id)
         {
             string query = $"SELECT id_profesional, tipo, numero FROM telefono_profesional WHERE id_profesional= {id}";
             return Commands.Query<TelefonoProfesionalModel>(query);
@@ -69,6 +94,13 @@ namespace AgendaCita.DAO
                 query = query + $" AND id_dia = {dia}";
 
             return Commands.Query<DisponibilidadProfesionalModel>(query);
+        }
+
+        public List<ProfesionProfesionalModel> GetProfesiones()
+        {
+            string query = $"SELECT * FROM profesion";
+
+            return Commands.Query<ProfesionProfesionalModel>(query);
         }
 
     }
