@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AgendaCita.Models
 {
-    class DisponibilidadProfesionalModel
+    public class DisponibilidadProfesionalModel
     {
         public string IdProfesional { get; set; }
         public int IdDia { get; set; }

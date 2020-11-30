@@ -80,7 +80,7 @@ namespace AgendaCita
 
         private void btnSubProfesionales_Click(object sender, EventArgs e)
         {
-            openChilForm(new FrmProfesional());
+            openChilForm(new dgvTelefonoProf());
             hideSubMenu();
         }
 

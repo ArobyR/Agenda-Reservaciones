@@ -323,6 +323,7 @@
             this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "FrmCliente";
             this.Text = "Cliente";
+            this.Load += new System.EventHandler(this.FrmCliente_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DgvUsuario)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTelefono)).EndInit();
             this.ResumeLayout(false);

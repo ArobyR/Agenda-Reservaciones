@@ -14,6 +14,7 @@ namespace AgendaCita
 {
     public partial class FrmProfesional : Form
     {
+        ProfesionalDAO ProfesionalDao = new ProfesionalDAO();
         public FrmProfesional()
         {
             InitializeComponent();
@@ -26,7 +27,15 @@ namespace AgendaCita
 
         private void btnCrearProfesional_Click(object sender, EventArgs e)
         {
-            
+            ProfesionalModel model = new ProfesionalModel();
+            model.NombreProfesional = txtNombreProfesional.Text;
+            model.ApellidoProfesional = txtApellidoProfesional.Text;
+            model.TipoDocumento = cmbTipoDocumentoProfesional.SelectedItem.ToString();
+            model.Documento = txtDocumentoProfesional.Text;
+
+            model.Telefonos = new List<TelefonoProfesionalModel>();
+
+
         }
     }
 }

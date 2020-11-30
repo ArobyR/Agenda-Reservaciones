@@ -196,5 +196,10 @@ namespace AgendaCita
             dgvTelefono.Columns[0].Visible = false;
 
         }
+
+        private void FrmCliente_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
