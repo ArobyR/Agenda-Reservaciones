@@ -44,12 +44,18 @@
             this.btnCerrar = new System.Windows.Forms.Button();
             this.btnCrearCita = new System.Windows.Forms.Button();
             this.dgvTelefono = new System.Windows.Forms.DataGridView();
-            this.TipoTelefono = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.TipoTelefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Numero = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lblMensaje = new System.Windows.Forms.Label();
             this.lblTitulo = new System.Windows.Forms.Label();
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnCargarInformacion = new System.Windows.Forms.Button();
+            this.lblTipoNumero = new System.Windows.Forms.Label();
+            this.lblNumero = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.cmbTipoNumeroCliente = new System.Windows.Forms.ComboBox();
+            this.btnAgregarNumero = new System.Windows.Forms.Button();
+            this.btnRemoverTelefono = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.DgvUsuario)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTelefono)).BeginInit();
             this.SuspendLayout();
@@ -61,12 +67,12 @@
             this.DgvUsuario.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.DgvUsuario.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DgvUsuario.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.DgvUsuario.Location = new System.Drawing.Point(0, 351);
+            this.DgvUsuario.Location = new System.Drawing.Point(0, 339);
             this.DgvUsuario.Margin = new System.Windows.Forms.Padding(5);
             this.DgvUsuario.Name = "DgvUsuario";
             this.DgvUsuario.ReadOnly = true;
             this.DgvUsuario.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DgvUsuario.Size = new System.Drawing.Size(725, 224);
+            this.DgvUsuario.Size = new System.Drawing.Size(725, 236);
             this.DgvUsuario.TabIndex = 1;
             // 
             // lblNombre
@@ -156,10 +162,10 @@
             // btnBuscar
             // 
             this.btnBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
-            this.btnBuscar.Location = new System.Drawing.Point(166, 300);
+            this.btnBuscar.Location = new System.Drawing.Point(142, 299);
             this.btnBuscar.Margin = new System.Windows.Forms.Padding(5);
             this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(101, 41);
+            this.btnBuscar.Size = new System.Drawing.Size(81, 35);
             this.btnBuscar.TabIndex = 14;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = true;
@@ -168,10 +174,10 @@
             // btnActualizar
             // 
             this.btnActualizar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
-            this.btnActualizar.Location = new System.Drawing.Point(313, 300);
+            this.btnActualizar.Location = new System.Drawing.Point(249, 298);
             this.btnActualizar.Margin = new System.Windows.Forms.Padding(5);
             this.btnActualizar.Name = "btnActualizar";
-            this.btnActualizar.Size = new System.Drawing.Size(101, 41);
+            this.btnActualizar.Size = new System.Drawing.Size(81, 35);
             this.btnActualizar.TabIndex = 15;
             this.btnActualizar.Text = "Actualizar";
             this.btnActualizar.UseVisualStyleBackColor = true;
@@ -180,10 +186,10 @@
             // btnEliminar
             // 
             this.btnEliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
-            this.btnEliminar.Location = new System.Drawing.Point(459, 300);
+            this.btnEliminar.Location = new System.Drawing.Point(365, 298);
             this.btnEliminar.Margin = new System.Windows.Forms.Padding(5);
             this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(101, 41);
+            this.btnEliminar.Size = new System.Drawing.Size(81, 35);
             this.btnEliminar.TabIndex = 16;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = true;
@@ -192,10 +198,10 @@
             // btnLimpiar
             // 
             this.btnLimpiar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
-            this.btnLimpiar.Location = new System.Drawing.Point(594, 300);
+            this.btnLimpiar.Location = new System.Drawing.Point(480, 298);
             this.btnLimpiar.Margin = new System.Windows.Forms.Padding(5);
             this.btnLimpiar.Name = "btnLimpiar";
-            this.btnLimpiar.Size = new System.Drawing.Size(101, 41);
+            this.btnLimpiar.Size = new System.Drawing.Size(81, 35);
             this.btnLimpiar.TabIndex = 17;
             this.btnLimpiar.Text = "Limpiar";
             this.btnLimpiar.UseVisualStyleBackColor = true;
@@ -218,9 +224,9 @@
             // 
             // btnCrearCita
             // 
-            this.btnCrearCita.Location = new System.Drawing.Point(31, 300);
+            this.btnCrearCita.Location = new System.Drawing.Point(31, 296);
             this.btnCrearCita.Name = "btnCrearCita";
-            this.btnCrearCita.Size = new System.Drawing.Size(101, 41);
+            this.btnCrearCita.Size = new System.Drawing.Size(81, 35);
             this.btnCrearCita.TabIndex = 25;
             this.btnCrearCita.Text = "Crear";
             this.btnCrearCita.UseVisualStyleBackColor = true;
@@ -233,21 +239,17 @@
             this.dgvTelefono.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.TipoTelefono,
             this.Numero});
-            this.dgvTelefono.Location = new System.Drawing.Point(409, 72);
+            this.dgvTelefono.Location = new System.Drawing.Point(409, 146);
             this.dgvTelefono.Name = "dgvTelefono";
-            this.dgvTelefono.Size = new System.Drawing.Size(276, 76);
+            this.dgvTelefono.Size = new System.Drawing.Size(262, 69);
             this.dgvTelefono.TabIndex = 27;
             // 
             // TipoTelefono
             // 
             this.TipoTelefono.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.TipoTelefono.HeaderText = "Tipo";
-            this.TipoTelefono.Items.AddRange(new object[] {
-            "Residencial",
-            "Celular"});
             this.TipoTelefono.Name = "TipoTelefono";
             this.TipoTelefono.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.TipoTelefono.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
             // Numero
             // 
@@ -276,9 +278,9 @@
             // 
             // btnModificar
             // 
-            this.btnModificar.Location = new System.Drawing.Point(217, 223);
+            this.btnModificar.Location = new System.Drawing.Point(590, 299);
             this.btnModificar.Name = "btnModificar";
-            this.btnModificar.Size = new System.Drawing.Size(75, 41);
+            this.btnModificar.Size = new System.Drawing.Size(81, 35);
             this.btnModificar.TabIndex = 30;
             this.btnModificar.Text = "Modificar";
             this.btnModificar.UseVisualStyleBackColor = true;
@@ -286,19 +288,79 @@
             // 
             // btnCargarInformacion
             // 
-            this.btnCargarInformacion.Location = new System.Drawing.Point(31, 223);
+            this.btnCargarInformacion.Location = new System.Drawing.Point(31, 243);
             this.btnCargarInformacion.Name = "btnCargarInformacion";
-            this.btnCargarInformacion.Size = new System.Drawing.Size(151, 41);
+            this.btnCargarInformacion.Size = new System.Drawing.Size(151, 35);
             this.btnCargarInformacion.TabIndex = 31;
             this.btnCargarInformacion.Text = "Cargar Informacion";
             this.btnCargarInformacion.UseVisualStyleBackColor = true;
             this.btnCargarInformacion.Click += new System.EventHandler(this.btnCargarInformacion_Click);
+            // 
+            // lblTipoNumero
+            // 
+            this.lblTipoNumero.AutoSize = true;
+            this.lblTipoNumero.Location = new System.Drawing.Point(406, 74);
+            this.lblTipoNumero.Name = "lblTipoNumero";
+            this.lblTipoNumero.Size = new System.Drawing.Size(40, 17);
+            this.lblTipoNumero.TabIndex = 32;
+            this.lblTipoNumero.Text = "Tipo:";
+            // 
+            // lblNumero
+            // 
+            this.lblNumero.AutoSize = true;
+            this.lblNumero.Location = new System.Drawing.Point(406, 113);
+            this.lblNumero.Name = "lblNumero";
+            this.lblNumero.Size = new System.Drawing.Size(62, 17);
+            this.lblNumero.TabIndex = 33;
+            this.lblNumero.Text = "Numero:";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(470, 111);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(201, 23);
+            this.textBox1.TabIndex = 34;
+            // 
+            // cmbTipoNumeroCliente
+            // 
+            this.cmbTipoNumeroCliente.FormattingEnabled = true;
+            this.cmbTipoNumeroCliente.Items.AddRange(new object[] {
+            "Celular",
+            "Residencial"});
+            this.cmbTipoNumeroCliente.Location = new System.Drawing.Point(470, 71);
+            this.cmbTipoNumeroCliente.Name = "cmbTipoNumeroCliente";
+            this.cmbTipoNumeroCliente.Size = new System.Drawing.Size(201, 24);
+            this.cmbTipoNumeroCliente.TabIndex = 35;
+            // 
+            // btnAgregarNumero
+            // 
+            this.btnAgregarNumero.Location = new System.Drawing.Point(409, 243);
+            this.btnAgregarNumero.Name = "btnAgregarNumero";
+            this.btnAgregarNumero.Size = new System.Drawing.Size(81, 35);
+            this.btnAgregarNumero.TabIndex = 36;
+            this.btnAgregarNumero.Text = "Agregar";
+            this.btnAgregarNumero.UseVisualStyleBackColor = true;
+            // 
+            // btnRemoverTelefono
+            // 
+            this.btnRemoverTelefono.Location = new System.Drawing.Point(565, 243);
+            this.btnRemoverTelefono.Name = "btnRemoverTelefono";
+            this.btnRemoverTelefono.Size = new System.Drawing.Size(106, 35);
+            this.btnRemoverTelefono.TabIndex = 37;
+            this.btnRemoverTelefono.Text = "Remover Tel.";
+            this.btnRemoverTelefono.UseVisualStyleBackColor = true;
             // 
             // FrmCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(725, 575);
+            this.Controls.Add(this.btnRemoverTelefono);
+            this.Controls.Add(this.btnAgregarNumero);
+            this.Controls.Add(this.cmbTipoNumeroCliente);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.lblNumero);
+            this.Controls.Add(this.lblTipoNumero);
             this.Controls.Add(this.btnCargarInformacion);
             this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.lblTitulo);
@@ -323,7 +385,6 @@
             this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "FrmCliente";
             this.Text = "Cliente";
-            this.Load += new System.EventHandler(this.FrmCliente_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DgvUsuario)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTelefono)).EndInit();
             this.ResumeLayout(false);
@@ -349,10 +410,16 @@
         private System.Windows.Forms.Button btnCrearCita;
         private System.Windows.Forms.DataGridView dgvTelefono;
         private System.Windows.Forms.Label lblMensaje;
-        private System.Windows.Forms.DataGridViewComboBoxColumn TipoTelefono;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Numero;
         private System.Windows.Forms.Label lblTitulo;
         private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.Button btnCargarInformacion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TipoTelefono;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Numero;
+        private System.Windows.Forms.Label lblTipoNumero;
+        private System.Windows.Forms.Label lblNumero;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.ComboBox cmbTipoNumeroCliente;
+        private System.Windows.Forms.Button btnAgregarNumero;
+        private System.Windows.Forms.Button btnRemoverTelefono;
     }
 }

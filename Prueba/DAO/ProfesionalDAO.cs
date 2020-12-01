@@ -69,13 +69,19 @@ namespace AgendaCita.DAO
 
         public List<ProfesionalModel> GetProfesionalProfesion()
         {
-            string query = $""; // inner join query
+            string query = $@" SELECT prof.id_profesional,
+                                      prof.id_profesion,
+                                      prof.nombre_profesional, 
+                                      prof.apellido_profesional,
+                                      prof.tipo_documento, 
+                                      prof.documento, 
+                                      profesion.nombre_profesion 
+                                FROM profesional AS prof 
+                                INNER JOIN
+                                      profesion 
+                                ON 
+                                      prof.id_profesion = profesion.id_profesion "; // inner join query
             var ProfesionalList = Commands.Query<ProfesionalModel>(query);
-
-            foreach (var item in ProfesionalList)
-            {
-                item.Telefonos = GetTelefonoProfesional(item.IdProfesional);
-            }
 
             return ProfesionalList;
         }
@@ -83,7 +89,7 @@ namespace AgendaCita.DAO
 
         public List<TelefonoProfesionalModel> GetTelefonoProfesional(string id)
         {
-            string query = $"SELECT id_profesional, tipo, numero FROM telefono_profesional WHERE id_profesional= {id}";
+            string query = $"SELECT id_profesional, tipo, telefono FROM telefono_profesional WHERE id_profesional= {id}";
             return Commands.Query<TelefonoProfesionalModel>(query);
         }
 

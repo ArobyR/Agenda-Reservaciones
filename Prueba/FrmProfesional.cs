@@ -19,20 +19,9 @@ namespace AgendaCita
         {
             InitializeComponent();
             List<ProfesionProfesionalModel> lista = ProfesionalDao.GetProfesiones();
-
-
             cmbProfesion.DataSource = ProfesionalDao.GetProfesiones();
             cmbProfesion.ValueMember = "IdProfesion";
-
-            cmbProfesion.DisplayMember = "NombreProfesion";
-
-
-
-
-            //cmbProfesion.DataSource = lista.ToArray().ToString();
-            MessageBox.Show(lista[0].ToString());
-            //cmbProfesion.DisplayMember = "hola";
-    
+            cmbProfesion.DisplayMember = "NombreProfesion";    
         }
 
         private void btnExitMenuProfesional_Click(object sender, EventArgs e)
@@ -82,24 +71,10 @@ namespace AgendaCita
             dgvProfesional.Columns[1].Visible = false;
             dgvProfesional.Columns[2].HeaderText = "Nombre";
             dgvProfesional.Columns[3].HeaderText = "Apellido";
-            dgvProfesional.Columns[4].HeaderText = "Tipo de Documento";
-            dgvProfesional.Columns[5].HeaderText = "Documento";
-            dgvProfesional.Columns[6].HeaderText = "Profesion";
-
-            /* SELECT
-	                prof.id_profesional,
-                    prof.id_profesion,
-                    prof.nombre_profesional,
-                    prof.apellido_profesional,
-                    prof.tipo_documento,
-                    prof.documento,
-                    prof.nombre_profesion
-                FROM
-                    profesional as prof
-                INNER JOIN profesion ON profesional.id_profesion = profesion.id_profesion;
-            */
+            dgvProfesional.Columns[5].HeaderText = "Tipo de Documento";
+            dgvProfesional.Columns[6].HeaderText = "Documento";
+            dgvProfesional.Columns[4].HeaderText = "Profesion";
         }
-
 
         private void LimpiarCampos()
         {
@@ -110,5 +85,19 @@ namespace AgendaCita
             cmbProfesion.Text = "";
         }
 
+        private void btnCargarInformacion_Click(object sender, EventArgs e)
+        {
+            CargarDatos();
+        }
+
+        private void btnBuscarProfesional_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnEliminarProf_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

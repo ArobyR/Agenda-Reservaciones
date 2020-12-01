@@ -29,19 +29,20 @@ namespace AgendaCita
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmCita));
             this.btnCerrarVentana = new System.Windows.Forms.Button();
             this.lblTituloCitas = new System.Windows.Forms.Label();
             this.monthCalendar1 = new Pabo.Calendar.MonthCalendar();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.label7 = new System.Windows.Forms.Label();
+            this.btnBuscarCliente = new System.Windows.Forms.Button();
+            this.btnBuscarProfesional = new System.Windows.Forms.Button();
+            this.lblCliente = new System.Windows.Forms.Label();
+            this.lblNombreCliente = new System.Windows.Forms.Label();
+            this.lblCedulaCliente = new System.Windows.Forms.Label();
+            this.lblProfesional = new System.Windows.Forms.Label();
+            this.lblNombreProfesional = new System.Windows.Forms.Label();
+            this.lblProfesionProfesional = new System.Windows.Forms.Label();
+            this.btnAgendarCita = new System.Windows.Forms.Button();
+            this.btnCancelarCita = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnCerrarVentana
@@ -77,122 +78,127 @@ namespace AgendaCita
             this.monthCalendar1.Header.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
             this.monthCalendar1.Header.TextColor = System.Drawing.Color.White;
             this.monthCalendar1.ImageList = null;
-            this.monthCalendar1.Location = new System.Drawing.Point(57, 330);
+            this.monthCalendar1.Location = new System.Drawing.Point(74, 233);
             this.monthCalendar1.MaxDate = new System.DateTime(2030, 11, 27, 18, 41, 18, 174);
             this.monthCalendar1.MinDate = new System.DateTime(2010, 11, 27, 18, 41, 18, 174);
             this.monthCalendar1.Month.BackgroundImage = null;
             this.monthCalendar1.Month.DateFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.monthCalendar1.Month.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.monthCalendar1.Name = "monthCalendar1";
-            this.monthCalendar1.Size = new System.Drawing.Size(205, 179);
+            this.monthCalendar1.Size = new System.Drawing.Size(295, 219);
             this.monthCalendar1.TabIndex = 31;
             this.monthCalendar1.Weekdays.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.monthCalendar1.Weeknumbers.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             // 
-            // button1
+            // btnBuscarCliente
             // 
-            this.button1.Location = new System.Drawing.Point(186, 71);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 32;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnBuscarCliente.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscarCliente.Image")));
+            this.btnBuscarCliente.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnBuscarCliente.Location = new System.Drawing.Point(178, 58);
+            this.btnBuscarCliente.Name = "btnBuscarCliente";
+            this.btnBuscarCliente.Size = new System.Drawing.Size(122, 34);
+            this.btnBuscarCliente.TabIndex = 32;
+            this.btnBuscarCliente.Text = "Buscar";
+            this.btnBuscarCliente.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // btnBuscarProfesional
             // 
-            this.button2.Location = new System.Drawing.Point(492, 71);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 33;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnBuscarProfesional.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscarProfesional.Image")));
+            this.btnBuscarProfesional.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnBuscarProfesional.Location = new System.Drawing.Point(497, 58);
+            this.btnBuscarProfesional.Name = "btnBuscarProfesional";
+            this.btnBuscarProfesional.Size = new System.Drawing.Size(122, 34);
+            this.btnBuscarProfesional.TabIndex = 33;
+            this.btnBuscarProfesional.Text = "Buscar";
+            this.btnBuscarProfesional.UseVisualStyleBackColor = true;
             // 
-            // label1
+            // lblCliente
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(71, 71);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(46, 18);
-            this.label1.TabIndex = 34;
-            this.label1.Text = "label1";
+            this.lblCliente.AutoSize = true;
+            this.lblCliente.Location = new System.Drawing.Point(71, 58);
+            this.lblCliente.Name = "lblCliente";
+            this.lblCliente.Size = new System.Drawing.Size(57, 18);
+            this.lblCliente.TabIndex = 34;
+            this.lblCliente.Text = "Cliente:";
             // 
-            // label2
+            // lblNombreCliente
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(71, 111);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(46, 18);
-            this.label2.TabIndex = 35;
-            this.label2.Text = "label2";
+            this.lblNombreCliente.AutoSize = true;
+            this.lblNombreCliente.Location = new System.Drawing.Point(71, 111);
+            this.lblNombreCliente.Name = "lblNombreCliente";
+            this.lblNombreCliente.Size = new System.Drawing.Size(108, 18);
+            this.lblNombreCliente.TabIndex = 35;
+            this.lblNombreCliente.Text = "Nombre cliente";
             // 
-            // label3
+            // lblCedulaCliente
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(71, 155);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(46, 18);
-            this.label3.TabIndex = 36;
-            this.label3.Text = "label3";
+            this.lblCedulaCliente.AutoSize = true;
+            this.lblCedulaCliente.Location = new System.Drawing.Point(71, 155);
+            this.lblCedulaCliente.Name = "lblCedulaCliente";
+            this.lblCedulaCliente.Size = new System.Drawing.Size(54, 18);
+            this.lblCedulaCliente.TabIndex = 36;
+            this.lblCedulaCliente.Text = "Cedula";
             // 
-            // label4
+            // lblProfesional
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(375, 71);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(46, 18);
-            this.label4.TabIndex = 37;
-            this.label4.Text = "label4";
+            this.lblProfesional.AutoSize = true;
+            this.lblProfesional.Location = new System.Drawing.Point(375, 58);
+            this.lblProfesional.Name = "lblProfesional";
+            this.lblProfesional.Size = new System.Drawing.Size(87, 18);
+            this.lblProfesional.TabIndex = 37;
+            this.lblProfesional.Text = "Profesional:";
             // 
-            // label5
+            // lblNombreProfesional
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(375, 111);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(46, 18);
-            this.label5.TabIndex = 38;
-            this.label5.Text = "label5";
+            this.lblNombreProfesional.AutoSize = true;
+            this.lblNombreProfesional.Location = new System.Drawing.Point(375, 111);
+            this.lblNombreProfesional.Name = "lblNombreProfesional";
+            this.lblNombreProfesional.Size = new System.Drawing.Size(62, 18);
+            this.lblNombreProfesional.TabIndex = 38;
+            this.lblNombreProfesional.Text = "Nombre";
             // 
-            // label6
+            // lblProfesionProfesional
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(375, 155);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(46, 18);
-            this.label6.TabIndex = 39;
-            this.label6.Text = "label6";
+            this.lblProfesionProfesional.AutoSize = true;
+            this.lblProfesionProfesional.Location = new System.Drawing.Point(375, 155);
+            this.lblProfesionProfesional.Name = "lblProfesionProfesional";
+            this.lblProfesionProfesional.Size = new System.Drawing.Size(72, 18);
+            this.lblProfesionProfesional.TabIndex = 39;
+            this.lblProfesionProfesional.Text = "Profesion";
             // 
-            // comboBox1
+            // btnAgendarCita
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(378, 330);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 26);
-            this.comboBox1.TabIndex = 40;
+            this.btnAgendarCita.Location = new System.Drawing.Point(416, 233);
+            this.btnAgendarCita.Name = "btnAgendarCita";
+            this.btnAgendarCita.Size = new System.Drawing.Size(75, 31);
+            this.btnAgendarCita.TabIndex = 42;
+            this.btnAgendarCita.Text = "Agendar";
+            this.btnAgendarCita.UseVisualStyleBackColor = true;
             // 
-            // label7
+            // btnCancelarCita
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(381, 311);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(46, 18);
-            this.label7.TabIndex = 41;
-            this.label7.Text = "label7";
+            this.btnCancelarCita.Location = new System.Drawing.Point(416, 294);
+            this.btnCancelarCita.Name = "btnCancelarCita";
+            this.btnCancelarCita.Size = new System.Drawing.Size(75, 31);
+            this.btnCancelarCita.TabIndex = 43;
+            this.btnCancelarCita.Text = "Cancelar";
+            this.btnCancelarCita.UseVisualStyleBackColor = true;
             // 
             // FrmCita
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(724, 611);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnCancelarCita);
+            this.Controls.Add(this.btnAgendarCita);
+            this.Controls.Add(this.lblProfesionProfesional);
+            this.Controls.Add(this.lblNombreProfesional);
+            this.Controls.Add(this.lblProfesional);
+            this.Controls.Add(this.lblCedulaCliente);
+            this.Controls.Add(this.lblNombreCliente);
+            this.Controls.Add(this.lblCliente);
+            this.Controls.Add(this.btnBuscarProfesional);
+            this.Controls.Add(this.btnBuscarCliente);
             this.Controls.Add(this.monthCalendar1);
             this.Controls.Add(this.lblTituloCitas);
             this.Controls.Add(this.btnCerrarVentana);
@@ -210,15 +216,15 @@ namespace AgendaCita
         private System.Windows.Forms.Button btnCerrarVentana;
         private System.Windows.Forms.Label lblTituloCitas;
         private Pabo.Calendar.MonthCalendar monthCalendar1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button btnBuscarCliente;
+        private System.Windows.Forms.Button btnBuscarProfesional;
+        private System.Windows.Forms.Label lblCliente;
+        private System.Windows.Forms.Label lblNombreCliente;
+        private System.Windows.Forms.Label lblCedulaCliente;
+        private System.Windows.Forms.Label lblProfesional;
+        private System.Windows.Forms.Label lblNombreProfesional;
+        private System.Windows.Forms.Label lblProfesionProfesional;
+        private System.Windows.Forms.Button btnAgendarCita;
+        private System.Windows.Forms.Button btnCancelarCita;
     }
 }
