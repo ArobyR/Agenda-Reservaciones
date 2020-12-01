@@ -15,15 +15,12 @@ namespace AgendaCita.DAO
         MySqlCommand cmd = null; // para ejecutar la consulta
         MySqlDataReader reader = null; // para leer los datos de retorno de las consultas
 
-        // es cualquier SQL que no devuelve valores, pero en realidad 
-        // esta realizando alguna forma de trabajo como insertar, eliminar y etc..
-
         public bool InsertUsuario (ClienteModel model)
         {
             //Guid IdUsuarioGuid = new Guid(); guid = Guid.NewGuid("N").Substring(0, 15);
             string IdUsuarioGuid = Guid.NewGuid().ToString("N");
             model.IdUsuario = IdUsuarioGuid.ToString();
-            string query = $@"INSERT INTO usuario (id_usuario, nombre_usuario, apellido_usuario, tipo_doc, documento)
+            string query = $@"INSERT INTO usuario (id_usuario, nombre_usuario, apellido_usuario, tipo_documento, documento)
                              VALUES ('{model.IdUsuario}', '{model.NombreUsuario}', '{model.ApellidoUsuario}', '{model.TipoDoc}', '{model.Documento}')";
 
             Commands.ExecuteNonQuery(query);
@@ -38,14 +35,14 @@ namespace AgendaCita.DAO
 
         public List<ClienteModel> ReadUsuario(string document)
         {
-            string query = $"SELECT id_usuario, nombre_usuario, apellido_usuario, tipo_doc, documento FROM usuario WHERE documento = '{document}' LIMIT 1";
+            string query = $"SELECT id_usuario, nombre_usuario, apellido_usuario, tipo_documento, documento FROM usuario WHERE documento = '{document}' LIMIT 1";
 
             return Commands.Query<ClienteModel>(query);
         }
 
         public bool UpdateUsuario(ClienteModel model)
         {
-            string query = $"UPDATE usuario SET nombre_usuario='{model.NombreUsuario}', apellido_usuario='{model.ApellidoUsuario}', tipo_doc='{model.TipoDoc}', documento='{model.Documento}' WHERE documento='{model.Documento}'";
+            string query = $"UPDATE usuario SET nombre_usuario='{model.NombreUsuario}', apellido_usuario='{model.ApellidoUsuario}', tipo_documento='{model.TipoDoc}', documento='{model.Documento}' WHERE documento='{model.Documento}'";
             Commands.ExecuteNonQuery(query);
 
             foreach (TelefonoClienteModel item in model.Telefonos)
@@ -58,7 +55,7 @@ namespace AgendaCita.DAO
 
         public bool DeleteUser (string id)
         {
-            string query = $"DELETE FROM usuario WHERE documento = '{id}'";
+            string query = $"DELETE FROM usuario WHERE documento = '{id}';";
             return Commands.ExecuteNonQuery(query);
         }
 
@@ -66,12 +63,12 @@ namespace AgendaCita.DAO
         {
             string  query = $"SELECT * FROM usuario;";
             var ClienteList = Commands.Query<ClienteModel>(query);
-
+            
             foreach(var item in ClienteList)
             {
                 item.Telefonos = GetTelefonoClientes(item.IdUsuario);
             }
-
+            
             return ClienteList;
         }
 

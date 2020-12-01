@@ -47,7 +47,6 @@
             this.btnModificarInformacion = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.txtDocumentoProfesional = new System.Windows.Forms.TextBox();
             this.cmbTipoDocumentoProfesional = new System.Windows.Forms.ComboBox();
             this.dgvTelefono = new System.Windows.Forms.DataGridView();
             this.Tipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -56,10 +55,21 @@
             this.button2 = new System.Windows.Forms.Button();
             this.lblTipoNumero = new System.Windows.Forms.Label();
             this.lblNumero = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cmbTipoTelefono = new System.Windows.Forms.ComboBox();
             this.txtNumeroProfesional = new System.Windows.Forms.TextBox();
+            this.chkLunes = new System.Windows.Forms.CheckBox();
+            this.chkMartes = new System.Windows.Forms.CheckBox();
+            this.chkMiercoles = new System.Windows.Forms.CheckBox();
+            this.chkJueves = new System.Windows.Forms.CheckBox();
+            this.chkViernes = new System.Windows.Forms.CheckBox();
+            this.chkSabado = new System.Windows.Forms.CheckBox();
+            this.chkDomingo = new System.Windows.Forms.CheckBox();
+            this.chkLunVie = new System.Windows.Forms.CheckBox();
+            this.txtDocumentoProfesional = new System.Windows.Forms.TextBox();
+            this.pnlCheckboxes = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProfesional)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTelefono)).BeginInit();
+            this.pnlCheckboxes.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnExitMenuProfesional
@@ -241,13 +251,6 @@
             this.label2.TabIndex = 34;
             this.label2.Text = "Documento:";
             // 
-            // txtDocumentoProfesional
-            // 
-            this.txtDocumentoProfesional.Location = new System.Drawing.Point(120, 164);
-            this.txtDocumentoProfesional.Name = "txtDocumentoProfesional";
-            this.txtDocumentoProfesional.Size = new System.Drawing.Size(199, 23);
-            this.txtDocumentoProfesional.TabIndex = 35;
-            // 
             // cmbTipoDocumentoProfesional
             // 
             this.cmbTipoDocumentoProfesional.FormattingEnabled = true;
@@ -321,16 +324,16 @@
             this.lblNumero.TabIndex = 41;
             this.lblNumero.Text = "Numero:";
             // 
-            // comboBox1
+            // cmbTipoTelefono
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.cmbTipoTelefono.FormattingEnabled = true;
+            this.cmbTipoTelefono.Items.AddRange(new object[] {
             "Celular",
             "Residencial"});
-            this.comboBox1.Location = new System.Drawing.Point(426, 150);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 25);
-            this.comboBox1.TabIndex = 42;
+            this.cmbTipoTelefono.Location = new System.Drawing.Point(426, 150);
+            this.cmbTipoTelefono.Name = "cmbTipoTelefono";
+            this.cmbTipoTelefono.Size = new System.Drawing.Size(121, 25);
+            this.cmbTipoTelefono.TabIndex = 42;
             // 
             // txtNumeroProfesional
             // 
@@ -339,20 +342,124 @@
             this.txtNumeroProfesional.Size = new System.Drawing.Size(137, 23);
             this.txtNumeroProfesional.TabIndex = 43;
             // 
+            // chkLunes
+            // 
+            this.chkLunes.AutoSize = true;
+            this.chkLunes.Location = new System.Drawing.Point(3, 4);
+            this.chkLunes.Name = "chkLunes";
+            this.chkLunes.Size = new System.Drawing.Size(66, 21);
+            this.chkLunes.TabIndex = 45;
+            this.chkLunes.Text = "Lunes";
+            this.chkLunes.UseVisualStyleBackColor = true;
+            // 
+            // chkMartes
+            // 
+            this.chkMartes.AutoSize = true;
+            this.chkMartes.Location = new System.Drawing.Point(75, 5);
+            this.chkMartes.Name = "chkMartes";
+            this.chkMartes.Size = new System.Drawing.Size(70, 21);
+            this.chkMartes.TabIndex = 47;
+            this.chkMartes.Text = "Martes";
+            this.chkMartes.UseVisualStyleBackColor = true;
+            // 
+            // chkMiercoles
+            // 
+            this.chkMiercoles.AutoSize = true;
+            this.chkMiercoles.Location = new System.Drawing.Point(151, 4);
+            this.chkMiercoles.Name = "chkMiercoles";
+            this.chkMiercoles.Size = new System.Drawing.Size(87, 21);
+            this.chkMiercoles.TabIndex = 48;
+            this.chkMiercoles.Text = "Miercoles";
+            this.chkMiercoles.UseVisualStyleBackColor = true;
+            // 
+            // chkJueves
+            // 
+            this.chkJueves.AutoSize = true;
+            this.chkJueves.Location = new System.Drawing.Point(3, 32);
+            this.chkJueves.Name = "chkJueves";
+            this.chkJueves.Size = new System.Drawing.Size(72, 21);
+            this.chkJueves.TabIndex = 49;
+            this.chkJueves.Text = "Jueves";
+            this.chkJueves.UseVisualStyleBackColor = true;
+            // 
+            // chkViernes
+            // 
+            this.chkViernes.AutoSize = true;
+            this.chkViernes.Location = new System.Drawing.Point(82, 32);
+            this.chkViernes.Name = "chkViernes";
+            this.chkViernes.Size = new System.Drawing.Size(75, 21);
+            this.chkViernes.TabIndex = 50;
+            this.chkViernes.Text = "Viernes";
+            this.chkViernes.UseVisualStyleBackColor = true;
+            // 
+            // chkSabado
+            // 
+            this.chkSabado.AutoSize = true;
+            this.chkSabado.Location = new System.Drawing.Point(163, 32);
+            this.chkSabado.Name = "chkSabado";
+            this.chkSabado.Size = new System.Drawing.Size(76, 21);
+            this.chkSabado.TabIndex = 51;
+            this.chkSabado.Text = "Sabado";
+            this.chkSabado.UseVisualStyleBackColor = true;
+            // 
+            // chkDomingo
+            // 
+            this.chkDomingo.AutoSize = true;
+            this.chkDomingo.Location = new System.Drawing.Point(3, 60);
+            this.chkDomingo.Name = "chkDomingo";
+            this.chkDomingo.Size = new System.Drawing.Size(83, 21);
+            this.chkDomingo.TabIndex = 52;
+            this.chkDomingo.Text = "Domingo";
+            this.chkDomingo.UseVisualStyleBackColor = true;
+            // 
+            // chkLunVie
+            // 
+            this.chkLunVie.AutoSize = true;
+            this.chkLunVie.Location = new System.Drawing.Point(93, 60);
+            this.chkLunVie.Name = "chkLunVie";
+            this.chkLunVie.Size = new System.Drawing.Size(76, 21);
+            this.chkLunVie.TabIndex = 53;
+            this.chkLunVie.Text = "Lun-Vie";
+            this.chkLunVie.UseVisualStyleBackColor = true;
+            this.chkLunVie.CheckedChanged += new System.EventHandler(this.chkLunVie_CheckedChanged);
+            // 
+            // txtDocumentoProfesional
+            // 
+            this.txtDocumentoProfesional.Location = new System.Drawing.Point(121, 167);
+            this.txtDocumentoProfesional.Name = "txtDocumentoProfesional";
+            this.txtDocumentoProfesional.Size = new System.Drawing.Size(198, 23);
+            this.txtDocumentoProfesional.TabIndex = 54;
+            // 
+            // pnlCheckboxes
+            // 
+            this.pnlCheckboxes.Controls.Add(this.chkLunes);
+            this.pnlCheckboxes.Controls.Add(this.chkMartes);
+            this.pnlCheckboxes.Controls.Add(this.chkLunVie);
+            this.pnlCheckboxes.Controls.Add(this.chkMiercoles);
+            this.pnlCheckboxes.Controls.Add(this.chkDomingo);
+            this.pnlCheckboxes.Controls.Add(this.chkJueves);
+            this.pnlCheckboxes.Controls.Add(this.chkSabado);
+            this.pnlCheckboxes.Controls.Add(this.chkViernes);
+            this.pnlCheckboxes.Location = new System.Drawing.Point(458, 41);
+            this.pnlCheckboxes.Name = "pnlCheckboxes";
+            this.pnlCheckboxes.Size = new System.Drawing.Size(248, 88);
+            this.pnlCheckboxes.TabIndex = 55;
+            // 
             // FrmProfesional
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(741, 614);
+            this.Controls.Add(this.pnlCheckboxes);
+            this.Controls.Add(this.txtDocumentoProfesional);
             this.Controls.Add(this.txtNumeroProfesional);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.cmbTipoTelefono);
             this.Controls.Add(this.lblNumero);
             this.Controls.Add(this.lblTipoNumero);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.dgvTelefono);
             this.Controls.Add(this.cmbTipoDocumentoProfesional);
-            this.Controls.Add(this.txtDocumentoProfesional);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnModificarInformacion);
@@ -378,6 +485,8 @@
             this.Text = "Profesional";
             ((System.ComponentModel.ISupportInitialize)(this.dgvProfesional)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTelefono)).EndInit();
+            this.pnlCheckboxes.ResumeLayout(false);
+            this.pnlCheckboxes.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -404,7 +513,6 @@
         private System.Windows.Forms.Button btnModificarInformacion;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtDocumentoProfesional;
         private System.Windows.Forms.ComboBox cmbTipoDocumentoProfesional;
         private System.Windows.Forms.DataGridView dgvTelefono;
         private System.Windows.Forms.DataGridViewTextBoxColumn Tipo;
@@ -413,7 +521,17 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label lblTipoNumero;
         private System.Windows.Forms.Label lblNumero;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cmbTipoTelefono;
         private System.Windows.Forms.TextBox txtNumeroProfesional;
+        private System.Windows.Forms.CheckBox chkLunes;
+        private System.Windows.Forms.CheckBox chkMartes;
+        private System.Windows.Forms.CheckBox chkMiercoles;
+        private System.Windows.Forms.CheckBox chkJueves;
+        private System.Windows.Forms.CheckBox chkViernes;
+        private System.Windows.Forms.CheckBox chkSabado;
+        private System.Windows.Forms.CheckBox chkDomingo;
+        private System.Windows.Forms.CheckBox chkLunVie;
+        private System.Windows.Forms.TextBox txtDocumentoProfesional;
+        private System.Windows.Forms.Panel pnlCheckboxes;
     }
 }

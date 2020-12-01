@@ -60,7 +60,6 @@ namespace AgendaCita
             else
             {
                 MessageBox.Show("Su consulta ha fallado.");
-
             }
         }
 
@@ -97,7 +96,54 @@ namespace AgendaCita
 
         private void btnEliminarProf_Click(object sender, EventArgs e)
         {
-
+            // more validation
+            if(txtDocumentoProfesional.Text == "" || txtDocumentoProfesional.Text == null)
+            {
+                MessageBox.Show("Rellene todos los campos... Joder!");
+                return;
+            }
+            string DocumentoProfesional = txtDocumentoProfesional.Text;
+            if(ProfesionalDao.DeleteProfesional(DocumentoProfesional))
+            {
+                MessageBox.Show("Eliminado correctamente.");
+                LimpiarCampos();
+            }
+            else if (!ProfesionalDao.DeleteProfesional(DocumentoProfesional))
+            {
+                MessageBox.Show("Dato no encontrado");
+            }
         }
+
+        private void Checkboxes (CheckBox chk)
+        {
+            UnCheckAllCheckboxes(chk);
+
+            if (chkLunVie.Checked)
+            {
+                chkLunes.Checked = true;
+                chkMartes.Checked = true;
+                chkMiercoles.Checked = true;
+                chkJueves.Checked = true;
+                chkViernes.Checked = true;
+            }
+        }
+
+        private void chkLunVie_CheckedChanged(object sender, EventArgs e)
+        {
+            Checkboxes((CheckBox)sender);
+        }
+
+        private void UnCheckAllCheckboxes(CheckBox chk)
+        {
+            foreach (var item in pnlCheckboxes.Controls)
+            {
+                if (item.GetType() == typeof(CheckBox))
+                {
+                    if (((CheckBox)item).Name.Equals(chk.Name))
+                        continue;
+                    ((CheckBox)item).Checked = false;
+                }
+            }
+        } 
     }
 }

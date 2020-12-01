@@ -16,8 +16,8 @@ namespace AgendaCita.DAO
             string IdProfesionalGuid = Guid.NewGuid().ToString("N");
             model.IdProfesional = IdProfesionalGuid;
 
-            string query = $@"INSERT INTO profesional(id_profesional, , nombre_profesional, apellido_profesional, tipo_documento, documento, profesion)
-                VALUES('{model.IdProfesional}', '{model.NombreProfesional}', '{model.ApellidoProfesional}', '{model.TipoDocumento}', '{model.Documento}', '{model.IdProfesion}')";
+            string query = $@"INSERT INTO profesional(id_profesional, id_profesion, nombre_profesional, apellido_profesional, tipo_documento, documento)
+                VALUES('{model.IdProfesional}','{model.IdProfesion}', '{model.NombreProfesional}', '{model.ApellidoProfesional}', '{model.TipoDocumento}', '{model.Documento}')";
          
             Commands.ExecuteNonQuery(query);
 
@@ -36,9 +36,9 @@ namespace AgendaCita.DAO
             return Commands.ExecuteNonQuery(query);
         }
 
-        public bool Delete(string id)
+        public bool DeleteProfesional(string id)
         {
-            string query = $"DELETE FROM profesional WHERE documento={id}";
+            string query = $"DELETE FROM profesional WHERE documento='{id}'";
             return Commands.ExecuteNonQuery(query);
         }
 

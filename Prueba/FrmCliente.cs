@@ -15,9 +15,7 @@ namespace AgendaCita
     public partial class FrmCliente : Form
     {
         ClienteDAO ClienteDao = new ClienteDAO();
-       // DataTable ClienteDatos;
        
-
         public FrmCliente()
         {
             InitializeComponent();
@@ -64,16 +62,9 @@ namespace AgendaCita
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            string value = txtDocumentoUsuario.Text;
-            List<ClienteModel> Lista = ClienteDao.ReadUsuario(value);
-
-            if (Lista != null)
-            {
-
-                txtNombreUsuario.Text = Lista.ToArray().ToString(); ;
-                //txtApellidoUsuario.Text = Lista[2].ToString();
-                //cmbTipoDocumento.Text = Lista[3].ToString();
-            }
+            string document = txtDocumentoUsuario.Text;
+            List<ClienteModel> Lista = ClienteDao.ReadUsuario(document);
+            DgvUsuario.DataSource = Lista;
         }
 
         private void btnActualizar_Click(object sender, EventArgs e)
@@ -92,11 +83,18 @@ namespace AgendaCita
                 {
                     continue;
                 }
-                var telefono = new TelefonoClienteModel(); 
+                var telefono = new TelefonoClienteModel();
                 telefono.Tipo = item.Cells[0].Value.ToString();
-                telefono.Telefono = item.Cells[1].Value.ToString(); 
-                model.Telefonos.Add(telefono);  
+                telefono.Telefono = item.Cells[1].Value.ToString();
+                model.Telefonos.Add(telefono);
             }
+            //small validation
+            if (txtDocumentoUsuario.Text == "" || txtNombreUsuario.Text == "" || txtApellidoUsuario.Text == "")
+            {
+                MessageBox.Show("Rellene los campos... Joder!!!");
+                return;
+            }
+
             if (ClienteDao.UpdateUsuario(model))
             {
                 MessageBox.Show("Registro actualizado con exito.");
@@ -117,14 +115,17 @@ namespace AgendaCita
                 return;
             }
      
-            string DocumentoUsuario = txtDocumentoUsuario.Text;
+            string DocumentoUsuario = txtDocumentoUsuario.Text.ToString();
             if(ClienteDao.DeleteUser(DocumentoUsuario))
             {
                 MessageBox.Show("Eliminado correctamente.");
                 LimpiarCampos();
             }
+
+            
             else if (!ClienteDao.DeleteUser(DocumentoUsuario))
             {
+                ClienteDao.DeleteUser(DocumentoUsuario);
                 MensajesInfaz("Dato no encontrado!", "Red");
                 MessageBox.Show("Dato no encontrado.");
 
