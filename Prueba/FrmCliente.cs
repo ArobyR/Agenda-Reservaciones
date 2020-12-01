@@ -99,6 +99,7 @@ namespace AgendaCita
             {
                 MessageBox.Show("Registro actualizado con exito.");
                 LimpiarCampos();
+                CargarDatos();
             }
             else
             {
@@ -120,9 +121,10 @@ namespace AgendaCita
             {
                 MessageBox.Show("Eliminado correctamente.");
                 LimpiarCampos();
+                CargarDatos();
             }
 
-            
+
             else if (!ClienteDao.DeleteUser(DocumentoUsuario))
             {
                 ClienteDao.DeleteUser(DocumentoUsuario);
@@ -215,7 +217,7 @@ namespace AgendaCita
                 cmbTipoNumeroCliente.Text = "";
             }
             //update number
-            if(btnAgregarNumero.Text.Equals("Acualizar"))
+            if(btnAgregarNumero.Text.Equals("Actualizar"))
             {
                 dgvTelefono.Rows.RemoveAt(dgvTelefono.CurrentRow.Index);
                 this.dgvTelefono.Rows.Add(cmbTipoNumeroCliente.Text, txtNumeroUsuario.Text);
@@ -225,7 +227,15 @@ namespace AgendaCita
 
         private void btnRemoverTelefono_Click(object sender, EventArgs e)
         {
+            if (dgvTelefono.Rows.Count != 0)
+                dgvTelefono.Rows.RemoveAt(dgvTelefono.CurrentRow.Index);
+        }
 
+        private void dgvTelefono_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            btnAgregarNumero.Text = "Actualizar";
+            cmbTipoNumeroCliente.Text = dgvTelefono.CurrentRow.Cells[0].Value.ToString();
+            txtNumeroUsuario.Text = dgvTelefono.CurrentRow.Cells[1].Value.ToString();
         }
     }
 }

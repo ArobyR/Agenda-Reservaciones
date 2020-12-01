@@ -259,10 +259,12 @@
             this.Controls.Add(this.panelChildForm);
             this.Controls.Add(this.panelSideMenu);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
             this.Margin = new System.Windows.Forms.Padding(4);
-            this.MinimumSize = new System.Drawing.Size(900, 600);
+            this.MaximizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(990, 600);
             this.Name = "Formulario";
             this.Text = "Agenda De Citas";
             this.panelSideMenu.ResumeLayout(false);

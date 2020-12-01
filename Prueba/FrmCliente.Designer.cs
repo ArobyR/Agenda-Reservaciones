@@ -245,6 +245,7 @@
             this.dgvTelefono.ReadOnly = true;
             this.dgvTelefono.Size = new System.Drawing.Size(266, 69);
             this.dgvTelefono.TabIndex = 27;
+            this.dgvTelefono.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTelefono_CellContentDoubleClick);
             // 
             // TipoTelefono
             // 
