@@ -52,7 +52,7 @@
             this.btnCargarInformacion = new System.Windows.Forms.Button();
             this.lblTipoNumero = new System.Windows.Forms.Label();
             this.lblNumero = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtNumeroUsuario = new System.Windows.Forms.TextBox();
             this.cmbTipoNumeroCliente = new System.Windows.Forms.ComboBox();
             this.btnAgregarNumero = new System.Windows.Forms.Button();
             this.btnRemoverTelefono = new System.Windows.Forms.Button();
@@ -198,7 +198,7 @@
             // btnLimpiar
             // 
             this.btnLimpiar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
-            this.btnLimpiar.Location = new System.Drawing.Point(480, 298);
+            this.btnLimpiar.Location = new System.Drawing.Point(480, 299);
             this.btnLimpiar.Margin = new System.Windows.Forms.Padding(5);
             this.btnLimpiar.Name = "btnLimpiar";
             this.btnLimpiar.Size = new System.Drawing.Size(81, 35);
@@ -265,7 +265,7 @@
             // 
             this.lblMensaje.AutoSize = true;
             this.lblMensaje.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Bold);
-            this.lblMensaje.Location = new System.Drawing.Point(267, 232);
+            this.lblMensaje.Location = new System.Drawing.Point(268, 243);
             this.lblMensaje.Name = "lblMensaje";
             this.lblMensaje.Size = new System.Drawing.Size(0, 20);
             this.lblMensaje.TabIndex = 28;
@@ -318,12 +318,12 @@
             this.lblNumero.TabIndex = 33;
             this.lblNumero.Text = "Numero:";
             // 
-            // textBox1
+            // txtNumeroUsuario
             // 
-            this.textBox1.Location = new System.Drawing.Point(492, 111);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(201, 23);
-            this.textBox1.TabIndex = 34;
+            this.txtNumeroUsuario.Location = new System.Drawing.Point(492, 111);
+            this.txtNumeroUsuario.Name = "txtNumeroUsuario";
+            this.txtNumeroUsuario.Size = new System.Drawing.Size(201, 23);
+            this.txtNumeroUsuario.TabIndex = 34;
             // 
             // cmbTipoNumeroCliente
             // 
@@ -344,6 +344,7 @@
             this.btnAgregarNumero.TabIndex = 36;
             this.btnAgregarNumero.Text = "Agregar";
             this.btnAgregarNumero.UseVisualStyleBackColor = true;
+            this.btnAgregarNumero.Click += new System.EventHandler(this.btnAgregarNumero_Click);
             // 
             // btnRemoverTelefono
             // 
@@ -353,6 +354,7 @@
             this.btnRemoverTelefono.TabIndex = 37;
             this.btnRemoverTelefono.Text = "Remover Tel.";
             this.btnRemoverTelefono.UseVisualStyleBackColor = true;
+            this.btnRemoverTelefono.Click += new System.EventHandler(this.btnRemoverTelefono_Click);
             // 
             // FrmCliente
             // 
@@ -362,7 +364,7 @@
             this.Controls.Add(this.btnRemoverTelefono);
             this.Controls.Add(this.btnAgregarNumero);
             this.Controls.Add(this.cmbTipoNumeroCliente);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtNumeroUsuario);
             this.Controls.Add(this.lblNumero);
             this.Controls.Add(this.lblTipoNumero);
             this.Controls.Add(this.btnCargarInformacion);
@@ -421,7 +423,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Numero;
         private System.Windows.Forms.Label lblTipoNumero;
         private System.Windows.Forms.Label lblNumero;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtNumeroUsuario;
         private System.Windows.Forms.ComboBox cmbTipoNumeroCliente;
         private System.Windows.Forms.Button btnAgregarNumero;
         private System.Windows.Forms.Button btnRemoverTelefono;

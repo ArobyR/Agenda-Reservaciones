@@ -68,7 +68,6 @@ namespace AgendaCita.DAO
             {
                 item.Telefonos = GetTelefonoClientesDataSource(item.IdUsuario);
             }
-            
             return ClienteList;
         }
 

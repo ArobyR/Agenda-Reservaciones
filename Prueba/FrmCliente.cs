@@ -141,6 +141,8 @@ namespace AgendaCita
         {
             txtNombreUsuario.Text = "";
             txtApellidoUsuario.Text = "";
+            txtNumeroUsuario.Text = "";
+            cmbTipoNumeroCliente.Text = "";
             txtDocumentoUsuario.Text = "";
             cmbTipoDocumento.Text = "";
             dgvTelefono.Rows.Clear();
@@ -162,7 +164,6 @@ namespace AgendaCita
             {
                 lblMensaje.ForeColor = Color.Green;
             }
-            
         }
 
         private void btnCargarInformacion_Click(object sender, EventArgs e)
@@ -193,6 +194,37 @@ namespace AgendaCita
             
             dgvTelefono.DataSource = ClienteDao.GetTelefonoClientesDataSource(value);
             dgvTelefono.Columns[0].Visible = false;
+
+        }
+
+        private void btnAgregarNumero_Click(object sender, EventArgs e)
+        {
+            //validation
+            if(btnAgregarNumero.Text.Equals("Agregar"))
+            {
+                foreach (DataGridViewRow item in dgvTelefono.Rows)
+                {
+                    if (txtNumeroUsuario.Text.Equals(item.Cells["numero"].Value.ToString()))
+                    {
+                        return;
+                    }
+                    else if (txtNumeroUsuario.Text == "" || cmbTipoNumeroCliente.Text == "")  return;
+                }
+                this.dgvTelefono.Rows.Add(cmbTipoNumeroCliente.Text, txtNumeroUsuario.Text);
+                txtNumeroUsuario.Text = "";
+                cmbTipoNumeroCliente.Text = "";
+            }
+            //update number
+            if(btnAgregarNumero.Text.Equals("Acualizar"))
+            {
+                dgvTelefono.Rows.RemoveAt(dgvTelefono.CurrentRow.Index);
+                this.dgvTelefono.Rows.Add(cmbTipoNumeroCliente.Text, txtNumeroUsuario.Text);
+                btnAgregarNumero.Text = "Agregar";
+            }
+        }
+
+        private void btnRemoverTelefono_Click(object sender, EventArgs e)
+        {
 
         }
     }
