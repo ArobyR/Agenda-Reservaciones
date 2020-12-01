@@ -85,7 +85,7 @@ namespace AgendaCita
             txtNombreProfesional.Text = dgvProfesional.CurrentRow.Cells[0].Value.ToString();
             txtApellidoProfesional.Text = dgvProfesional.CurrentRow.Cells[1].Value.ToString();
             cmbTipoDocumentoProfesional.Text = dgvProfesional.CurrentRow.Cells[3].Value.ToString();
-            txtDocumentoProfesional.Text = dgvProfesional.CurrentRow.Cells[4].Value.ToString();
+            //txtDocumentoProfesional.Text = dgvProfesional.CurrentRow.Cells[4].Value.ToString();
 
             // ------------------------------  traer dias de disponibilidad y telefonos ---------------------------
             string id_profesional = dgvProfesional.CurrentRow.Cells[1].Value.ToString();

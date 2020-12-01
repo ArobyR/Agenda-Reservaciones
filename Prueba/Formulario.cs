@@ -56,7 +56,7 @@ namespace AgendaCita
             if (activateForm != null)
             {
                 activateForm.Close();
-                //activateForm.Dispose();
+                activateForm.Dispose();
             }
             activateForm = childForm;
             childForm.TopLevel = false;

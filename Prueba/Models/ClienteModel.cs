@@ -11,7 +11,7 @@ namespace AgendaCita.Models
         public string IdUsuario { get; set; }
         public string NombreUsuario { get; set; }
         public string ApellidoUsuario { get; set; }
-        public string TipoDoc { get; set; } /* Tipo documento */
+        public string TipoDocumento { get; set; } /* Tipo documento */
         public string Documento { get; set; }
 
         public List<TelefonoClienteModel> Telefonos { get; set; }

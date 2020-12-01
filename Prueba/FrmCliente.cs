@@ -31,7 +31,7 @@ namespace AgendaCita
             ClienteModel model = new ClienteModel();
             model.NombreUsuario = txtNombreUsuario.Text;
             model.ApellidoUsuario = txtApellidoUsuario.Text;
-            model.TipoDoc = cmbTipoDocumento.SelectedItem.ToString();
+            model.TipoDocumento = cmbTipoDocumento.SelectedItem.ToString();
             model.Documento = txtDocumentoUsuario.Text;
 
             model.Telefonos = new List<TelefonoClienteModel>(); 
@@ -47,7 +47,8 @@ namespace AgendaCita
                 telefono.Telefono = item.Cells[1].Value.ToString(); // numero de telefono
                 model.Telefonos.Add(telefono);  // agregando propiedades 
             }
-            // validacion de campos pendiente
+            // tienes que modificar algunas cosas, validacion de que se ha insertado correctamente
+            // validacion de campos
             if (ClienteDao.InsertUsuario(model)) 
             {
                 MessageBox.Show("Registro realizado correctamente.");
@@ -71,7 +72,7 @@ namespace AgendaCita
             ClienteModel model = new ClienteModel();
             model.NombreUsuario = txtNombreUsuario.Text;
             model.ApellidoUsuario = txtApellidoUsuario.Text;
-            model.TipoDoc = cmbTipoDocumento.SelectedItem.ToString();
+            model.TipoDocumento = cmbTipoDocumento.SelectedItem.ToString();
             model.Documento = txtDocumentoUsuario.Text;
 
             model.Telefonos = new List<TelefonoClienteModel>();
