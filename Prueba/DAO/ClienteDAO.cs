@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
 using AgendaCita.Models;
-using AgendaCita; // to create the validation in the future?
+using AgendaCita; 
 
 namespace AgendaCita.DAO
 {
@@ -66,7 +66,7 @@ namespace AgendaCita.DAO
             
             foreach(var item in ClienteList)
             {
-                item.Telefonos = GetTelefonoClientes(item.IdUsuario);
+                item.Telefonos = GetTelefonoClientesDataSource(item.IdUsuario);
             }
             
             return ClienteList;
@@ -74,7 +74,7 @@ namespace AgendaCita.DAO
 
         public List<TelefonoClienteModel> GetTelefonoClientes(string id)
         {
-            string query = $"SELECT id_usuario, telefono, tipo FROM telefono_usuario WHERE id_usuario = '{id}';";
+            string query = $"SELECT id_usuario, telefono, tipo FROM telefono_usuario WHERE id_usuario = '{id}'";
             return Commands.Query<TelefonoClienteModel>(query);
         }
 

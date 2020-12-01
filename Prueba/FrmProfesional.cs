@@ -75,6 +75,25 @@ namespace AgendaCita
             dgvProfesional.Columns[4].HeaderText = "Profesion";
         }
 
+        private void btnCargarInformacion_Click(object sender, EventArgs e)
+        {
+            CargarDatos();
+        }
+
+        private void btnModificarInformacion_Click(object sender, EventArgs e)
+        {
+            txtNombreProfesional.Text = dgvProfesional.CurrentRow.Cells[0].Value.ToString();
+            txtApellidoProfesional.Text = dgvProfesional.CurrentRow.Cells[1].Value.ToString();
+            cmbTipoDocumentoProfesional.Text = dgvProfesional.CurrentRow.Cells[3].Value.ToString();
+            txtDocumentoProfesional.Text = dgvProfesional.CurrentRow.Cells[4].Value.ToString();
+
+            // ------------------------------  traer dias de disponibilidad y telefonos ---------------------------
+            string id_profesional = dgvProfesional.CurrentRow.Cells[1].Value.ToString();
+            List<TelefonoProfesionalModel> Lista = ProfesionalDao.GetTelefonoProfesional(id_profesional);
+            dgvTelefono.Columns[1].Visible = false;
+            dgvTelefono.DataSource = ProfesionalDao.GetTelefonoProfesional(id_profesional);
+        }
+
         private void LimpiarCampos()
         {
             txtNombreProfesional.Text = "";
@@ -84,10 +103,6 @@ namespace AgendaCita
             cmbProfesion.Text = "";
         }
 
-        private void btnCargarInformacion_Click(object sender, EventArgs e)
-        {
-            CargarDatos();
-        }
 
         private void btnBuscarProfesional_Click(object sender, EventArgs e)
         {
@@ -144,6 +159,6 @@ namespace AgendaCita
                     ((CheckBox)item).Checked = false;
                 }
             }
-        } 
+        }
     }
 }

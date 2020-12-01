@@ -177,7 +177,7 @@
             this.btnActualizar.Location = new System.Drawing.Point(249, 298);
             this.btnActualizar.Margin = new System.Windows.Forms.Padding(5);
             this.btnActualizar.Name = "btnActualizar";
-            this.btnActualizar.Size = new System.Drawing.Size(81, 35);
+            this.btnActualizar.Size = new System.Drawing.Size(81, 33);
             this.btnActualizar.TabIndex = 15;
             this.btnActualizar.Text = "Actualizar";
             this.btnActualizar.UseVisualStyleBackColor = true;
@@ -234,14 +234,16 @@
             // 
             // dgvTelefono
             // 
+            this.dgvTelefono.AllowUserToAddRows = false;
             this.dgvTelefono.AllowUserToDeleteRows = false;
             this.dgvTelefono.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvTelefono.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.TipoTelefono,
             this.Numero});
-            this.dgvTelefono.Location = new System.Drawing.Point(409, 146);
+            this.dgvTelefono.Location = new System.Drawing.Point(427, 146);
             this.dgvTelefono.Name = "dgvTelefono";
-            this.dgvTelefono.Size = new System.Drawing.Size(262, 69);
+            this.dgvTelefono.ReadOnly = true;
+            this.dgvTelefono.Size = new System.Drawing.Size(266, 69);
             this.dgvTelefono.TabIndex = 27;
             // 
             // TipoTelefono
@@ -249,6 +251,7 @@
             this.TipoTelefono.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.TipoTelefono.HeaderText = "Tipo";
             this.TipoTelefono.Name = "TipoTelefono";
+            this.TipoTelefono.ReadOnly = true;
             this.TipoTelefono.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             // 
             // Numero
@@ -256,6 +259,7 @@
             this.Numero.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.Numero.HeaderText = "Numero";
             this.Numero.Name = "Numero";
+            this.Numero.ReadOnly = true;
             // 
             // lblMensaje
             // 
@@ -278,7 +282,7 @@
             // 
             // btnModificar
             // 
-            this.btnModificar.Location = new System.Drawing.Point(590, 299);
+            this.btnModificar.Location = new System.Drawing.Point(612, 298);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(81, 35);
             this.btnModificar.TabIndex = 30;
@@ -299,7 +303,7 @@
             // lblTipoNumero
             // 
             this.lblTipoNumero.AutoSize = true;
-            this.lblTipoNumero.Location = new System.Drawing.Point(406, 74);
+            this.lblTipoNumero.Location = new System.Drawing.Point(424, 74);
             this.lblTipoNumero.Name = "lblTipoNumero";
             this.lblTipoNumero.Size = new System.Drawing.Size(40, 17);
             this.lblTipoNumero.TabIndex = 32;
@@ -308,7 +312,7 @@
             // lblNumero
             // 
             this.lblNumero.AutoSize = true;
-            this.lblNumero.Location = new System.Drawing.Point(406, 113);
+            this.lblNumero.Location = new System.Drawing.Point(424, 111);
             this.lblNumero.Name = "lblNumero";
             this.lblNumero.Size = new System.Drawing.Size(62, 17);
             this.lblNumero.TabIndex = 33;
@@ -316,7 +320,7 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(470, 111);
+            this.textBox1.Location = new System.Drawing.Point(492, 111);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(201, 23);
             this.textBox1.TabIndex = 34;
@@ -327,14 +331,14 @@
             this.cmbTipoNumeroCliente.Items.AddRange(new object[] {
             "Celular",
             "Residencial"});
-            this.cmbTipoNumeroCliente.Location = new System.Drawing.Point(470, 71);
+            this.cmbTipoNumeroCliente.Location = new System.Drawing.Point(492, 71);
             this.cmbTipoNumeroCliente.Name = "cmbTipoNumeroCliente";
             this.cmbTipoNumeroCliente.Size = new System.Drawing.Size(201, 24);
             this.cmbTipoNumeroCliente.TabIndex = 35;
             // 
             // btnAgregarNumero
             // 
-            this.btnAgregarNumero.Location = new System.Drawing.Point(409, 243);
+            this.btnAgregarNumero.Location = new System.Drawing.Point(480, 243);
             this.btnAgregarNumero.Name = "btnAgregarNumero";
             this.btnAgregarNumero.Size = new System.Drawing.Size(81, 35);
             this.btnAgregarNumero.TabIndex = 36;
@@ -343,7 +347,7 @@
             // 
             // btnRemoverTelefono
             // 
-            this.btnRemoverTelefono.Location = new System.Drawing.Point(565, 243);
+            this.btnRemoverTelefono.Location = new System.Drawing.Point(587, 243);
             this.btnRemoverTelefono.Name = "btnRemoverTelefono";
             this.btnRemoverTelefono.Size = new System.Drawing.Size(106, 35);
             this.btnRemoverTelefono.TabIndex = 37;

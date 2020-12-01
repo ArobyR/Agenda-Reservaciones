@@ -47,8 +47,7 @@ namespace AgendaCita
                 telefono.Telefono = item.Cells[1].Value.ToString(); // numero de telefono
                 model.Telefonos.Add(telefono);  // agregando propiedades 
             }
-            // tienes que modificar algunas cosas, validacion de que se ha insertado correctamente
-            // validacion de campos
+            // validacion de campos pendiente
             if (ClienteDao.InsertUsuario(model)) 
             {
                 MessageBox.Show("Registro realizado correctamente.");

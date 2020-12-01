@@ -148,11 +148,14 @@
             // 
             // dgvProfesional
             // 
+            this.dgvProfesional.AllowUserToAddRows = false;
+            this.dgvProfesional.AllowUserToDeleteRows = false;
             this.dgvProfesional.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvProfesional.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvProfesional.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dgvProfesional.Location = new System.Drawing.Point(0, 354);
             this.dgvProfesional.Name = "dgvProfesional";
+            this.dgvProfesional.ReadOnly = true;
             this.dgvProfesional.Size = new System.Drawing.Size(741, 260);
             this.dgvProfesional.TabIndex = 18;
             // 
@@ -232,6 +235,7 @@
             this.btnModificarInformacion.TabIndex = 32;
             this.btnModificarInformacion.Text = "Modificar";
             this.btnModificarInformacion.UseVisualStyleBackColor = true;
+            this.btnModificarInformacion.Click += new System.EventHandler(this.btnModificarInformacion_Click);
             // 
             // label1
             // 
@@ -265,6 +269,7 @@
             // 
             // dgvTelefono
             // 
+            this.dgvTelefono.AllowUserToAddRows = false;
             this.dgvTelefono.AllowUserToDeleteRows = false;
             this.dgvTelefono.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvTelefono.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -272,6 +277,7 @@
             this.Telefono});
             this.dgvTelefono.Location = new System.Drawing.Point(426, 179);
             this.dgvTelefono.Name = "dgvTelefono";
+            this.dgvTelefono.ReadOnly = true;
             this.dgvTelefono.Size = new System.Drawing.Size(283, 67);
             this.dgvTelefono.TabIndex = 37;
             // 
