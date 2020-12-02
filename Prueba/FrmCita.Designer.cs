@@ -100,6 +100,7 @@ namespace AgendaCita
             this.btnBuscarCliente.TabIndex = 32;
             this.btnBuscarCliente.Text = "Buscar";
             this.btnBuscarCliente.UseVisualStyleBackColor = true;
+            this.btnBuscarCliente.Click += new System.EventHandler(this.btnBuscarCliente_Click);
             // 
             // btnBuscarProfesional
             // 
@@ -111,6 +112,7 @@ namespace AgendaCita
             this.btnBuscarProfesional.TabIndex = 33;
             this.btnBuscarProfesional.Text = "Buscar";
             this.btnBuscarProfesional.UseVisualStyleBackColor = true;
+            this.btnBuscarProfesional.Click += new System.EventHandler(this.btnBuscarProfesional_Click);
             // 
             // lblCliente
             // 

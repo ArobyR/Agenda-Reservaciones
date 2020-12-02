@@ -66,7 +66,7 @@ namespace AgendaCita.DAO
             
             foreach(var item in ClienteList)
             {
-                item.Telefonos = GetTelefonoClientesDataSource(item.IdUsuario);
+                item.Telefonos = GetTelefonoClientes(item.IdUsuario);
             }
             return ClienteList;
         }

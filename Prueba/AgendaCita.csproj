@@ -100,6 +100,7 @@
     <Compile Include="DAO\ClienteDAO.cs" />
     <Compile Include="DAO\Commands.cs" />
     <Compile Include="DAO\ProfesionalDAO.cs" />
+    <Compile Include="Enumeradores.cs" />
     <Compile Include="FrmCita.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -111,6 +112,18 @@
     </Compile>
     <Compile Include="FrmCliente.Designer.cs">
       <DependentUpon>FrmCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmConsultaCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmConsultaCliente.Designer.cs">
+      <DependentUpon>FrmConsultaCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmConsultaProfesional.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmConsultaProfesional.Designer.cs">
+      <DependentUpon>FrmConsultaProfesional.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmProfesional.cs">
       <SubType>Form</SubType>
@@ -135,11 +148,19 @@
     <Compile Include="Models\TelefonoProfesionalModel.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utils\IContract.cs" />
+    <Compile Include="Utils\IModel.cs" />
     <EmbeddedResource Include="FrmCita.resx">
       <DependentUpon>FrmCita.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmCliente.resx">
       <DependentUpon>FrmCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmConsultaCliente.resx">
+      <DependentUpon>FrmConsultaCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmConsultaProfesional.resx">
+      <DependentUpon>FrmConsultaProfesional.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmProfesional.resx">
       <DependentUpon>FrmProfesional.cs</DependentUpon>
