@@ -4,14 +4,13 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
-using Pabo.Calendar;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using AgendaCita.Utils;
 using AgendaCita.Models;
 using AgendaCita.DAO;
-
+using Pabo.Calendar;
 
 namespace AgendaCita
 {
@@ -20,9 +19,9 @@ namespace AgendaCita
     {
         private string IdProfesional = "";
         private string IdUsuario = "";
-        private DateTime[] dateItems;
+        private DateItem[] dateItems;
 
-        private ProfesionalDAO profesionalDAO = new ProfesionalDAO();
+        private ProfesionalDAO ProfesionalDao = new ProfesionalDAO();
         private CitaDAO citaDAO = new CitaDAO();
 
         public FrmCita()
@@ -67,10 +66,23 @@ namespace AgendaCita
                 IdProfesional = item.IdProfesional;
                 lblNombreProfesional.Text = $"{item.NombreProfesional} {item.ApellidoProfesional}";
                 lblProfesionProfesional.Text = item.Profesion;
+
+                dateItems = new DateItem[366];
+
+                var diasDisponibles = ProfesionalDao.GetDisponibilidadProfesional(IdProfesional);
+
+                DiasNoLaborables();
+
+                foreach (var itemDay in diasDisponibles)
+                {
+                    DiasLaborables(itemDay.IdDia);
+                }
+
+                Disponibilidad_Calendar_Prof.AddDateInfo(dateItems);
+                Disponibilidad_Calendar_Prof.Refresh();
+
             }
         }
-
-
 
         private void DiasLaborables(int dia)
         {
@@ -83,20 +95,55 @@ namespace AgendaCita
                 {
                     if (d.DayOfWeek == (DayOfWeek)dia)
                     {
-                        //var di = new DateItem();
-                        //di.Date = d;
-                        //di.BackColor1 = Color.Green;
-                        //dateItems[i] = di;
+                        var di = new DateItem();
+                        di.Date = d;
+                        di.BackColor1 = Color.Green;
+                        dateItems[i] = di;
                     }
                 }
             }
         }
 
+        private void DiasNoLaborables()
+        {
+            DateTime dt = new DateTime(2020, 01, 01);
+
+            for (int i = 0; i <= 365; i++)
+            {
+                var di = new DateItem();
+                di.Date = dt.AddDays(i);
+                di.Enabled = false;
+                dateItems[i] = di;
+
+            }
+        }
         private void Disponibilidad_Calendar_Prof_DaySelected(object sender, DaySelectedEventArgs e)
         {
 
             string[] m_daysSelected = e.Days;
             var fechaSeleccionadaDisponinilidad = citaDAO.GetDisponibilidadProfesionalPorFecha(IdProfesional, m_daysSelected[0]);
+            lblFechaCita.Text = m_daysSelected[0];
+
+        }
+
+        private void btnAgendarCita_Click(object sender, EventArgs e)
+        {
+            if (Disponibilidad_Calendar_Prof.SelectedDates.Count == 0)
+            {
+                MessageBox.Show("Selecciona una fecha");
+                return;
+            }
+            var result = citaDAO.Insert(new CitaModel()
+            {
+                IdUsuario = this.IdUsuario,
+                IdProfesional = this.IdProfesional,
+                IdDia = Convert.ToInt32(Disponibilidad_Calendar_Prof.SelectedDates[0].DayOfWeek)
+                // estado
+            });
+            if(result)
+                MessageBox.Show("Cita Generada Correctamente");
+            else
+                MessageBox.Show("Ocurrio un error inesperado");
         }
     }
 

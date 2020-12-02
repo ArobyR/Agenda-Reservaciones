@@ -178,6 +178,7 @@ namespace AgendaCita
             this.btnAgendarCita.TabIndex = 42;
             this.btnAgendarCita.Text = "Agendar";
             this.btnAgendarCita.UseVisualStyleBackColor = true;
+            this.btnAgendarCita.Click += new System.EventHandler(this.btnAgendarCita_Click);
             // 
             // btnCancelarCita
             // 

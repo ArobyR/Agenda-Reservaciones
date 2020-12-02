@@ -98,9 +98,9 @@ namespace AgendaCita.DAO
             return Commands.Query<TelefonoProfesionalModel>(query);
         }
 
-        public List<DisponibilidadProfesionalModel> GetDisponibilidadProfesional(int id, int dia = -1)
+        public List<DisponibilidadProfesionalModel> GetDisponibilidadProfesional(string id, int dia = -1)
         {
-            string query = $"SELECT * FROM disponibilidad WHERE id_profesional = {id}";
+            string query = $"SELECT * FROM disponibilidad WHERE id_profesional = '{id}'";
             if (dia >= 0)
                 query = query + $" AND id_dia = {dia}";
 
