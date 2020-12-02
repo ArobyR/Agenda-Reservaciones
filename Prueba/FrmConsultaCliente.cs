@@ -26,7 +26,6 @@ namespace AgendaCita
             
             this._Contract = Contract;
             dgvCliente.DataSource = ClienteDao.GetClientes();
-            //dgvCliente.Columns[0].Visible = false;
             dgvCliente.Columns[0].Visible = false;
             dgvCliente.Columns[1].HeaderText = "Nombre";
             dgvCliente.Columns[2].HeaderText = "Apellido";
@@ -53,6 +52,11 @@ namespace AgendaCita
                 });
             Close();
             }
+        }
+
+        private void dgvCliente_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

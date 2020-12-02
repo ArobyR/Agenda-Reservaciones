@@ -73,7 +73,7 @@ namespace AgendaCita.DAO
 
         public List<TelefonoClienteModel> GetTelefonoClientes(string id)
         {
-            string query = $"SELECT id_usuario, telefono, tipo FROM telefono_usuario WHERE id_usuario= '{id}'";
+            string query = $"SELECT id_usuario, telefono, tipo FROM telefono_usuario WHERE id_usuario= '{id}';";
             return Commands.Query<TelefonoClienteModel>(query);
         }
 

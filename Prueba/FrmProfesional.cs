@@ -76,7 +76,7 @@ namespace AgendaCita
                     ListaDiasDisponible.Add(i);
                 }
                 if (chkDomingo.Checked)
-                    ListaDiasDisponible.Add(7);
+                    ListaDiasDisponible.Add(0);
                 if (chkSabado.Checked)
                     ListaDiasDisponible.Add(6);
 
@@ -97,7 +97,7 @@ namespace AgendaCita
                 if (chkSabado.Checked)
                     ListaDiasDisponible.Add(6);
                 if (chkDomingo.Checked)
-                    ListaDiasDisponible.Add(7);
+                    ListaDiasDisponible.Add(0);
     
                 return ListaDiasDisponible;
             }

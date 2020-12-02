@@ -64,8 +64,26 @@ namespace AgendaCita
         private void btnBuscar_Click(object sender, EventArgs e)
         {
             string document = txtDocumentoUsuario.Text;
+            if (document == "")
+            {
+                // or other validation
+                MessageBox.Show("Rellene los campos");
+                return;
+            }
+            
             List<ClienteModel> Lista = ClienteDao.ReadUsuario(document);
+            if (Lista.Count == 0)
+            {
+                MessageBox.Show("Dato no encontrado...");
+                return;
+            }
+
             DgvUsuario.DataSource = Lista;
+            DgvUsuario.Columns[0].Visible = false;
+            DgvUsuario.Columns[1].HeaderText = "Nombre";
+            DgvUsuario.Columns[2].HeaderText = "Apellido";
+            DgvUsuario.Columns[3].HeaderText = "Tipo de Documento";
+            DgvUsuario.Columns[4].HeaderText = "Documento";
         }
 
         private void btnActualizar_Click(object sender, EventArgs e)
@@ -194,9 +212,10 @@ namespace AgendaCita
 
             List<TelefonoClienteModel> Lista = ClienteDao.GetTelefonoClientesDataSource(value);
             
-            dgvTelefono.DataSource = ClienteDao.GetTelefonoClientesDataSource(value);
-            dgvTelefono.Columns[0].Visible = false;
-
+            foreach (TelefonoClienteModel item in Lista)
+            {
+                this.dgvTelefono.Rows.Add(new[] { item.Telefono, item.Tipo });
+            }
         }
 
         private void btnAgregarNumero_Click(object sender, EventArgs e)

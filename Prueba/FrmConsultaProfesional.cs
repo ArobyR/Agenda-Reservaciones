@@ -17,7 +17,6 @@ namespace AgendaCita
     {
         DataTable data = new DataTable();
         private IContract _Contract;
-
         ProfesionalDAO ProfesionalDao = new ProfesionalDAO();
 
         public FrmConsultaProfesional(IContract Contract)
@@ -27,20 +26,23 @@ namespace AgendaCita
             this._Contract = Contract;
 
             dgvProfesional.DataSource = ProfesionalDao.GetProfesional();
-            //dgvCliente.Columns[0].Visible = false;
             dgvProfesional.Columns[0].Visible = false;
-            dgvProfesional.Columns[1].HeaderText = "Nombre";
-            dgvProfesional.Columns[2].HeaderText = "Apellido";
-            dgvProfesional.Columns[3].HeaderText = "Tipo de Documento";
-            dgvProfesional.Columns[4].HeaderText = "Documento";
+            dgvProfesional.Columns[1].Visible = false;
+            dgvProfesional.Columns[2].HeaderText = "Nombre";
+            dgvProfesional.Columns[3].HeaderText = "Apellido";
+            dgvProfesional.Columns[4].HeaderText = "Profesion x";
+            dgvProfesional.Columns[5].HeaderText = "Tipo de Documento";
+            dgvProfesional.Columns[6].HeaderText = "Documento";
         }
 
         private void txtProfesional_TextChanged(object sender, EventArgs e)
         {
             DataView dtv = data.DefaultView;
             dtv.RowFilter = $"nombre_profesional like '% {txtProfesional.Text} %' OR apellido_profesional LIKE '%{txtProfesional.Text}%' OR documento = '%{txtProfesional.Text}%'";
-            dgvProfesional.DataSource = dtv;
-        }
+
+            //(dgvProfesional.DataSource as DataTable).DefaultView.RowFilter = $"Nombre like '%{txtProfesional.Text}%";
+            //({ dgvProfesional.DataSource = ProfesionalDao.GetProfesional()} DataTable);
+        }   //$"NombreProfesional like '% {txtProfesional.Text} %'";
 
         private void dgvProfesional_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -57,6 +59,17 @@ namespace AgendaCita
                 });
                 Close();
             }
+        }
+
+        private void botonBuscar()
+        {
+            (dgvProfesional.DataSource as DataTable).DefaultView.RowFilter = $"NombreProfesional like '%{txtProfesional.Text}%";
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            botonBuscar();
         }
     }
 }
