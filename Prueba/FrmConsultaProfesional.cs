@@ -40,9 +40,7 @@ namespace AgendaCita
             DataView dtv = data.DefaultView;
             dtv.RowFilter = $"nombre_profesional like '% {txtProfesional.Text} %' OR apellido_profesional LIKE '%{txtProfesional.Text}%' OR documento = '%{txtProfesional.Text}%'";
 
-            //(dgvProfesional.DataSource as DataTable).DefaultView.RowFilter = $"Nombre like '%{txtProfesional.Text}%";
-            //({ dgvProfesional.DataSource = ProfesionalDao.GetProfesional()} DataTable);
-        }   //$"NombreProfesional like '% {txtProfesional.Text} %'";
+        }  
 
         private void dgvProfesional_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {

@@ -123,16 +123,20 @@ namespace AgendaCita
 
         private void btnModificarInformacion_Click(object sender, EventArgs e)
         {
-            txtNombreProfesional.Text = dgvProfesional.CurrentRow.Cells[0].Value.ToString();
-            txtApellidoProfesional.Text = dgvProfesional.CurrentRow.Cells[1].Value.ToString();
-            cmbTipoDocumentoProfesional.Text = dgvProfesional.CurrentRow.Cells[3].Value.ToString();
-            //txtDocumentoProfesional.Text = dgvProfesional.CurrentRow.Cells[4].Value.ToString();
+            txtNombreProfesional.Text = dgvProfesional.CurrentRow.Cells[2].Value.ToString();
+            txtApellidoProfesional.Text = dgvProfesional.CurrentRow.Cells[3].Value.ToString();
+            cmbTipoDocumentoProfesional.Text = dgvProfesional.CurrentRow.Cells[5].Value.ToString();
+            txtDocumentoProfesional.Text = dgvProfesional.CurrentRow.Cells[6].Value.ToString();
 
-            // ------------------------------  traer dias de disponibilidad y telefonos ---------------------------
-            string id_profesional = dgvProfesional.CurrentRow.Cells[1].Value.ToString();
+
+            // ------------------------------  traer dias de disponibilidad y telefonos -------------------
+            string id_profesional = dgvProfesional.CurrentRow.Cells[0].Value.ToString();
             List<TelefonoProfesionalModel> Lista = ProfesionalDao.GetTelefonoProfesional(id_profesional);
-            dgvTelefono.Columns[1].Visible = false;
-            dgvTelefono.DataSource = ProfesionalDao.GetTelefonoProfesional(id_profesional);
+            
+            foreach (TelefonoProfesionalModel item in Lista)
+            {
+                this.dgvTelefono.Rows.Add(new[] { item.Telefono, item.Tipo });
+            }
         }
 
         private void LimpiarCampos()
