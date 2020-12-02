@@ -10,7 +10,7 @@ namespace AgendaCita.Models
     {
         public string IdProfesional { get; set; }
         public int IdDia { get; set; }
-        public string HoraInicio { get; set; }
-        public string HoraFin { get; set; }
+        //public string HoraInicio { get; set; }
+        //public string HoraFin { get; set; }
     }
 }

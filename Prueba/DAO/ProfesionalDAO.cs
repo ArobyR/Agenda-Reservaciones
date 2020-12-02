@@ -10,8 +10,7 @@ namespace AgendaCita.DAO
 {
     class ProfesionalDAO
     {
-
-        public bool InsertProfesional(ProfesionalModel model)
+        public bool InsertProfesional(ProfesionalModel model, List<int> Days)
         {
             string IdProfesionalGuid = Guid.NewGuid().ToString("N");
             model.IdProfesional = IdProfesionalGuid;
@@ -23,12 +22,20 @@ namespace AgendaCita.DAO
 
             foreach(TelefonoProfesionalModel item in model.Telefonos)
             {
-                query = $"INSERT INTO telefono_profesional(id_profesional, numero, tipo) VALUES ('{model.IdProfesional}', '{item.Telefono}', '{item.Tipo}')";
+                query = $"INSERT INTO telefono_profesional (id_profesional, telefono, tipo) VALUES ('{model.IdProfesional}', '{item.Telefono}', '{item.Tipo}')";
                 Commands.ExecuteNonQuery(query);
             }
+            Days.Sort();
 
+            //foreach(DisponibilidadProfesionalModel item in model.)
+            foreach(var dias in Days)
+            {
+                query = $"INSERT INTO disponibilidad(id_profesional, id_dia) VALUES('{model.IdProfesional}', '{dias}')";
+                Commands.ExecuteNonQuery(query);
+            }
             return true;
         }
+
         public bool Update(ProfesionalModel model)
         {
             string query = "";
@@ -41,7 +48,6 @@ namespace AgendaCita.DAO
             string query = $"DELETE FROM profesional WHERE documento='{id}'";
             return Commands.ExecuteNonQuery(query);
         }
-
 
         public List<ProfesionalModel> Get(string documento = "None")
         {
@@ -66,7 +72,6 @@ namespace AgendaCita.DAO
             return ProfesionalList;
         }
 
-
         public List<ProfesionalModel> GetProfesionalProfesion()
         {
             string query = $@" SELECT prof.id_profesional,
@@ -85,7 +90,6 @@ namespace AgendaCita.DAO
 
             return ProfesionalList;
         }
-
 
         public List<TelefonoProfesionalModel> GetTelefonoProfesional(string id)
         {

@@ -49,10 +49,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.cmbTipoDocumentoProfesional = new System.Windows.Forms.ComboBox();
             this.dgvTelefono = new System.Windows.Forms.DataGridView();
-            this.Tipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Telefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnAgregarNumeroProfesional = new System.Windows.Forms.Button();
+            this.btnRemoverNumero = new System.Windows.Forms.Button();
             this.lblTipoNumero = new System.Windows.Forms.Label();
             this.lblNumero = new System.Windows.Forms.Label();
             this.cmbTipoTelefono = new System.Windows.Forms.ComboBox();
@@ -67,6 +65,8 @@
             this.chkLunVie = new System.Windows.Forms.CheckBox();
             this.txtDocumentoProfesional = new System.Windows.Forms.TextBox();
             this.pnlCheckboxes = new System.Windows.Forms.Panel();
+            this.Tipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Numero = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProfesional)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTelefono)).BeginInit();
             this.pnlCheckboxes.SuspendLayout();
@@ -140,7 +140,7 @@
             // lblDiaDisponible
             // 
             this.lblDiaDisponible.AutoSize = true;
-            this.lblDiaDisponible.Location = new System.Drawing.Point(412, 45);
+            this.lblDiaDisponible.Location = new System.Drawing.Point(396, 45);
             this.lblDiaDisponible.Name = "lblDiaDisponible";
             this.lblDiaDisponible.Size = new System.Drawing.Size(40, 17);
             this.lblDiaDisponible.TabIndex = 16;
@@ -274,48 +274,38 @@
             this.dgvTelefono.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvTelefono.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Tipo,
-            this.Telefono});
-            this.dgvTelefono.Location = new System.Drawing.Point(426, 179);
+            this.Numero});
+            this.dgvTelefono.Location = new System.Drawing.Point(410, 179);
             this.dgvTelefono.Name = "dgvTelefono";
             this.dgvTelefono.ReadOnly = true;
             this.dgvTelefono.Size = new System.Drawing.Size(283, 67);
             this.dgvTelefono.TabIndex = 37;
+            this.dgvTelefono.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTelefono_CellContentDoubleClick);
             // 
-            // Tipo
+            // btnAgregarNumeroProfesional
             // 
-            this.Tipo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Tipo.HeaderText = "Tipo";
-            this.Tipo.Name = "Tipo";
-            this.Tipo.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.btnAgregarNumeroProfesional.Location = new System.Drawing.Point(464, 252);
+            this.btnAgregarNumeroProfesional.Name = "btnAgregarNumeroProfesional";
+            this.btnAgregarNumeroProfesional.Size = new System.Drawing.Size(81, 35);
+            this.btnAgregarNumeroProfesional.TabIndex = 38;
+            this.btnAgregarNumeroProfesional.Text = "Agregar";
+            this.btnAgregarNumeroProfesional.UseVisualStyleBackColor = true;
+            this.btnAgregarNumeroProfesional.Click += new System.EventHandler(this.btnAgregarNumeroProfesional_Click);
             // 
-            // Telefono
+            // btnRemoverNumero
             // 
-            this.Telefono.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Telefono.HeaderText = "Telefono";
-            this.Telefono.Name = "Telefono";
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(464, 252);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(81, 35);
-            this.button1.TabIndex = 38;
-            this.button1.Text = "Agregar";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(600, 252);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(109, 35);
-            this.button2.TabIndex = 39;
-            this.button2.Text = "Remover Tel.";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnRemoverNumero.Location = new System.Drawing.Point(584, 252);
+            this.btnRemoverNumero.Name = "btnRemoverNumero";
+            this.btnRemoverNumero.Size = new System.Drawing.Size(109, 35);
+            this.btnRemoverNumero.TabIndex = 39;
+            this.btnRemoverNumero.Text = "Remover Tel.";
+            this.btnRemoverNumero.UseVisualStyleBackColor = true;
+            this.btnRemoverNumero.Click += new System.EventHandler(this.btnRemoverNumero_Click);
             // 
             // lblTipoNumero
             // 
             this.lblTipoNumero.AutoSize = true;
-            this.lblTipoNumero.Location = new System.Drawing.Point(423, 129);
+            this.lblTipoNumero.Location = new System.Drawing.Point(407, 129);
             this.lblTipoNumero.Name = "lblTipoNumero";
             this.lblTipoNumero.Size = new System.Drawing.Size(40, 17);
             this.lblTipoNumero.TabIndex = 40;
@@ -324,7 +314,7 @@
             // lblNumero
             // 
             this.lblNumero.AutoSize = true;
-            this.lblNumero.Location = new System.Drawing.Point(569, 132);
+            this.lblNumero.Location = new System.Drawing.Point(553, 132);
             this.lblNumero.Name = "lblNumero";
             this.lblNumero.Size = new System.Drawing.Size(62, 17);
             this.lblNumero.TabIndex = 41;
@@ -336,14 +326,14 @@
             this.cmbTipoTelefono.Items.AddRange(new object[] {
             "Celular",
             "Residencial"});
-            this.cmbTipoTelefono.Location = new System.Drawing.Point(426, 150);
+            this.cmbTipoTelefono.Location = new System.Drawing.Point(410, 150);
             this.cmbTipoTelefono.Name = "cmbTipoTelefono";
             this.cmbTipoTelefono.Size = new System.Drawing.Size(121, 25);
             this.cmbTipoTelefono.TabIndex = 42;
             // 
             // txtNumeroProfesional
             // 
-            this.txtNumeroProfesional.Location = new System.Drawing.Point(572, 152);
+            this.txtNumeroProfesional.Location = new System.Drawing.Point(556, 152);
             this.txtNumeroProfesional.Name = "txtNumeroProfesional";
             this.txtNumeroProfesional.Size = new System.Drawing.Size(137, 23);
             this.txtNumeroProfesional.TabIndex = 43;
@@ -446,10 +436,25 @@
             this.pnlCheckboxes.Controls.Add(this.chkJueves);
             this.pnlCheckboxes.Controls.Add(this.chkSabado);
             this.pnlCheckboxes.Controls.Add(this.chkViernes);
-            this.pnlCheckboxes.Location = new System.Drawing.Point(458, 41);
+            this.pnlCheckboxes.Location = new System.Drawing.Point(442, 41);
             this.pnlCheckboxes.Name = "pnlCheckboxes";
             this.pnlCheckboxes.Size = new System.Drawing.Size(248, 88);
             this.pnlCheckboxes.TabIndex = 55;
+            // 
+            // Tipo
+            // 
+            this.Tipo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Tipo.HeaderText = "Tipo";
+            this.Tipo.Name = "Tipo";
+            this.Tipo.ReadOnly = true;
+            this.Tipo.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
+            // Numero
+            // 
+            this.Numero.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Numero.HeaderText = "Numero";
+            this.Numero.Name = "Numero";
+            this.Numero.ReadOnly = true;
             // 
             // FrmProfesional
             // 
@@ -462,8 +467,8 @@
             this.Controls.Add(this.cmbTipoTelefono);
             this.Controls.Add(this.lblNumero);
             this.Controls.Add(this.lblTipoNumero);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnRemoverNumero);
+            this.Controls.Add(this.btnAgregarNumeroProfesional);
             this.Controls.Add(this.dgvTelefono);
             this.Controls.Add(this.cmbTipoDocumentoProfesional);
             this.Controls.Add(this.label2);
@@ -521,10 +526,8 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox cmbTipoDocumentoProfesional;
         private System.Windows.Forms.DataGridView dgvTelefono;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Tipo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Telefono;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnAgregarNumeroProfesional;
+        private System.Windows.Forms.Button btnRemoverNumero;
         private System.Windows.Forms.Label lblTipoNumero;
         private System.Windows.Forms.Label lblNumero;
         private System.Windows.Forms.ComboBox cmbTipoTelefono;
@@ -539,5 +542,7 @@
         private System.Windows.Forms.CheckBox chkLunVie;
         private System.Windows.Forms.TextBox txtDocumentoProfesional;
         private System.Windows.Forms.Panel pnlCheckboxes;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Tipo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Numero;
     }
 }

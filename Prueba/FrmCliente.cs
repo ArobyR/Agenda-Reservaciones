@@ -53,6 +53,7 @@ namespace AgendaCita
             {
                 MessageBox.Show("Registro realizado correctamente.");
                 LimpiarCampos();
+                CargarDatos();
             }
             else
             {
@@ -101,6 +102,7 @@ namespace AgendaCita
                 LimpiarCampos();
                 CargarDatos();
             }
+
             else
             {
                 MessageBox.Show("Su consulta ha fallado.");
@@ -124,13 +126,11 @@ namespace AgendaCita
                 CargarDatos();
             }
 
-
             else if (!ClienteDao.DeleteUser(DocumentoUsuario))
             {
                 ClienteDao.DeleteUser(DocumentoUsuario);
                 MensajesInfaz("Dato no encontrado!", "Red");
                 MessageBox.Show("Dato no encontrado.");
-
             }
         }
 

@@ -51,16 +51,57 @@ namespace AgendaCita
                 telefono.Telefono = item.Cells[1].Value.ToString();
                 model.Telefonos.Add(telefono);
             }
-
-            if(ProfesionalDao.InsertProfesional(model))
+            // Dispomibilidad profesional, validar si hay sino esta vacia la lista 
+            List<int> Days = new List<int>(ValidationDisponibilildad());
+            if (ProfesionalDao.InsertProfesional(model, Days))
             {
                 MessageBox.Show("Registro realizado correctamente.");
                 LimpiarCampos();
+                CargarDatos();
+
             }
             else
             {
                 MessageBox.Show("Su consulta ha fallado.");
             }
+        }
+        // return lista. First implementation
+        private List<int> ValidationDisponibilildad()
+        {
+            List<int> ListaDiasDisponible = new List<int>();
+            if (chkLunVie.Checked)
+            {
+                for (int i = 1; i <= 5; i++)
+                {
+                    ListaDiasDisponible.Add(i);
+                }
+                if (chkDomingo.Checked)
+                    ListaDiasDisponible.Add(7);
+                if (chkSabado.Checked)
+                    ListaDiasDisponible.Add(6);
+
+                return ListaDiasDisponible;
+            }
+            else
+            {
+                if (chkLunes.Checked)
+                    ListaDiasDisponible.Add(1);
+                if (chkMartes.Checked)
+                    ListaDiasDisponible.Add(2);
+                if (chkMiercoles.Checked)
+                    ListaDiasDisponible.Add(3);
+                if (chkJueves.Checked)
+                    ListaDiasDisponible.Add(4);
+                if (chkViernes.Checked)
+                    ListaDiasDisponible.Add(5);
+                if (chkSabado.Checked)
+                    ListaDiasDisponible.Add(6);
+                if (chkDomingo.Checked)
+                    ListaDiasDisponible.Add(7);
+    
+                return ListaDiasDisponible;
+            }
+            //return null;
         }
 
         private void CargarDatos()
@@ -99,10 +140,21 @@ namespace AgendaCita
             txtNombreProfesional.Text = "";
             txtApellidoProfesional.Text = "";
             txtDocumentoProfesional.Text = "";
+            txtNumeroProfesional.Text = "";
             cmbTipoDocumentoProfesional.Text = "";
             cmbProfesion.Text = "";
-        }
+            cmbTipoTelefono.Text = "";
+            dgvTelefono.Rows.Clear();
 
+            chkLunes.Checked = false;
+            chkMartes.Checked = false;
+            chkMiercoles.Checked = false;
+            chkJueves.Checked = false;
+            chkViernes.Checked = false;
+            chkSabado.Checked = false;
+            chkDomingo.Checked = false;
+            chkLunVie.Checked = false;
+        }
 
         private void btnBuscarProfesional_Click(object sender, EventArgs e)
         {
@@ -122,6 +174,7 @@ namespace AgendaCita
             {
                 MessageBox.Show("Eliminado correctamente.");
                 LimpiarCampos();
+                CargarDatos();
             }
             else if (!ProfesionalDao.DeleteProfesional(DocumentoProfesional))
             {
@@ -159,6 +212,44 @@ namespace AgendaCita
                     ((CheckBox)item).Checked = false;
                 }
             }
+        }
+
+        private void btnAgregarNumeroProfesional_Click(object sender, EventArgs e)
+        {
+            if(btnAgregarNumeroProfesional.Text.Equals("Agregar"))
+            {
+                foreach (DataGridViewRow item in dgvTelefono.Rows)
+                {
+                    if (txtNumeroProfesional.Text.Equals(item.Cells["Numero"].Value.ToString()))
+                    {
+                        return;
+                    }
+                    else if (txtNumeroProfesional.Text == "" || cmbTipoTelefono.Text == "") return;
+                }
+
+                this.dgvTelefono.Rows.Add(cmbTipoTelefono.Text, txtNumeroProfesional.Text);
+                txtNumeroProfesional.Text = "";
+                cmbTipoTelefono.Text = "";
+            }
+            if (btnAgregarNumeroProfesional.Text.Equals("Actualizar"))
+            {
+                dgvTelefono.Rows.RemoveAt(dgvTelefono.CurrentRow.Index);
+                this.dgvTelefono.Rows.Add(cmbTipoTelefono.Text, txtNombreProfesional.Text);
+                btnAgregarNumeroProfesional.Text = "Agregar";
+            }
+        }
+
+        private void btnRemoverNumero_Click(object sender, EventArgs e)
+        {
+            if (dgvTelefono.Rows.Count != 0)
+                dgvTelefono.Rows.RemoveAt(dgvTelefono.CurrentRow.Index);
+        }
+
+        private void dgvTelefono_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            btnAgregarNumeroProfesional.Text = "Actualizar";
+            cmbTipoTelefono.Text = dgvTelefono.CurrentRow.Cells[0].Value.ToString();
+            txtNumeroProfesional.Text = dgvTelefono.CurrentRow.Cells[1].Value.ToString();
         }
     }
 }

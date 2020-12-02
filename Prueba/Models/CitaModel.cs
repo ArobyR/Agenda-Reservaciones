@@ -8,6 +8,10 @@ namespace Prueba.Models
 {
     class CitaModel
     {
-
+        public string IdConsulta { get; set; }
+        public string IdUsuario { get; set; }
+        public string IdProfesional { get; set; }
+        public int IdDia { get; set; }
+        public int Estado { get; set; }
     }
 }
