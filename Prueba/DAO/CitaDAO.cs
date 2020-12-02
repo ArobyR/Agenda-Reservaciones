@@ -3,11 +3,26 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using AgendaCita.Models;
+using AgendaCita.DAO;
 
-namespace Prueba.DAO
+namespace AgendaCita.DAO
 {
     class CitaDAO
     {
+        public bool Insert(CitaModel model)
+        {
+            string query = $"INSERT INTO consulta (id_profesional, id_usuario, id_dia)" +
+                           $"VALUES('{model.IdProfesional}','{model.IdCliente}','{model.IdDia}','{model.Hora}','{model.FechaCita}')";
 
+            return Commands.ExecuteNonQuery(query);
+        }
+
+
+        public List<CitaModel> GetDisponibilidadProfesionalPorFecha(int id, string date)
+        {
+            string query = $"SELECT * FROM cita WHERE id_profesional= {id} and fecha_cita='{date}'";
+            return Commands.Query<CitaModel>(query);
+        }
     }
 }

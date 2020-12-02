@@ -32,7 +32,7 @@ namespace AgendaCita
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmCita));
             this.btnCerrarVentana = new System.Windows.Forms.Button();
             this.lblTituloCitas = new System.Windows.Forms.Label();
-            this.monthCalendar1 = new Pabo.Calendar.MonthCalendar();
+            this.Disponibilidad_Calendar_Prof = new Pabo.Calendar.MonthCalendar();
             this.btnBuscarCliente = new System.Windows.Forms.Button();
             this.btnBuscarProfesional = new System.Windows.Forms.Button();
             this.lblCliente = new System.Windows.Forms.Label();
@@ -43,6 +43,7 @@ namespace AgendaCita
             this.lblProfesionProfesional = new System.Windows.Forms.Label();
             this.btnAgendarCita = new System.Windows.Forms.Button();
             this.btnCancelarCita = new System.Windows.Forms.Button();
+            this.lblFechaCita = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnCerrarVentana
@@ -69,26 +70,27 @@ namespace AgendaCita
             this.lblTituloCitas.TabIndex = 30;
             this.lblTituloCitas.Text = "Citas";
             // 
-            // monthCalendar1
+            // Disponibilidad_Calendar_Prof
             // 
-            this.monthCalendar1.ActiveMonth.Month = 11;
-            this.monthCalendar1.ActiveMonth.Year = 2020;
-            this.monthCalendar1.Culture = new System.Globalization.CultureInfo("en-US");
-            this.monthCalendar1.Footer.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
-            this.monthCalendar1.Header.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
-            this.monthCalendar1.Header.TextColor = System.Drawing.Color.White;
-            this.monthCalendar1.ImageList = null;
-            this.monthCalendar1.Location = new System.Drawing.Point(74, 233);
-            this.monthCalendar1.MaxDate = new System.DateTime(2030, 11, 27, 18, 41, 18, 174);
-            this.monthCalendar1.MinDate = new System.DateTime(2010, 11, 27, 18, 41, 18, 174);
-            this.monthCalendar1.Month.BackgroundImage = null;
-            this.monthCalendar1.Month.DateFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.monthCalendar1.Month.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.monthCalendar1.Name = "monthCalendar1";
-            this.monthCalendar1.Size = new System.Drawing.Size(295, 219);
-            this.monthCalendar1.TabIndex = 31;
-            this.monthCalendar1.Weekdays.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.monthCalendar1.Weeknumbers.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.Disponibilidad_Calendar_Prof.ActiveMonth.Month = 11;
+            this.Disponibilidad_Calendar_Prof.ActiveMonth.Year = 2020;
+            this.Disponibilidad_Calendar_Prof.Culture = new System.Globalization.CultureInfo("en-US");
+            this.Disponibilidad_Calendar_Prof.Footer.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
+            this.Disponibilidad_Calendar_Prof.Header.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
+            this.Disponibilidad_Calendar_Prof.Header.TextColor = System.Drawing.Color.White;
+            this.Disponibilidad_Calendar_Prof.ImageList = null;
+            this.Disponibilidad_Calendar_Prof.Location = new System.Drawing.Point(74, 233);
+            this.Disponibilidad_Calendar_Prof.MaxDate = new System.DateTime(2030, 11, 27, 18, 41, 18, 174);
+            this.Disponibilidad_Calendar_Prof.MinDate = new System.DateTime(2010, 11, 27, 18, 41, 18, 174);
+            this.Disponibilidad_Calendar_Prof.Month.BackgroundImage = null;
+            this.Disponibilidad_Calendar_Prof.Month.DateFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.Disponibilidad_Calendar_Prof.Month.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.Disponibilidad_Calendar_Prof.Name = "Disponibilidad_Calendar_Prof";
+            this.Disponibilidad_Calendar_Prof.Size = new System.Drawing.Size(295, 219);
+            this.Disponibilidad_Calendar_Prof.TabIndex = 31;
+            this.Disponibilidad_Calendar_Prof.Weekdays.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.Disponibilidad_Calendar_Prof.Weeknumbers.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.Disponibilidad_Calendar_Prof.DaySelected += new Pabo.Calendar.DaySelectedEventHandler(this.Disponibilidad_Calendar_Prof_DaySelected);
             // 
             // btnBuscarCliente
             // 
@@ -186,11 +188,21 @@ namespace AgendaCita
             this.btnCancelarCita.Text = "Cancelar";
             this.btnCancelarCita.UseVisualStyleBackColor = true;
             // 
+            // lblFechaCita
+            // 
+            this.lblFechaCita.AutoSize = true;
+            this.lblFechaCita.Location = new System.Drawing.Point(267, 486);
+            this.lblFechaCita.Name = "lblFechaCita";
+            this.lblFechaCita.Size = new System.Drawing.Size(55, 18);
+            this.lblFechaCita.TabIndex = 44;
+            this.lblFechaCita.Text = "Prueba";
+            // 
             // FrmCita
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(724, 611);
+            this.Controls.Add(this.lblFechaCita);
             this.Controls.Add(this.btnCancelarCita);
             this.Controls.Add(this.btnAgendarCita);
             this.Controls.Add(this.lblProfesionProfesional);
@@ -201,7 +213,7 @@ namespace AgendaCita
             this.Controls.Add(this.lblCliente);
             this.Controls.Add(this.btnBuscarProfesional);
             this.Controls.Add(this.btnBuscarCliente);
-            this.Controls.Add(this.monthCalendar1);
+            this.Controls.Add(this.Disponibilidad_Calendar_Prof);
             this.Controls.Add(this.lblTituloCitas);
             this.Controls.Add(this.btnCerrarVentana);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
@@ -217,7 +229,7 @@ namespace AgendaCita
 
         private System.Windows.Forms.Button btnCerrarVentana;
         private System.Windows.Forms.Label lblTituloCitas;
-        private Pabo.Calendar.MonthCalendar monthCalendar1;
+        private Pabo.Calendar.MonthCalendar Disponibilidad_Calendar_Prof;
         private System.Windows.Forms.Button btnBuscarCliente;
         private System.Windows.Forms.Button btnBuscarProfesional;
         private System.Windows.Forms.Label lblCliente;
@@ -228,5 +240,6 @@ namespace AgendaCita
         private System.Windows.Forms.Label lblProfesionProfesional;
         private System.Windows.Forms.Button btnAgendarCita;
         private System.Windows.Forms.Button btnCancelarCita;
+        private System.Windows.Forms.Label lblFechaCita;
     }
 }
