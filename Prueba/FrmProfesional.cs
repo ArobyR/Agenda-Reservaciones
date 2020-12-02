@@ -251,5 +251,44 @@ namespace AgendaCita
             cmbTipoTelefono.Text = dgvTelefono.CurrentRow.Cells[0].Value.ToString();
             txtNumeroProfesional.Text = dgvTelefono.CurrentRow.Cells[1].Value.ToString();
         }
+
+        private void btnActualizarProf_Click(object sender, EventArgs e)
+        {
+            ProfesionalModel model = new ProfesionalModel();
+            model.NombreProfesional = txtNombreProfesional.Text;
+            model.ApellidoProfesional = txtApellidoProfesional.Text;
+            model.TipoDocumento = cmbTipoDocumentoProfesional.Text;
+            model.Documento = txtDocumentoProfesional.Text;
+            model.IdProfesion = (int)cmbProfesion.SelectedValue;
+
+            model.Telefonos = new List<TelefonoProfesionalModel>();
+            foreach(DataGridViewRow item in dgvTelefono.Rows)
+            {
+                if (item.Cells[0] == null)
+                    continue;
+
+                var telefono = new TelefonoProfesionalModel();
+                telefono.Telefono = item.Cells[1].Value.ToString();
+                telefono.Tipo = item.Cells[0].Value.ToString();
+                model.Telefonos.Add(telefono);
+            }
+            if (txtDocumentoProfesional.Text == "" || txtNombreProfesional.Text == "" || txtApellidoProfesional.Text == "")
+            {
+                MessageBox.Show("Rellene los campos... Joder!!!");
+                return;
+            }
+
+            if (ProfesionalDao.UpdateProfesional(model))
+            {
+                MessageBox.Show("Registro actualizado con exito.");
+                LimpiarCampos();
+                CargarDatos();
+            }
+
+            else
+            {
+                MessageBox.Show("Su consulta ha fallado.");
+            }
+        }
     }
 }

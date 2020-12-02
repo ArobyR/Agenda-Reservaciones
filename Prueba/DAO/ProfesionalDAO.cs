@@ -25,9 +25,8 @@ namespace AgendaCita.DAO
                 query = $"INSERT INTO telefono_profesional (id_profesional, telefono, tipo) VALUES ('{model.IdProfesional}', '{item.Telefono}', '{item.Tipo}')";
                 Commands.ExecuteNonQuery(query);
             }
-            Days.Sort();
 
-            //foreach(DisponibilidadProfesionalModel item in model.)
+            Days.Sort();
             foreach(var dias in Days)
             {
                 query = $"INSERT INTO disponibilidad(id_profesional, id_dia) VALUES('{model.IdProfesional}', '{dias}')";
@@ -36,11 +35,13 @@ namespace AgendaCita.DAO
             return true;
         }
 
-        public bool Update(ProfesionalModel model)
+        public bool UpdateProfesional(ProfesionalModel model)
         {
-            string query = "";
+            string query = $"UPDATE profesional SET id_profesion='{model.IdProfesion}' nombre_profesional='{model.NombreProfesional}', apellido_profesional='{model.ApellidoProfesional}', tipo_documento='{model.TipoDocumento}', documento='{model.Documento}' WHERE documento = {model.Documento}";
 
             return Commands.ExecuteNonQuery(query);
+
+            // next update: (update the days) 
         }
 
         public bool DeleteProfesional(string id)

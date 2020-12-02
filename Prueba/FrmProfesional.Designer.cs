@@ -187,6 +187,7 @@
             this.btnActualizarProf.TabIndex = 21;
             this.btnActualizarProf.Text = "Actualizar";
             this.btnActualizarProf.UseVisualStyleBackColor = true;
+            this.btnActualizarProf.Click += new System.EventHandler(this.btnActualizarProf_Click);
             // 
             // btnEliminarProf
             // 
