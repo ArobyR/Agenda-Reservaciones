@@ -32,7 +32,6 @@ namespace AgendaCita
             this.lblProfesionales = new System.Windows.Forms.Label();
             this.txtProfesional = new System.Windows.Forms.TextBox();
             this.dgvProfesional = new System.Windows.Forms.DataGridView();
-            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProfesional)).BeginInit();
             this.SuspendLayout();
             // 
@@ -78,22 +77,11 @@ namespace AgendaCita
             this.dgvProfesional.TabIndex = 2;
             this.dgvProfesional.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProfesional_CellDoubleClick);
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(629, 17);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 24);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // FrmConsultaProfesional
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(774, 421);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.dgvProfesional);
             this.Controls.Add(this.txtProfesional);
             this.Controls.Add(this.lblProfesionales);
@@ -112,6 +100,5 @@ namespace AgendaCita
         private System.Windows.Forms.Label lblProfesionales;
         private System.Windows.Forms.TextBox txtProfesional;
         private System.Windows.Forms.DataGridView dgvProfesional;
-        private System.Windows.Forms.Button button1;
     }
 }

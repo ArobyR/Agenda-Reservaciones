@@ -17,7 +17,6 @@ namespace AgendaCita
     {
         DataTable data = new DataTable();
         private IContract _Contract;
-        ProfesionalDAO ProfesionalDao = new ProfesionalDAO();
 
         public FrmConsultaProfesional(IContract Contract)
         {
@@ -25,7 +24,9 @@ namespace AgendaCita
 
             this._Contract = Contract;
 
-            dgvProfesional.DataSource = ProfesionalDao.GetProfesional();
+            data = new ProfesionalDAO().GetProfesional().ToDataTable();
+
+            dgvProfesional.DataSource = data;
             dgvProfesional.Columns[0].Visible = false;
             dgvProfesional.Columns[1].Visible = false;
             dgvProfesional.Columns[2].HeaderText = "Nombre";
@@ -37,14 +38,12 @@ namespace AgendaCita
 
         private void txtProfesional_TextChanged(object sender, EventArgs e)
         {
-            DataView dtv = data.DefaultView;
-            dtv.RowFilter = $"nombre_profesional like '% {txtProfesional.Text} %' OR apellido_profesional LIKE '%{txtProfesional.Text}%' OR documento = '%{txtProfesional.Text}%'";
+            data.DefaultView.RowFilter = $"NombreProfesional LIKE '%{txtProfesional.Text}%' OR ApellidoProfesional LIKE '%{txtProfesional.Text}%' OR Documento like '%{txtProfesional.Text}%'";
 
-        }  
+        }
 
         private void dgvProfesional_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-
             if (_Contract != null)
             {
                 _Contract.Execute(new ProfesionalModel()
@@ -59,15 +58,5 @@ namespace AgendaCita
             }
         }
 
-        private void botonBuscar()
-        {
-            (dgvProfesional.DataSource as DataTable).DefaultView.RowFilter = $"NombreProfesional like '%{txtProfesional.Text}%";
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            botonBuscar();
-        }
     }
 }

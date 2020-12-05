@@ -12,8 +12,15 @@ namespace AgendaCita.DAO
     {
         public bool Insert(CitaModel model)
         {
-            string query = $"INSERT INTO consulta (id_profesional, id_usuario, id_dia)" +
-                           $"VALUES('{model.IdProfesional}','{model.IdUsuario}','{model.IdDia}')";
+            string query = $"INSERT INTO consulta (id_profesional, id_usuario, id_dia, estado)" +
+                           $"VALUES('{model.IdProfesional}','{model.IdUsuario}','{model.IdDia}', '{1}')";
+
+            return Commands.ExecuteNonQuery(query);
+        }
+
+        public bool CancelarCita(CitaModel model)
+        {
+            string query = $"";
 
             return Commands.ExecuteNonQuery(query);
         }

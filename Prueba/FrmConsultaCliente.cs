@@ -17,15 +17,14 @@ namespace AgendaCita
     {
         DataTable data = new DataTable();
         private IContract _Contract;
-        ClienteDAO ClienteDao = new ClienteDAO();
-
 
         public FrmConsultaCliente(IContract Contract)
         {
             InitializeComponent();
-            
+            data = new ClienteDAO().GetClientes().ToDataTable();
+            dgvCliente.DataSource = data;
+
             this._Contract = Contract;
-            dgvCliente.DataSource = ClienteDao.GetClientes();
             dgvCliente.Columns[0].Visible = false;
             dgvCliente.Columns[1].HeaderText = "Nombre";
             dgvCliente.Columns[2].HeaderText = "Apellido";
@@ -35,9 +34,7 @@ namespace AgendaCita
 
         private void txtFiltrarCliente_TextChanged(object sender, EventArgs e)
         {
-            DataView dtv = data.DefaultView;
-            dtv.RowFilter = $"nombre like '% {txtFiltrarCliente.Text} %' OR apellido LIKE '%{txtFiltrarCliente.Text}%' OR Documento = '%{txtFiltrarCliente.Text}%'";
-            dgvCliente.DataSource = dtv;
+            data.DefaultView.RowFilter = $"NombreUsuario like '%{txtFiltrarCliente.Text}%' or ApellidoUsuario like '%{txtFiltrarCliente.Text}%' or Documento like '%{txtFiltrarCliente.Text}%'";
         }
 
         private void dgvCliente_CellDoubleClick(object sender, DataGridViewCellEventArgs e)

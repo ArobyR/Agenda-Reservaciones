@@ -101,6 +101,7 @@
     <Compile Include="DAO\Commands.cs" />
     <Compile Include="DAO\ProfesionalDAO.cs" />
     <Compile Include="Enumeradores.cs" />
+    <Compile Include="ExtensiveMethods.cs" />
     <Compile Include="FrmCita.cs">
       <SubType>Form</SubType>
     </Compile>
