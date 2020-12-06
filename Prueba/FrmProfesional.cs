@@ -128,7 +128,6 @@ namespace AgendaCita
             cmbTipoDocumentoProfesional.Text = dgvProfesional.CurrentRow.Cells[5].Value.ToString();
             txtDocumentoProfesional.Text = dgvProfesional.CurrentRow.Cells[6].Value.ToString();
 
-
             // ------------------------------  traer dias de disponibilidad y telefonos -------------------
             string id_profesional = dgvProfesional.CurrentRow.Cells[0].Value.ToString();
             List<TelefonoProfesionalModel> Lista = ProfesionalDao.GetTelefonoProfesional(id_profesional);

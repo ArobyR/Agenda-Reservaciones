@@ -13,7 +13,7 @@ namespace AgendaCita.DAO
         public bool Insert(CitaModel model)
         {
             string query = $"INSERT INTO consulta (id_profesional, id_usuario, id_dia, estado)" +
-                           $"VALUES('{model.IdProfesional}','{model.IdUsuario}','{model.IdDia}', '{1}')";
+                           $"VALUES('{model.IdProfesional}','{model.IdUsuario}','{model.IdDia}', '{model.Estado=1}')";
 
             return Commands.ExecuteNonQuery(query);
         }
@@ -26,9 +26,9 @@ namespace AgendaCita.DAO
         }
 
 
-        public List<CitaModel> GetDisponibilidadProfesionalPorFecha(string id, string date)
+        public List<CitaModel> GetDisponibilidadProfesionalPorFecha(string id)
         {
-            string query = $"SELECT * FROM consulta WHERE id_profesional= '{id}' and fecha_cita='{date}'";
+            string query = $"SELECT * FROM consulta WHERE id_profesional= '{id}'";
             return Commands.Query<CitaModel>(query);
         }
     }

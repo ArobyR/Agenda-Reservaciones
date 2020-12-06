@@ -188,6 +188,7 @@ namespace AgendaCita
             this.btnCancelarCita.TabIndex = 43;
             this.btnCancelarCita.Text = "Cancelar";
             this.btnCancelarCita.UseVisualStyleBackColor = true;
+            this.btnCancelarCita.Click += new System.EventHandler(this.btnCancelarCita_Click);
             // 
             // lblFechaCita
             // 

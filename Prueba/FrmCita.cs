@@ -119,9 +119,8 @@ namespace AgendaCita
         }
         private void Disponibilidad_Calendar_Prof_DaySelected(object sender, DaySelectedEventArgs e)
         {
-
             string[] m_daysSelected = e.Days;
-            var fechaSeleccionadaDisponinilidad = citaDAO.GetDisponibilidadProfesionalPorFecha(IdProfesional, m_daysSelected[0]);
+            var fechaSeleccionadaDisponinilidad = citaDAO.GetDisponibilidadProfesionalPorFecha(IdProfesional);
             lblFechaCita.Text = m_daysSelected[0];
 
         }
@@ -144,6 +143,11 @@ namespace AgendaCita
                 MessageBox.Show("Cita Generada Correctamente");
             else
                 MessageBox.Show("Ocurrio un error inesperado");
+        }
+
+        private void btnCancelarCita_Click(object sender, EventArgs e)
+        {
+
         }
     }
 
